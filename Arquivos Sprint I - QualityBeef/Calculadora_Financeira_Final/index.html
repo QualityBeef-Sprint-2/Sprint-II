@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="caixa">  <br><br><h1>Controle de Perda</h1>
+            <h4> Na América Latina em média 30% da carne é perdida devido á má conservação 
+                durante o seu transporte em caminhões que não estão com a temperatura correta. </h4><br>
+                
+            
+           <i> Valor do KG:</i><br> <input id="mediaKg"><br><br>
+           <i> Quantidade de Kg vendidos/entrega:</i><br> <input id="qtdKg"> <br><br>
+           <i> Quantidade de entregas: </i><br> <input id="entregas"><br><br>
+
+           
+            <button onclick="mensal()">Média Mensal</button> 
+            <button onclick="seisMeses()">Média em 6 meses</button>
+            <button onclick="anual()">Média Anual</button>
+        
+            <p id="exibicao"></p></div>
+
+      </div>
+
+  
+</div>
+</body>
+</html>
+
+<script>
+    function mensal() {
+        var valor_kg = Number(mediaKg.value)
+        var qtd_kg = Number(qtdKg.value)
+        var qtdEntregas = Number(entregas.value)
+        var umaVenda = qtd_kg * valor_kg
+        var media = umaVenda * qtdEntregas
+        var prejuizo = media * 0.30
+        var perda = media - prejuizo
+
+        exibicao.innerHTML = `<p>Com <b>${qtdEntregas}</b> entregas transportando <b>${qtd_kg}KG</b> de carne bovína cada, a <b>R$${valor_kg}</b> o KG, o total de vendas por viagem é de <b>R$${umaVenda}</b>. Contando com o percentual, a perda neste mês seria de em média <b style=" color:red">R$${prejuizo}</b> e o lucro bruto mensal de R$<b>${perda}</b>. <br><br>
+Podendo contar com os sensores da <b>QualityBeef</b> para a redução de prejuízos, o lucro neste caso poderá chegar a <b style=" color:green">R$${media}</b>.</p>` 
+
+        
+
+    }
+    function seisMeses() {
+        var valor_kg = Number(mediaKg.value)
+        var qtd_kg = Number(qtdKg.value)
+        var qtdEntregas = Number(entregas.value)
+        var umaVenda = qtd_kg * valor_kg
+        var media = umaVenda * qtdEntregas
+        var mediaSeisMeses = media * 6
+        var prejuizo = mediaSeisMeses * 0.30
+        var perdaSeisMeses = (mediaSeisMeses - prejuizo)
+
+
+        exibicao.innerHTML = `<p>Com <b>${qtdEntregas}</b> entregas transportando <b>${qtd_kg}KG</b> de carne bovína cada, a <b>R$${valor_kg}</b> o KG, o total de vendas por viagem é de <b>R$${umaVenda}</b>. Contando com o percentual, a perda neste mês seria de em média <b style=" color:red">R$${prejuizo}</b> e o lucro bruto mensal de R$<b>${perdaSeisMeses}</b>. <br><br>
+Podendo contar com os sensores da <b>QualityBeef</b> para a redução de prejuízos, o lucro neste caso poderá chegar a <b style=" color:green">R$${mediaSeisMeses}</b>.</p>` 
+
+    }
+    function anual() {
+        var valor_kg = Number(mediaKg.value)
+        var qtd_kg = Number(qtdKg.value)
+        var qtdEntregas = Number(entregas.value)
+        var umaVenda = qtd_kg * valor_kg
+        var media = umaVenda * qtdEntregas
+        var mediaAnual = media * 12
+        var prejuizo = mediaAnual * 0.30
+        var perdaAnual = (mediaAnual - prejuizo)
+
+
+        exibicao.innerHTML = `<p>Com <b>${qtdEntregas}</b> entregas transportando <b>${qtd_kg}KG</b> de carne bovína cada, a <b>R$${valor_kg}</b> o KG, o total de vendas por viagem é de <b>R$${umaVenda}</b>. Contando com o percentual, a perda neste mês seria de em média <b style=" color:red">R$${prejuizo}</b> e o lucro bruto mensal de R$<b>${perdaAnual}</b>. <br><br>
+Podendo contar com os sensores da <b>QualityBeef</b> para a redução de prejuízos, o lucro neste caso poderá chegar a <b style=" color:green">R$${mediaAnual}</b>.</p>` 
+
+}
+
+
+</script>
