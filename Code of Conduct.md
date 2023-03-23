@@ -9,6 +9,6 @@
  
  4- Manter o profissionalismo
  
- 5- Criticar sem fornecer outra ideia
+ 5- Não criticar sem fornecer outra ideia
  
  6- 
