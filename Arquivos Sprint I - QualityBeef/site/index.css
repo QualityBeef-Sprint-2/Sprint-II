@@ -70,7 +70,7 @@ nav{
 
     .logo{
         margin-right: 70%;
-        width: 23vw;
+        width: 20vw;
         height: 12vh;
     }
 
@@ -78,7 +78,7 @@ nav{
         position: absolute;
         top: 8vh;
         right: 0;
-        width: 50vw;
+        width: 33vw;
         height: 92vh;
         background-color: #b23030;
         flex-direction: column;
@@ -118,7 +118,7 @@ nav{
 }
 
 .mobile-menu.active .line1{
-    transform: rotate(-45deg) translate((-8px, 8px));
+    transform: rotate(-45deg) translate(-8px, 8px);
 }
 
 .mobile-menu.active .line2{
@@ -126,5 +126,5 @@ nav{
 }
 
 .mobile-menu.active .line3{
-    transform: rotate(45deg) translate((-5px, -7px));
+    transform: rotate(45deg) translate(-5px, -7px);
 }
