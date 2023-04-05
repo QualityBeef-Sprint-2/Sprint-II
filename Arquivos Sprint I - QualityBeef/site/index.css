@@ -70,8 +70,8 @@ nav{
 
     .logo{
         margin-right: 70%;
-        width: 20vw;
-        height: 12vh;
+        width: 16vw;
+        height: 15vh;
     }
 
     .nav-list{
@@ -136,35 +136,39 @@ nav{
 .inicio { 
     display: flex;
 	align-items: center;
-	height: 95vh;
+	height: 87vh;
     background-color: #FFF1F1;
 	color:#545454;
 }
 
-.text-topo {
-	margin-left: 8%;
+.topo-text {
+	margin-left: 13%;
 	font-family: "Poppins", sans-serif;
-	font-size: 25px;
+	font-size: 18px;
+    width: 100%;
+    margin-top: 3%
 }
 
 
 .content-text{
-    margin-top: 25%;
+    margin-top: 3%;
     width: 40%;
-    height: 100%;
+    height: 44%;
 
 }
 
 .slogan-topo {
-	font-family: "pointer", sans-serif;
-	font-size: 45px;
+	font-family: "poppins", sans-serif;
+	font-size: 29px;
 	font-weight: bold;
-	margin-left: 8%;
+	margin-left: 13%;
+    width: 145%;
 }
 
 .btn-saiba-mais{
 	font-family: "Poppins", sans-serif;
 	width: 20%;
+    height: 8%;
 	text-align: center;
 	display: block;
 	margin-top: 30px;
@@ -174,7 +178,7 @@ nav{
 	padding: 10px 20px;
 	border-radius: 10px;
 	transition: 0.8s ease;
-	margin-left: 34%;
+	margin-left: 13%;
 }
 
 img{
@@ -183,8 +187,8 @@ img{
 }
 
 img.img-home{
-    width: 40%;
-    height: 66%;
+    width: 45%;
+    height: 76%;
     margin-bottom: 9%;
-    margin-left: 8%;
+    margin-left: 15%;
 }
