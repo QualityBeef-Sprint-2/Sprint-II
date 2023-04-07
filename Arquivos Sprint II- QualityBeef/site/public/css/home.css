@@ -8,8 +8,6 @@
 
 
 a{
-
-    
     color: #fff;
     text-decoration: none;
     font-size: 13px;
@@ -30,6 +28,8 @@ a:hover{
 }
 
 nav{
+    width: 100%;
+    position: fixed;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -64,7 +64,7 @@ nav{
 }
 
 
-@media (max-width: 999px){
+ @media (max-width: 999px){
 
     body{
         overflow-x: hidden;
@@ -138,7 +138,7 @@ nav{
 .inicio { 
     display: flex;
 	align-items: center;
-	height: 87vh;
+	height: 100vh;
     background-color: #FFF1F1;
 	color:#545454;
 }
@@ -147,13 +147,13 @@ nav{
 	margin-left: 13%;
 	font-family: "Poppins", sans-serif;
 	font-size: 18px;
-    width: 100%;
+    width: 104%;
     margin-top: 3%
 }
 
 
 .content-text{
-    margin-top: 3%;
+    margin-top: 17%;
     width: 40%;
     height: 44%;
 
@@ -175,7 +175,7 @@ nav{
 	display: block;
 	margin-top: 30px;
 	outline: none;
-    color: rgb(242, 210, 210);
+    color: rgb(242, 210, 210);;
 	background-color: #b23030;
 	padding: 10px 20px;
 	border-radius: 10px;
@@ -191,7 +191,7 @@ img{
 img.img-home{
     width: 45%;
     height: 76%;
-    margin-bottom: 9%;
+    margin-bottom: 0%;
     margin-left: 15%;
 }
 
