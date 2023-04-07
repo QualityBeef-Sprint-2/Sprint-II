@@ -8,6 +8,8 @@
 
 
 a{
+
+    
     color: #fff;
     text-decoration: none;
     font-size: 13px;
@@ -173,7 +175,7 @@ nav{
 	display: block;
 	margin-top: 30px;
 	outline: none;
-    color: rgb(242, 210, 210);;
+    color: rgb(242, 210, 210);
 	background-color: #b23030;
 	padding: 10px 20px;
 	border-radius: 10px;
