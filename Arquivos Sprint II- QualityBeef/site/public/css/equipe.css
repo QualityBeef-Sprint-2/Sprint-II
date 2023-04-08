@@ -46,40 +46,77 @@ nav{
     margin-left: 32px;
 }
 
-.container-quem {
-    padding: 10px;
+body {
+    background: rgb(255, 241, 241);
+    background: linear-gradient(90deg, rgba(255, 241, 241, 1) 0%, rgba(231, 155, 155, 0.58) 100%);
+}
+
+.container-quemsomos1 {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    background-color: #a78c8c;
+    flex-direction: row-reverse;
     height: 350px;
     align-items: center;
     padding: 30px;
 } 
 
-.item-1 {
+.resumo-quemsomos {
     display: flex;
     width: 50%;
     flex-direction: column;
-    margin-left: 40px;
+    margin-right: 70px;
 }
 
-.item-1 p {
-    font-size: 23px;
+.resumo-quemsomos p {
+    font-size: 18px;
 }
 
-.img-quem {
+.img-quemsomos {
     display: flex;
-    width: 700px;
-    height: 200px;
-    justify-content: flex-end;
-    padding-right: 200px;
+    width: 80%;
+    height: 91%;
+    margin-left: 100px;
+}
+
+.cards-quemsomos {
+
+}
+
+.container-quemsomos2 {
     
 }
 
-.espaço {
+.container-quemsomos2 h1 {
     display: flex;
-    justify-content: right;
-    font-size: 100px;
-    padding-left: 100px;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 415px;
+}
+
+.cards-objetivos {
+    display: flex;
+    padding: 0px 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.infos {
+    margin: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-item {
+    margin: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 50px;
+    background-color: #fff;
+    width: 280px;
+    height: 350px;
+    border: 2px solid rgb(247, 138, 138);
+    border-radius: 12%;
 }
