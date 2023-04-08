@@ -133,102 +133,53 @@ nav{
 .mobile-menu.active .line3{
     transform: rotate(45deg) translate(-5px, -7px);
 }
+/* AREA DE LOGIN */
 
-
-/* CSS ÁREA DE CADASTRO */
-
-body {
+main{
     background: rgb(255, 241, 241);
     background: linear-gradient(90deg, rgba(255, 241, 241, 1) 0%, rgba(178, 48, 48, 0.5802696078431373) 100%);
-}
-
-main {
-    margin-top: 10px;
-    height: 100%;
+    height: 87vh;
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
+h1{
+    font-size: 20px;
+}
 main .container {
+    padding: 10px;
+    height: 95%;
+    width: 30%;
     display: flex;
-    width: 80%;;
-    background-color: white;
-    border-radius: 10px;
-}
-
-.form-image {
-    width: 40%;
-    background: #FFF1F1;
-    display: flex;
-    justify-content: left;
     align-items: center;
     background-color: #FFF1F1;
-    border-radius: 10px;
-
+    border: black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
-.img_cad{
 
-    width: 116%;
-    height: 76%;
-    margin-top: 38px;
-    margin-left: -30px;
-}
 
-.form {
-    border-radius: 10px;
-    background-color: #FFF1F1;
-    width: 60%;
+.logo-login img{
+    width: 280px;
+    height: 240px;
+    display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 5px;
-    flex-direction: column;
-}
+    padding-right: 10px;
+} 
 
 
-
-.form-header {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 25px;
-}
-
-.title h1 {
-    display: flex;
-    font-size: 22px;
-    text-align: center;
-    color: #b23030;
-    border-bottom: 1px solid black;
-}
-
-
-.login-button {
-    display: flex;
-    align-items: center;
-}
-
-.group-inputs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-
-}
-
-.input {
-    width: 250px;
+.inputs-login{
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
-
+    justify-content: center;
 }
 
-label{
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.group-inputs input {
+.inputs-login input{
+    width: 350px;
     margin: 10px 0;
     padding: 10px 5px;
     border: none;
@@ -236,52 +187,45 @@ label{
     box-shadow: 1px 1px #b23030;
 }
 
+.icon1{
+    /*     padding-right: 9px;
+    padding-top: 22px; 
+    paddin-bottom: 192px*/
+    padding: 20px 9px 192px;
+    position: absolute;
+    right: 510px;
+}
+
+.icon2 {
+/*     padding-bottom: 15px;
+    padding-right: 10px;
+    padding-top: 0px;
+     */
+    padding: 0px 10px 15px;
+    position: absolute;
+    right: 510px;
+}
+
+.button-login{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    font-size: 20px;
+    outline: none;
+    color: rgb(242, 210, 210);;
+    background-color: #b23030;
+    border-radius: 10px;
+    transition: 0.8s ease;
+    margin: 10%;
+}
+
+label{
+    font-weight: bold;
+    font-size: 14px;
+}
+
 input::placeholder{
     text-align: center;
-}
-
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-.politicas-input {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-}
-
-.politicas-input .checkbox {
-    margin-right: 15px;
-}
-
-.politicas-input .label-politica a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    padding: 0;
-    border-radius: 30px;
-}
-
-.register-button{
-    display: flex;
-    margin: 10px;
-    justify-content: center;
-}
-
-.register-button{
-    width: 140px;
-    height: 20px;
-    color: rgb(242, 210, 210);
-	background-color: #b23030;
-    border: none;
-    border-radius: 10px;
-    margin-left: 36%;
-    text-align: center;
-    padding: 10px 20px;
-}
-
-.register-button:hover{
-    background-color:white;
-    color:#b23030;
-    transition: .7s ease;
 }
