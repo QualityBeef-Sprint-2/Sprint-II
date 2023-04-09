@@ -11,7 +11,7 @@ a{
     color: #fff;
     text-decoration: none;
     font-size: 13px;
-    padding: 7px 13px;
+    padding: 6px 3px;
     border-radius: 30px;
 }
 
@@ -43,6 +43,7 @@ nav{
 .nav-list{
     list-style: none;
     display: flex;
+    margin-right: 30px;
 }
 
 .nav-list li {
@@ -183,10 +184,6 @@ nav{
 	margin-left: 13%;
 }
 
-img{
-    width: 50%;
-
-}
 
 img.img-home{
     width: 45%;
