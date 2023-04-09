@@ -134,14 +134,10 @@ nav{
 /* AREA DE LOGIN */
 
 main{
-<<<<<<< HEAD
     background: rgb(255, 241, 241);
     background: linear-gradient(90deg, rgba(255, 241, 241, 1) 0%, rgba(178, 48, 48, 0.5802696078431373) 100%);
-    height: 100vh;
-=======
     background-color: #fff;
-    height: 87vh;
->>>>>>> 45c35263e54dab248dbbf916fa30539972753d68
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -159,6 +155,7 @@ main{
     display: flex;
     justify-content: center;
     animation: slide-down 1s ease forwards;
+    margin-top: -4px;
 }
 
   
