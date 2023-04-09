@@ -136,14 +136,39 @@ nav{
 /* AREA DE LOGIN */
 
 main{
-    background: rgb(255, 241, 241);
-    background: linear-gradient(90deg, rgba(255, 241, 241, 1) 0%, rgba(178, 48, 48, 0.5802696078431373) 100%);
+    background-color: #fff;
     height: 87vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+#container-login-animacao{
+    position: fixed;
+    top: -500px;
+    left: 50%; /* posiciona a tela de login acima do topo da página */
+    transform: translate(-50%, 0%);
+    width: 50%;
+    height: 81%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    animation: slide-down 1s ease forwards;
+}
+
+  
+@keyframes slide-down {
+    0% {
+      top: -500px; /* posição inicial */
+      opacity: 0;
+    }
+    100% {
+      top: 15%; /* posição final */
+      opacity: 1;
+    }
+  }
+
 
 h1{
     font-size: 20px;
