@@ -27,6 +27,7 @@
     justify-content: center;
 }
 
+<<<<<<< HEAD
 
 .pagina-inteira{
     width: 100%;
@@ -39,6 +40,8 @@
     rgba(178,48,48,1) 98%);
 }
 
+=======
+>>>>>>> 45c35263e54dab248dbbf916fa30539972753d68
 .container-quemsomos2 h1 {
     display: flex;
     flex-direction: column;
@@ -83,10 +86,10 @@
 
 .card-item:hover {
     width: 25%;
-
     box-shadow: 4px 3px rgb(160, 158, 158);
 }
 
+<<<<<<< HEAD
 .cards-objetivos img{
     height: 10px;
 }
@@ -113,3 +116,5 @@
     color: #000000;
     letter-spacing: 2px;
 }
+=======
+>>>>>>> 45c35263e54dab248dbbf916fa30539972753d68

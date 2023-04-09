@@ -137,8 +137,7 @@ nav{
 /* CSS ÁREA DE CADASTRO */
 
 body {
-    background: rgb(255, 241, 241);
-    background: linear-gradient(90deg, rgba(255, 241, 241, 1) 0%, rgba(178, 48, 48, 0.5802696078431373) 100%);
+   background-color: white;
 }
 
 main {
@@ -152,11 +151,35 @@ main {
 main .container {
     display: flex;
     width: 80%;;
-    background-color: white;
+    background-color: #FFF1F1;
     border-radius: 10px;
     height: 95%;
     margin-top: 154px;
 }
+
+#container-cadastro-animacao {
+    position: fixed;
+    top: -500px;
+    left: 50%; /* posiciona a tela de login acima do topo da página */
+    transform: translate(-50%, 0%); 
+    width: 80%;
+    height: 81%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    animation: slide-down 1s ease forwards;
+  }
+  
+  @keyframes slide-down {
+    0% {
+      top: -500px; /* posição inicial */
+      opacity: 0;
+    }
+    100% {
+      top: 15%; /* posição final */
+      opacity: 1;
+    }
+  }
 
 .form-image {
     width: 40%;
@@ -270,13 +293,14 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .register-button{
-    width: 140px;
-    height: 20px;
+    width: 180px;
+    height: 30px;
     color: rgb(242, 210, 210);
 	background-color: #b23030;
+    font-size: 20px;
     border: none;
     border-radius: 10px;
-    margin-left: 36%;
+    margin-left: 33%;
     text-align: center;
     padding: 10px 20px;
 }
