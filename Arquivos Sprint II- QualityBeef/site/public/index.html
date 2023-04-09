@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/quem-somos.css">
     <link rel="stylesheet" href="css/calculadora.css">
+    <link rel="stylesheet" href="css/equipe.css">
+    <link rel="stylesheet" href="css/paginaproduto.css">
+    <link rel="stylesheet" href="css/fale_conosco.css">
 
 </head>
 
@@ -33,15 +36,15 @@
                 </li>
 
                 <li>
-                    <a href="#quem-somos">Sobre nós</a>
+                    <a href="#quemsomos">Sobre nós</a>
                 </li>
 
                 <li>
-                    <a href="paginaproduto.html">Produto</a>
+                    <a href="#produto">Produto</a>
                 </li>
 
                 <li>
-                    <a href="fale_conosco.html">Contato</a>
+                    <a href="#faleConosco">Contato</a>
                 </li>
 
                 <li>
@@ -62,7 +65,8 @@
 
         <div class="content-text">
             <h1 class="slogan-topo">Inovando o frigorifico utilizando tecnologia </h1>
-            <p class="topo-text">Sistema que preza a qualidade do produto e temperatura adequada. <b>Monitorando</b> cargas e
+            <p class="topo-text">Sistema que preza a qualidade do produto e temperatura adequada. <b>Monitorando</b>
+                cargas e
                 visando <b>lucros</b>.</p>
             <a class="btn-saiba-mais" href="">Saiba Mais</a>
         </div>
@@ -70,186 +74,256 @@
         <img class="img-home" src="img/caminhao.png" alt="">
     </main>
 
-   
+
     <div class="pagina-inteira">
 
-        <!-- Quem somos -->
-        <div id="quem-somos" class="quem-somos">
+        <!-- Quem somos e equipe -->
+        <div id="quemsomos">
 
-            <div class="container-text">
+            <div class="container-quemsomos1">
 
-                <div class="text">
+                <div class="resumo-quemsomos">
 
-                    <h1 class="text-quem-somos">Quem somos?</h1> <br>
+                    <h1>Quem somos?</h1>
 
-                    <p class="text-grande"> A QualityBeef é uma empresa com o intuito de diminuir o prejuízo e
-                        decorrência da má refrigeração no
+                    <p> A QualityBeef é uma empresa com o intuito de diminuir o prejuízo e decorrência da má
+                        refrigeração no
                         transporte de carnes. Tendo em vista este problema pouco falado e muito atingido nas empresas,
                         surgiu-se a QualityBeef com o objetivo de monitorar a temperatura e assegurar a qualidade da
-                        mercadoria. Nós estaremos ao seu lado durante todo o processo, conte conosco. 
-                    </p>
+                        mercadoria. Nós estaremos ao seu lado durante todo o processo, conte conosco. </p>
+
 
                 </div>
 
-                <div>
-                    <img class="img-quem-somos" src="img/logo.png" alt="">
-                </div>
+                <div class="img-quemsomos"><img src="img/Logo.png"></div>
+
             </div>
 
-<!-- 
-        <div class="cards-quem">
+            <div class="cards-quemsomos">
 
-            <div class="container-quem2">
-                <h4> Quais os objetivos da QualityBeef? <br>
-                </h4>
+                <div class="container-quemsomos2">
+                    <h1> Quais os objetivos da QualityBeef? <br>
 
-                <div class="cards-sobre">
 
-                    <div class="card-item">
 
-                        <img src="">
+                    </h1>
 
-                        <div class="infos">
+                    <div class="cards-objetivos">
 
-                            <h2> Lorem Ipsum </h2>
-                            <div class="line"></div>
-                            <p> Lorem Ipsum </p>
+                        <div class="card-item">
 
-                        </div>
 
-                    </div>
 
-                    <div class="card-item">
+                            <div class="infos">
+                                <img class="img-cards1" src="img/qualidade.png">
 
-                        <img src="">
-                        <div class="infos">
+                                <h2> Qualidade </h2>
 
-                            <h2> Lorem Ipsum </h2>
-                            <div class="line"></div>
+                                <p> <br> Garantimos qualidade no <br> monitoramento de sua <br> mercadoria e no nosso
+                                    <br>
+                                    atendimento.
+                                    <br>
+                                </p>
 
-                            <p> Lorem Ipsum </p>
+                            </div>
 
                         </div>
 
-                    </div>
+                        <div class="card-item">
 
-                    <div class="card-item">
 
-                        <img src="">
 
-                        <div class="infos">
+                            <div class="infos">
+                                <img class="img-cards2" src="img/comprometimento.png">
 
-                            <h2> Lorem Ipsum </h2>
-                            <div class="line"></div>
+                                <h2> Comprometimento </h2>
 
-                            <p> Lorem Ipsum </p>
+                                <p> <br> Estamos comprometidos com <br> o monitoramento de sua <br> mercadoria
+                                    utilizando
+                                    <br> tecnologia
+                                    de ponta. <br>
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card-item">
+
+
+
+                            <div class="infos">
+                                <img class="img-cards3" src="img/consolidacao.png">
+
+                                <h2> Consolidação </h2>
+
+                                <p> <br> Consolidamos nossos clientes <br> com a confiança no serviço <br> prestado.
+                                    <br>
+                                </p>
+
+                            </div>
 
                         </div>
 
                     </div>
 
                 </div>
-
             </div>
         </div>
-    </div>  -->
 
-    <!-- Nosso Produto -->
-   <!-- <main>
+        <!-- Nosso produto -->
 
-        <div class="produto">
+        <main>
 
-            <div class="produto-pt1">
+            <div class="produto" id="produto">
 
-                <div class="produto-conteudotop">
+                <div class="produto-pt1">
 
-                    <h1 class="produto-titulo">Qual o nosso produto?</h1>
+                    <div class="produto-conteudotop">
 
-                    <p class="produto-conteudo">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA<br>
-                        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA<br>
-                        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA<br>
-                        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA<br>
-                        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA<br>
+                        <h1 class="produto-titulo">QUAL O NOSSO PRODUTO?<br><br></h1>
 
-                    </p>
+                        <p class="produto-conteudo">Nós da QualityBeef temos o foco de monitorar o<br>
+                            transporte da carne nos contâiners de veículos<br>
+                            de transporte, garantindo qualidade no produto<br>
+                            alimentício e consequentemente trazendo melhor<br>
+                            confiança para a marca!<br>
+
+                        </p>
+
+                    </div>
+
+                    <div>
+                        <img class="produto-imagem" src="img/caminhaoproduto.png" alt="">
+                    </div>
 
                 </div>
 
-                <div>
-                    <img class="produto-imagem" src="img/Logo.png" alt="">
+                <div class="produto-pt2">
+
+                    <div class="produto-conteudobottom">
+                        <div class="produto-conteudobottom-color">
+                            <img class="produto-imagembottom" src="img/instalacao.png" alt="">
+                            <h3><br>INSTALAÇÃO <br><br></h3>
+                            <p class="produto-conteudobottom-texto">
+                                O sensor LM35 será instalado<br>
+                                dentro do contâiner em um<br>
+                                dos cantos ou até mesmo no<br>
+                                centro para fazer a captação<br>
+                                das informações térmicas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="produto-conteudobottom">
+                        <div class="produto-conteudobottom-color">
+                            <img class="produto-imagembottom2" src="img/treinamento.png" alt="">
+                            <h3><br>TREINAMENTO<br><br></h3>
+                            <p class="produto-conteudobottom-texto">
+                                Com a instalação concluída,<br>
+                                será fornecido treinamento<br>
+                                diretamente para a empresa<br>
+                                e os encarregados de obter<br>
+                                os dados dos sensores.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="produto-conteudobottom">
+                        <div class="produto-conteudobottom-color">
+                            <img class="produto-imagembottom3" src="img/monitoramento.png" alt="">
+                            <h3><br>MONITORAMENTO<br><br></h3>
+                            <p class="produto-conteudobottom-texto">
+                                O monitoramento será 24/7<br>
+                                enquanto os sensores estão<br>
+                                ligados, enviando os dados<br>
+                                diretamente para o banco<br>de
+                                dados das informações.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="produto-conteudobottom">
+                        <div class="produto-conteudobottom-color">
+                            <img class="produto-imagembottom4" src="img/dashboard.png" alt="">
+                            <h3><br>DASHBOARDS<br><br></h3>
+                            <p class="produto-conteudobottom-texto">
+                                Por meio das informações<br>
+                                coletadas, apresentaremos <br>
+                                dados em forma de gráficos<br>
+                                referente ao monitoramento<br>
+                                temperatura do contâiner!<br>
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
 
-            <div class="produto-pt2">
 
-                <div class="produto-conteudobottom">
-                    <img class="produto-imagembottom" src="img/Logo.png" alt="">
-                    <p class="produto-conteudobottom-texto">
-                        textotextotextotextotexto<br>
-                        textotextotextotextotexto<br>
-                        textotextotextotextotexto<br>
-                    </p>
+            <!-- Calculadora financeira -->
+
+            <div class="main-calculadora">
+                <div class="texto-calculadora">
+                    <h1>Conheça nossa calculadora!!</h1>
+                    <span>A QualityBeef surgiu para minimizar os problemas decorrentes do mal gerenciamento de
+                        temperatura nos transportes de carnes frigorícas a fim de minimizar as perdas em até <b>30%</b>
+                        nesta função .
+                    </span>
+                    <a class="button-calculadora" href="CalculadoraFinanceira.html">calculadora</a>
                 </div>
 
-                <div class="produto-conteudobottom">
-                    <img class="produto-imagembottom" src="img/Logo.png" alt="">
-                    <p class="produto-conteudobottom-texto">
-                        textotextotextotextotexto<br>
-                        textotextotextotextotexto<br>
-                        textotextotextotextotexto<br>
-                    </p>
-                </div>
+                <div class="img-calculadora"><img src="img/calculadora.png" alt=""></div>
+            </div>
 
-                <div class="produto-conteudobottom">
-                    <img class="produto-imagembottom" src="img/Logo.png" alt="">
-                    <p class="produto-conteudobottom-texto">
-                        textotextotextotextotexto<br>
-                        textotextotextotextotexto<br>
-                        textotextotextotextotexto<br>
-                    </p>
-                </div>
 
-                <div class="produto-conteudobottom">
-                    <img class="produto-imagembottom" src="img/Logo.png" alt="">
-                    <p class="produto-conteudobottom-texto">
-                        textotextotextotextotexto<br>
-                        textotextotextotextotexto<br>
-                        textotextotextotextotexto<br>
-                    </p>
+
+            <!-- FALE CONOSCO -->
+            <div id="faleConosco">
+
+                <div class="container_fale_conosco">
+                    <h1 class="text-faleConosco">Fale Conosco </h1>
+                </div>
+                <div class="text1">
+                    <span>Nossa equipe está pronta para atender às suas necessidades!</span>
                 </div>
 
             </div>
 
-        </div> -->
+            <div class="container">
+                <div class="caixa_formulario">
 
-        
-        <div class="main-calculadora">
-            <div class="texto-calculadora">
-            <h1>Conheça nossa calculadora!!</h1>
-                <span>A QualityBeef surgiu para minimizar os problemas decorrentes do mal gerenciamento de temperatura nos transportes de carnes frigorícas a fim de minimizar as perdas em até <b>30%</b> nesta função . 
-                </span>
-                <a class="button-calculadora" href="CalculadoraFinanceira.html">calculadora</a>
+                    <div class="img_atendimento">
+                        <img src="img/icon-atendimento.png" alt="">
+                    </div>
+
+                    <div class="inserir_dados">
+
+                        <label class="text_nome">Nome:</label>
+                        <input class="ipt_nome" placeholder="Digite seu nome">
+                        <label class="text_telefone">Telefone:</label>
+                        <input class="ipt_telefone" placeholder="(XX) XXXX-XXXX">
+                        <label class="text_email">E-mail</label>
+                        <input class="ipt_email" placeholder="Digite seu email">
+                        <label class="text_mensagem">Mensagem:</label>
+                        <textarea class="ipt_mensagem"></textarea>
+
+                        <button class="button_enviar" onclick="verificar()">Enviar</button>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="img-calculadora"><img src="img/calculadora.png" alt=""></div>
-        </div>
-
-
-
-        <!-- FALE CONOSCO -->
-<!-- 
-        <main id="inicio" class="inicio">
-
-            <div class="content-text">
-                <h1 class="text-faleConosco">Fale Conosco </h1>
-                <p class="text1">Nossa equipe está pronta para atender às suas necessidades!</p>
-            </div>
-
-
-        </main>
-
-        <script src="mobile-navbar.js"></script> -->
+            <footer>
+                <div class="footer">
+                    <div class="container">
+                        <h4>QualityBeef &hearts; &copy; </h4>
+                        <div class="social-icon instagram"></div>
+                        <div class="social-icon whatsapp"></div>
+                    </div>
+                </div>
 
 </body>
 

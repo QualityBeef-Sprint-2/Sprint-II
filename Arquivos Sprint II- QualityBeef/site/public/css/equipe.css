@@ -56,11 +56,9 @@ body {
 
 .container-quemsomos1 {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    height: 350px;
+    height: 370px;
     align-items: center;
-    padding: 30px;
+    padding: 60px 0px 40px 130px;
 }
 
 .resumo-quemsomos {
@@ -78,28 +76,24 @@ body {
     display: flex;
     width: 80%;
     height: 91%;
-    margin-left: 100px;
+    justify-content: center;
 }
 
 
 
-.cards-quemsomos {}
-
-.container-quemsomos2 {}
 
 .container-quemsomos2 h1 {
     display: flex;
-    width: 50%;
     flex-direction: column;
     align-items: center;
-    margin-left: 415px;
     text-align: center;
 }
 
 .cards-objetivos {
     display: flex;
-    padding: 0px 10px;
+    padding: 90px 20px;
     align-items: center;
+    height: 315px;
     justify-content: space-around;
 }
 
@@ -134,4 +128,14 @@ body {
     width: 25%;
 
     box-shadow: 4px 3px rgb(160, 158, 158);
+}
+
+.cards-objetivos img{
+    height: 10px;
+}
+
+
+.cards-objetivos img {
+    height: 100%;
+    width: 75%;
 }
