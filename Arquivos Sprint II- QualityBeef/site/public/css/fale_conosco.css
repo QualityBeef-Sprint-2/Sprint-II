@@ -2,110 +2,78 @@
 
 /* Fale Conosco */
 
-.container {
+.container-fale-conosco {
     display: flex;
-    justify-content: center;
-
-
+    justify-content: space-evenly;
+    height: 90vh;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    margin-top: 35px;
 }
-
-.container_fale_conosco {
+.title-fale-conosco{
+    text-align: center;
+}
+.container-inputs{
     display: flex;
-    justify-content: center;
-
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 10%;
+    align-items: center;
 }
 
-.text-faleConosco {
-    color: #b23030;
-}
 
-.text1 {
-    display: flex;
-    justify-content: center;
-
-}
-
-.caixa_formulario {
-    display: flex;
-    height: 420px;
-    width: 800px;
-
-}
-
-.inserir_dados {
-
+.container-inserir-dados{
     display: flex;
     flex-direction: column;
-    margin-left: 100px;
+    align-items: center;
+    padding-left: 25%;
 }
-
-.inserir_dados label {
-    font-weight: bold;
-    display: flex;
-    margin-left: 19px;
-
-
-
-}
-
-.inserir_dados input {
-    margin-left: 20px;
-    margin-block-end: 10px;
-    width: 230px;
-}
-
-.inserir_dados .text_nome {
-    margin-top: 25px;
-}
-
-.text_mensagem {
-    margin-left: 20px;
-    margin-bottom: 5px;
-
-}
-
-.ipt_mensagem {
-    margin-left: 20px;
-    margin-block-end: 10px;
-    height: 80px;
-    padding-left: 5px;
-    justify-content: flex-start;
-    word-wrap: break-word;
-
-}
-
-.img_atendimento {
-    margin-top: 100px;
-}
-
-
-.img_atendimento img {
+.img-fale-conosco{
     width: 200px;
-
+    height: 200px;
+    margin-bottom: 50px;
 }
 
-.button_enviar {
-    margin-top: 10px;
-    background: #b23030;
-    color: white;
-    padding: 10px 15px;
+
+.container-inserir-dados input{
+    margin: 10px 0;
+    height: 30px;
+    width: 350px;
     border: none;
     border-radius: 10px;
-    width: 120px;
-    align-self: center;
+    box-shadow: 1px 1px #b23030;
 }
 
-.footer {
-    color: white;
-    background-color: #b23030;
-    ;
-    display: flex;
-    justify-content: center;
-    height: 100px;
+.input-mensagem{
+    height: 150px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 1px 1px #b23030;
 }
 
-.footer .container {
+input::placeholder{
+    text-align: center;
+}
+
+.mensagem-fale-conosco input{
+    height: 200px;
+}
+
+.button-fale-conosco{
+    margin-top: 10px;
     display: flex;
     justify-content: center;
+    width: 180px;
+    height: 30px;
+    color: rgb(242, 210, 210);
+	background-color: #b23030;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 20px;
 }
+
+
 
