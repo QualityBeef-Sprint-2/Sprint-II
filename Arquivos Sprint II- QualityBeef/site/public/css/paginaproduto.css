@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap%27');
+
 * {
     margin: 0;
     padding: 0;
@@ -55,13 +57,27 @@ body {
 }
 
 .produto-pt1{
+    padding-left: 25px;
     display: flex;
-    padding: 50px 0px;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
+    height: 91vh;
+}
+
+.produto-titulo{
+    letter-spacing: 4px;
+    font-size: 250%;
+}
+.produto-conteudo{
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
 }
 
 .produto-pt2 {
+    margin-bottom: 50px;
     padding: 0px 10px;
     display: flex;
     align-items: center;
@@ -69,10 +85,62 @@ body {
 }
 
 .produto-conteudobottom{
-    padding-bottom: 50px;
+    display: block;
+    padding-bottom: 0%;
+    background-color: #fff;
+    width: 20%;
+    height: 120%;
+    border: 2px solid rgb(247, 138, 138);
+    border-radius: 12%;
+    transition: 0.435s ease-in-out;
+}
+
+.produto-conteudobottom:hover{
+    width: 25%;
+    height: 20%;
+    box-shadow: 4px 3px rgb(160, 158, 158);
 }
 
 .produto-conteudobottom-texto{
-    display: flex;
     justify-content: center;
+    font-size: 84%;
+
+}
+
+.produto-conteudobottom-color{
+    margin: 10%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.produto-imagembottom{
+    height: 130px;
+    width: 150px;
+}
+
+.produto-imagembottom2{
+    height: 130px;
+    width: 130px;
+}
+
+.produto-imagembottom3{
+    height: 130px;
+    width: 165px;
+}
+
+.produto-imagembottom4{
+    height: 130px;
+    width: 150px;
+}
+
+.produto-imagem{
+    height: 380px;
+    width: 600px;
+    transition: 0.435s ease-in-out;
+}
+
+.produto-imagem:hover{
+    height: 390px;
+    width: 620px;
 }
