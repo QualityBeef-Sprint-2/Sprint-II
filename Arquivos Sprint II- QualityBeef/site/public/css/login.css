@@ -16,7 +16,7 @@ a{
 }
 
 .barra {
-	background-color: blue;
+	background-color: #0045C1;
 	width: 0%;
 	height: 2px;
 	-webkit-transition: width 0.3s;
@@ -24,7 +24,7 @@ a{
 }
 
 a:hover .barra {
-	background-color: blue;
+	background-color: #0045C1;
 	width: 100%;
 	height: 2px;
 	-webkit-transition: width 0.5s;
@@ -91,7 +91,7 @@ nav{
         right: 0;
         width: 33vw;
         height: 92vh;
-        background-color: #b23030;
+        background-color: #0045C1;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
@@ -142,9 +142,7 @@ nav{
 /* AREA DE LOGIN */
 
 main{
-    background: rgb(255, 241, 241);
-    background: linear-gradient(90deg, rgba(255, 241, 241, 1) 0%, rgba(178, 48, 48, 0.5802696078431373) 100%);
-    background-color: #fff;
+    background-color: #0045C1;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -170,30 +168,27 @@ main{
 @keyframes slide-down {
     0% {
       top: -500px; /* posição inicial */
-      opacity: 0;
     }
     100% {
       top: 15%; /* posição final */
-      opacity: 1;
     }
   }
 
 
-h1{
-    font-size: 20px;
+.title-login {
+    display: flex;
+    font-size: 26px;
+    text-align: center;
+    color: #0045C1;
+    border-bottom: 1px solid black;
+    margin-right: 5px;
 }
 main .container {
     padding: 10px;
-    height: 82%;
-    width: 36%;
-    display: flex;
     align-items: center;
-    background-color: #FFF1F1;
+    background-color: white;
     border: black;
-    border-radius: 15px;
-    display: flex;
     flex-direction: column;
-    margin-top: 81px;
 }
 
 
@@ -214,12 +209,30 @@ main .container {
 }
 
 .inputs-login input{
-    width: 350px;
+    width: 355px;
     margin: 10px 0;
+    text-align: center;
+    outline: 0;
     padding: 10px 5px;
     border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px #b23030;
+    color: black;
+    background-color: #ffffff;
+    border-bottom: 1px solid black;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+    transition: text-indent 0.4s 0.4s ease; 
+    text-indent: -200%;
+    opacity: 1;
+ }
+
+ [placeholder]:hover::-webkit-input-placeholder{
+    font-weight: bold;
+    color: #0045C1;
+ }
+
+input::placeholder{
+    text-align: center;
 }
 
 /* ICON E-MAIL */
@@ -244,7 +257,7 @@ main .container {
     position: absolute;
     right: 510px;
 }
-
+/* 
 .button-login{
     text-align: center;
     display: flex;
@@ -254,11 +267,11 @@ main .container {
     font-size: 20px;
     outline: none;
     color: rgb(242, 210, 210);;
-    background-color: #b23030;
+    background-color: #0045C1;
     border-radius: 10px;
     transition: 0.8s ease;
     margin: 10%;
-}
+} */
 
 label{
     font-weight: bold;
@@ -267,4 +280,32 @@ label{
 
 input::placeholder{
     text-align: center;
+}
+
+.button-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 60px;
+    color: white;
+    text-align: center;
+    background-color: #0045C1;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    margin: 32px 0px 12px 0px;
+}
+
+.button-login:hover{
+    background-color:white;
+    color: #0045C1;
+    border:1px solid black;
+    transition: .7s ease;
+}
+
+
+.div-button-login{
+    display: flex;
+    justify-content: center;
 }
