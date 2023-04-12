@@ -57,7 +57,7 @@
     height: 150px;
     width: 400px;
     border-radius: 10px;
-    box-shadow: 1px 1px #b23030;
+    box-shadow: 1px 1px #0045C1;
 }
 
 [placeholder]:focus::-webkit-input-placeholder {
