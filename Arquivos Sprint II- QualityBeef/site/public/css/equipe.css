@@ -60,6 +60,8 @@
     display: flex;
     text-align: center;
     flex-direction: column;
+    height: 100px;
+    width: 250px;
 }
 
 .card-item {
@@ -71,14 +73,14 @@
     background-color: #fff;
     width: 20%;
     height: 120%;
-    border: 2px solid rgb(247, 138, 138);
+    border: 2px solid #0045C1;
     border-radius: 12%;
     transition: 0.435s ease-in-out;
 }
 
 .card-item:hover {
     width: 25%;
-    box-shadow: 4px 3px rgb(160, 158, 158);
+    box-shadow: 5px 6px rgb(160, 158, 158);
 }
 
 .cards-objetivos img {

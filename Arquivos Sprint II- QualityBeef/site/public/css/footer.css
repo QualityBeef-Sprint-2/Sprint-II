@@ -1,0 +1,55 @@
+
+.container-footer{
+    background-color: #35A8DB;
+    height: 35vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.footer-esquerda-logo img{
+    width: 25vw;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+}
+
+.footer-esquerda-logo{
+    padding-left: 50px;
+}
+
+
+.footer-meio{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.footer-hover{
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-hover:hover{
+    color: black;
+    font-size: 13px;
+    border-radius: 30px;
+}
+
+.footer-direita{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    padding: 50px;
+    padding-right: 30px;
+    font-size: 13px;
+    color: white;
+}
+
+.footer-direita li{
+    list-style: none;
+}
