@@ -1,11 +1,19 @@
+div .main-calculadora{
+    width: 100%;
+    height: 80%;
+    background-image: url(black_gradient_background.png);
+    background-size: cover;
+    margin-top: 8%;
+}
+
+
+
 .main-calculadora{
     height: 99vh;
-    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-top: 10px;
-
 }
 
 .texto-calculadora{
@@ -14,20 +22,22 @@
     height: 80%;
     width: 40%;
     margin-left: 139px;
+    margin-top: 37px;
     
 }
 
 .texto-calculadora span{
     letter-spacing: 2px;
     font-size: 22px;
-    line-break: 30px;
+    color: white;
 }
 
 
 .texto-calculadora h1{
-    font-size: 228%;
+    font-size: 30px;
+    color: white;
     padding-bottom: 25px;
-    width: 80vw;
+    width: 87%;
 }
 
 .texto-calculadora b{
@@ -44,16 +54,26 @@
     font-size: 35px;
     margin-top: 30px;
     outline: none;
-    color: rgb(242, 210, 210);
-    background-color: #b23030;
+    color: white;
+    background-color: #0045C1;
     border-radius: 10px;
-    transition: 0.8s ease;
-    margin: 10%
+    margin: 10%;
 }
 
+.button-calculadora:hover{
+    color:#0045C1;
+    background-color: white ;
+    border: 1px black solid;
+	border-radius: 10px;
+	transition: 0.8s ease;
+    box-shadow: 13px 10px 1px rgb(255, 255, 255);
+}
+
+
 .img-calculadora{      
-    padding-left: 36vh;
-    width: 43%;
-    height: 32%;
-    margin-bottom: 11%;
+    margin-left: 17%;
+    width: 92%;
+    height: 85vh;
+    margin-bottom: 7%;
+
 }
