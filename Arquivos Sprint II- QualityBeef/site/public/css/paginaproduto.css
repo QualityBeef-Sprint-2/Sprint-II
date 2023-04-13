@@ -25,7 +25,8 @@
     font-size: 18px;
     line-height: 35px;
     color: #000000;
-    letter-spacing: 3px
+    letter-spacing: 3px;
+    width: 94%;
 }
 
 .produto-pt2 {
@@ -89,7 +90,7 @@
 .produto-imagem{
     height: 48vh;
     width: 36vw;
-    margin-right: 38px;
+    margin-right: 100px;
     margin-top: -33px;
 }
 

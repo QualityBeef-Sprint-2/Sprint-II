@@ -14,13 +14,16 @@
     <link rel="stylesheet" href="css/paginaproduto.css">
     <link rel="stylesheet" href="css/fale_conosco.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 
 </head>
 
 <body>
 
     <header>
-        <nav>
+        <nav class="nav-container" id="nav">
 
             <img class="logo" src="img/logo.png" alt="">
 
@@ -80,7 +83,7 @@
                 </li>
             </ul>
         </nav>
-        
+
 
 
         <!-- Home Inicial -->
@@ -95,12 +98,12 @@
                 <a class="btn-saiba-mais" href="#quemsomos">Saiba Mais</a>
             </div>
         </main>
-        
-     
+
+
 
     </header>
 
- 
+
 
     <div class="pagina-inteira">
 
@@ -109,21 +112,29 @@
 
             <div class="container-quemsomos1">
 
-                <div class="resumo-quemsomos">
+
+
+
+                <div class="resumo-quemsomos" data-aos="fade-right" data-aos-offset="250"
+                    data-aos-easing="ease-in-sine">
 
                     <h1 class="text-quem-somos">Quem somos?</h1>
 
                     <p class="text-grande"> A QualityBeef é uma empresa com o intuito de diminuir o prejuízo e
                         decorrência da má
                         refrigeração no
-                        transporte de carnes. Tendo em vista este problema pouco falado e muito atingido nas empresas,
+                        transporte de carnes. Tendo em vista este problema pouco falado e muito atingido nas
+                        empresas,
                         surgiu-se a QualityBeef com o objetivo de monitorar a temperatura e assegurar a qualidade da
-                        mercadoria. Nós estaremos ao seu lado durante todo o processo, conte conosco. </p>
-
+                        mercadoria. Nós estaremos ao seu lado durante todo o processo, conte conosco.
+                    </p>
 
                 </div>
 
-                <div><img class="img-quemsomos" src="img/Logo.png"></div>
+
+                <div class=div-img data-aos="fade-left" data-aos-offset="250" data-aos-easing="ease-in-sine">
+                    <img class="img-quemsomos" src="img/Logo.png">
+                </div>
 
             </div>
 
@@ -201,166 +212,174 @@
 
         <!-- Nosso produto -->
 
-        
 
-            <div class="produto" id="produto">
 
-                <div class="produto-pt1">
+        <div class="produto" id="produto">
 
-                    <div class="produto-conteudotop">
+            <div class="produto-pt1">
 
-                        <h1 class="produto-titulo">Qual o nosso produto?</h1>
+                <div class="produto-conteudotop" data-aos="fade-right" data-aos-offset="250"
+                    data-aos-easing="ease-in-sine">
 
-                        <p class="produto-conteudo">Nós da QualityBeef temos o foco de monitorar o
-                            transporte da carne nos contâiners de veículos
-                            de transporte, garantindo qualidade no produto
-                            alimentício e consequentemente trazendo melhor
-                            confiança para a marca!
+                    <h1 class="produto-titulo">Qual o nosso produto?</h1>
 
-                        </p>
+                    <p class="produto-conteudo">Nós da QualityBeef temos o foco de monitorar o
+                        transporte da carne nos contâiners de veículos
+                        de transporte, garantindo qualidade no produto
+                        alimentício e consequentemente trazendo melhor
+                        confiança para a marca!
 
-                    </div>
-
-                    <div>
-                        <img class="produto-imagem" src="img/caminhaoproduto.png" alt="">
-                    </div>
+                    </p>
 
                 </div>
 
-                <div class="produto-pt2">
-
-                    <div class="produto-conteudobottom">
-                        <div class="produto-conteudobottom-color">
-                            <img class="produto-imagembottom" src="img/instalacao.png" alt="">
-                            <h3><br>INSTALAÇÃO <br><br></h3>
-                            <p class="produto-conteudobottom-texto">
-                                O sensor LM35 será instalado<br>
-                                dentro do contâiner em um<br>
-                                dos cantos ou até mesmo no<br>
-                                centro para fazer a captação<br>
-                                das informações térmicas.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="produto-conteudobottom">
-                        <div class="produto-conteudobottom-color">
-                            <img class="produto-imagembottom2" src="img/treinamento.png" alt="">
-                            <h3><br>TREINAMENTO<br><br></h3>
-                            <p class="produto-conteudobottom-texto">
-                                Com a instalação concluída,<br>
-                                será fornecido treinamento<br>
-                                diretamente para a empresa<br>
-                                e os encarregados de obter<br>
-                                os dados dos sensores.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="produto-conteudobottom">
-                        <div class="produto-conteudobottom-color">
-                            <img class="produto-imagembottom3" src="img/monitoramento.png" alt="">
-                            <h3><br>MONITORAMENTO<br><br></h3>
-                            <p class="produto-conteudobottom-texto">
-                                O monitoramento será 24/7<br>
-                                enquanto os sensores estão<br>
-                                ligados, enviando os dados<br>
-                                diretamente para o banco<br>de
-                                dados das informações.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="produto-conteudobottom">
-                        <div class="produto-conteudobottom-color">
-                            <img class="produto-imagembottom4" src="img/dashboard.png" alt="">
-                            <h3><br>DASHBOARDS<br><br></h3>
-                            <p class="produto-conteudobottom-texto">
-                                Por meio das informações<br>
-                                coletadas, apresentaremos <br>
-                                dados em forma de gráficos<br>
-                                referente ao monitoramento<br>
-                                temperatura do contâiner!<br>
-                            </p>
-                        </div>
-                    </div>
-
+                <div>
+                    <img data-aos="fade-left" data-aos-offset="250" data-aos-easing="ease-in-sine"
+                        class="produto-imagem" src="img/caminhaoproduto.png" alt="">
                 </div>
 
             </div>
-            <!-- Calculadora financeira -->
 
-            <main id="calculadora" class="main-calculadora">
-                <div class="texto-calculadora">
-                    <h1>Conheça nosso simulador!!</h1>
-                    <span>A QualityBeef surgiu para minimizar os problemas decorrentes do mal gerenciamento de
-                        temperatura nos transportes de carnes frigorícas a fim de minimizar as perdas em até <b>30%</b>
-                        nesta função.
-                    </span>
-                    <a class="button-calculadora" href="CalculadoraFinanceira.html">Simulador</a>
-                </div>
+            <div class="produto-pt2">
 
-                <div class="spinner is-animating">
-                    <img class="img-calculadora" src="img/calculadora.png" alt="">
-                </div>
-            </main>
-
-            <!-- FALE CONOSCO -->
-            <section class="container-fale-conosco" id="faleConosco">
-
-                <div class="title-fale-conosco">
-                    <h1 class="text-faleConosco">Fale Conosco </h1>
-                    <span>Nossa equipe está pronta para atender às suas necessidades!</span>
-                </div>
-                <div class="container-inputs">
-                    <div>
-                        <img class="img-fale-conosco" src="img/img-atendimento.png" alt="">
-                    </div>
-                    <div class="container-inserir-dados">
-                        <label>Nome:</label>
-                        <input placeholder="Digite seu nome">
-                        <label>Telefone:</label>
-                        <input placeholder="(XX) XXXX-XXXX">
-                        <label>E-mail</label>
-                        <input placeholder="Digite seu email">
-                        <label>Mensagem:</label>
-                        <textarea class="input-mensagem" name="" id="" cols="30" rows="10"
-                            placeholder="Digite o que precisa"></textarea>
-                        <a class="button-fale-conosco" href="#">Enviar</a>
+                <div class="produto-conteudobottom">
+                    <div class="produto-conteudobottom-color">
+                        <img class="produto-imagembottom" src="img/instalacao.png" alt="">
+                        <h3><br>INSTALAÇÃO <br><br></h3>
+                        <p class="produto-conteudobottom-texto">
+                            O sensor LM35 será instalado<br>
+                            dentro do contâiner em um<br>
+                            dos cantos ou até mesmo no<br>
+                            centro para fazer a captação<br>
+                            das informações térmicas.
+                        </p>
                     </div>
                 </div>
-            </section>
 
-            <footer>
-                <div class="footer">
-                    <div class="container-footer">
-                        <div class="footer-esquerda-logo">
-                            <img src="img/logo.png" alt="">
-                        </div>
-                        <div class="footer-meio">
-
-                            <a class="footer-hover" href="index.html">home|</a>
-                            <a class="footer-hover" href="#quemsomos">Sobre nos|</a>
-                            <a class="footer-hover" href="#produto">Produto|</a>
-                            <a class="footer-hover" href="#calculadora">Simulador|</a><br>
-                            <a class="footer-hover" href="#faleConosco">Contato|</a>
-                            <a class="footer-hover" href="login.html">Login|</a>
-                            <a class="footer-hover" href="cadastro.html">Cadastro</a>
-                            
-                        </div>
-                        <div class="footer-direita">
-                            <ul>
-                                <li><b>Endereço:</b></li>
-                                <li>Rua Haddock Lobo 595,Cerqueira César</li>
-                                <li>São Paulo-SP</li>
-                                <li>(11)99935-0657</li>
-                                <li>QualityBeefCorporation@gmail.com</li>
-                            </ul>
-                        </div>
+                <div class="produto-conteudobottom">
+                    <div class="produto-conteudobottom-color">
+                        <img class="produto-imagembottom2" src="img/treinamento.png" alt="">
+                        <h3><br>TREINAMENTO<br><br></h3>
+                        <p class="produto-conteudobottom-texto">
+                            Com a instalação concluída,<br>
+                            será fornecido treinamento<br>
+                            diretamente para a empresa<br>
+                            e os encarregados de obter<br>
+                            os dados dos sensores.
+                        </p>
                     </div>
-            </footer>
+                </div>
+
+                <div class="produto-conteudobottom">
+                    <div class="produto-conteudobottom-color">
+                        <img class="produto-imagembottom3" src="img/monitoramento.png" alt="">
+                        <h3><br>MONITORAMENTO<br><br></h3>
+                        <p class="produto-conteudobottom-texto">
+                            O monitoramento será 24/7<br>
+                            enquanto os sensores estão<br>
+                            ligados, enviando os dados<br>
+                            diretamente para o banco<br>de
+                            dados das informações.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="produto-conteudobottom">
+                    <div class="produto-conteudobottom-color">
+                        <img class="produto-imagembottom4" src="img/dashboard.png" alt="">
+                        <h3><br>DASHBOARDS<br><br></h3>
+                        <p class="produto-conteudobottom-texto">
+                            Por meio das informações<br>
+                            coletadas, apresentaremos <br>
+                            dados em forma de gráficos<br>
+                            referente ao monitoramento<br>
+                            temperatura do contâiner!<br>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Calculadora financeira -->
+
+        <main id="calculadora" class="main-calculadora">
+            <div class="texto-calculadora" data-aos="fade-right" data-aos-offset="250" data-aos-easing="ease-in-sine">
+                <h1>Conheça nosso simulador!!</h1>
+                <span>A QualityBeef surgiu para minimizar os problemas decorrentes do mal gerenciamento de
+                    temperatura nos transportes de carnes frigorícas a fim de minimizar as perdas em até <b>30%</b>
+                    nesta função.
+                </span>
+                <a class="button-calculadora" href="CalculadoraFinanceira.html">Simulador</a>
+            </div>
+
+            <div class="spinner is-animating">
+                <img data-aos="fade-up-left" data-aos-offset="280" data-aos-easing="ease-in-sine"
+                    class="img-calculadora" src="img/calculadora.png" alt="">
+            </div>
+        </main>
+
+        <!-- FALE CONOSCO -->
+        <section class="container-fale-conosco" id="faleConosco">
+
+            <div class="title-fale-conosco">
+                <h1 class="text-faleConosco">Fale Conosco </h1>
+                <span>Nossa equipe está pronta para atender às suas necessidades!</span>
+            </div>
+            <div class="container-inputs">
+                <div>
+                    <img data-aos="fade-up" data-aos-anchor-placement="center-center" class="img-fale-conosco"
+                        src="img/img-atendimento.png" alt="">
+                </div>
+                <div class="container-inserir-dados">
+                    <label>Nome:</label>
+                    <input placeholder="Digite seu nome">
+                    <label>Telefone:</label>
+                    <input placeholder="(XX) XXXX-XXXX">
+                    <label>E-mail</label>
+                    <input placeholder="Digite seu email">
+                    <label>Mensagem:</label>
+                    <textarea class="input-mensagem" name="" id="" cols="30" rows="10"
+                        placeholder="Digite o que precisa"></textarea>
+                    <a class="button-fale-conosco" href="#">Enviar</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer">
+                <div class="container-footer">
+                    <div class="footer-esquerda-logo">
+                        <img src="img/logo.png" alt="">
+                    </div>
+                    <div class="footer-meio">
+
+                        <a class="footer-hover" href="index.html">home|</a>
+                        <a class="footer-hover" href="#quemsomos">Sobre nos|</a>
+                        <a class="footer-hover" href="#produto">Produto|</a>
+                        <a class="footer-hover" href="#calculadora">Simulador|</a><br>
+                        <a class="footer-hover" href="#faleConosco">Contato|</a>
+                        <a class="footer-hover" href="login.html">Login|</a>
+                        <a class="footer-hover" href="cadastro.html">Cadastro</a>
+
+                    </div>
+                    <div class="footer-direita">
+                        <ul>
+                            <li><b>Endereço:</b></li>
+                            <li>Rua Haddock Lobo 595,Cerqueira César</li>
+                            <li>São Paulo-SP</li>
+                            <li>(11)99935-0657</li>
+                            <li>QualityBeefCorporation@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+        </footer>
 
 
 </body>
 
 </html>
+
+<script>
+    AOS.init();
+</script>

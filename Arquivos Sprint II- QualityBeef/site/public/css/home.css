@@ -3,7 +3,7 @@
 
 body{
 
-    height: 638vh;
+    height: 652vh;
 
 }
 
@@ -44,15 +44,18 @@ a:hover .barra {
     height: 14vh;
 }
 
-nav{
+.nav-container{
     width: 100%;
-    position: fixed;
+    
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: white;
     height: 14vh;
 }
+
+
+
 
 .nav-list{
     list-style: none;

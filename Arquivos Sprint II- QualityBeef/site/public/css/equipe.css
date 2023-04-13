@@ -16,6 +16,8 @@
     width: 50%;
     flex-direction: column;
     margin-right: 70px;
+    position: relative;
+    
 }
 
 .resumo-quemsomos p {
@@ -23,11 +25,18 @@
     letter-spacing: 3px;
 }
 
-.img-quemsomos {
+.div-img{
     display: flex;
+    justify-content: center;
+    width: 35%;
+    height: 91%;
+}
+
+.img-quemsomos {
+   
     width: 100%;
     height: 91%;
-    justify-content: center;
+   
 }
 
 .container-quemsomos2 h1 {
