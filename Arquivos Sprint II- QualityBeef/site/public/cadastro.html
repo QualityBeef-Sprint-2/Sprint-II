@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - QualityBeef</title>
+    <script src="./js/funcoes.js"></script>
 </head>
 
 <body>
@@ -25,58 +26,58 @@
         <header>
             <header>
                 <nav>
-        
+
                     <img class="logo" src="img/logo.png" alt="">
-        
+
                     <div class="mobile-menu">
                         <div class="line1"></div>
                         <div class="line2"></div>
                         <div class="line3"></div>
                     </div>
-        
+
                     <ul class="nav-list">
                         <li>
                             <a href="index.html">Home
                                 <div class="barra"></div>
                             </a>
                         </li>
-        
+
                         <li>
                             <a href="index.html#quemsomos">Sobre nós
                                 <div class="barra"></div>
                             </a>
                         </li>
-        
+
                         <li>
                             <a href="index.html#produto">Produto
                                 <div class="barra"></div>
                             </a>
                         </li>
-        
+
                         <li>
-        
+
                             <a href="index.html#calculadora">Calculadora
                                 <div class="barra"></div>
                             </a>
                         </li>
-        
+
                         <li>
                             <a href="index.html#faleConosco">Contato
                                 <div class="barra"></div>
                             </a>
                         </li>
-        
+
                         <li>
                             |
                         </li>
-        
+
                         <li>
                             <a href="login.html">Login
                                 <div class="barra"></div>
                             </a>
                         </li>
-        
-        
+
+
                         <li>
                             <a href="cadastro.html">Cadastro
                                 <div class="barra"></div>
@@ -84,64 +85,138 @@
                         </li>
                     </ul>
                 </nav>
-        </header>
+            </header>
 
-        <!-- Área de cadastro -->
-        <main>
-            <div class="container" id="container-cadastro-animacao">
-                <div class="form-image">
-                    <img class="img_cad" src="img/logo.png" alt="">
+            <!-- Área de cadastro -->
+            <main>
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
                 </div>
-                <div class="form">
-                    <form action="#">
-                        <div class="form-header">
-                            <div class="title">
-                                <h1>Cadastre-se</h1>
+                <div class="container" id="container-cadastro-animacao">
+                    <div class="form-image">
+                        <img class="img_cad" src="img/logo.png" alt="">
+                    </div>
+                    <div class="form">
+                        <form action="#">
+                            <div class="form-header">
+                                <div class="title">
+                                    <h1>Cadastre-se</h1>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Área de inputs das informações para cadastro -->
-                        <div class="group-inputs">
+                            <!-- Área de inputs das informações para cadastro -->
+                            <div class="group-inputs">
+                                <div>
+
+                                    <div class="input">
+                                        <label for="nomeEmpresa">Razão Social:</label>
+                                        <input type="text" id="nomeEmpresa" placeholder="Digite o nome de sua empresa">
+                                    </div>
+                                    <div class="input">
+                                        <label for="cnpj">CNPJ:</label>
+                                        <input type="number" id="cnpj" placeholder="XX.XXX.XXX/0001-XX">
+                                    </div>
+                                </div>
+                                <div>
+
+                                    <div class="input">
+                                        <label for="cep">cep</label>
+                                        <input type="cep" id="cep" placeholder="Digite e-mail para contato">
+                                    </div>
+                                    <div class="input">
+                                        <label for="telefone">Telefone:</label>
+                                        <input type="number" id="telefone" placeholder="(XX)XXXX-XXXX">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Termos de política e privacidade , botão linkado com a área de usuário -->
+                            <div class="politicas-input">
+                                <input type="checkbox" id="privacidade" class="checkbox">
+                                <label for="privacidade" class="label-politica">Eu li e estou de acordo com a <a
+                                        style="color: blue" ; href="politcs.html">Política de Privacidade e Termos de
+                                        Uso
+                                    </a>da QualityBeef
+                                </label>
+                            </div>
+
                             <div>
-
-                                <div class="input">
-                                    <label for="nomeEmpresa">Razão Social:</label>
-                                    <input type="text" id="nomeEmpresa" placeholder="Digite o nome de sua empresa">
-                                </div>
-                                <div class="input">
-                                    <label for="CNPJ">CNPJ:</label>
-                                    <input type="number" id="CNPJ" placeholder="XX.XXX.XXX/0001-XX">
-                                </div>
+                                <a onclick="cadastrar()" class="register-button">Cadastrar</a>
                             </div>
-                            <div>
-
-                                <div class="input">
-                                    <label for="E-mail">Endereço</label>
-                                    <input type="email" id="E-mail" placeholder="Digite e-mail para contato">
-                                </div>
-                                <div class="input">
-                                    <label for="Telefone">Telefone:</label>
-                                    <input type="number" id="Telefone" placeholder="(XX)XXXX-XXXX">
-                                </div>
+                            <div id="div_aguardar" class="loading-div">
+                                <img src="./assets/circle-loading.gif" id="loading-gif">
                             </div>
-                        </div>
-                        <!-- Termos de política e privacidade , botão linkado com a área de usuário -->
-                        <div class="politicas-input">
-                            <input type="checkbox" id="privacidade" class="checkbox">
-                            <label for="privacidade" class="label-politica">Eu li e estou de acordo com a <a
-                                    style="color: blue" ; href="politcs.html">Política de Privacidade e Termos de Uso
-                                </a>da QualityBeef
-                            </label>
-                        </div>
-
-                        <div>
-                            <a class="register-button" href="#">Cadastrar</a>
-                        </div>
+                            <div id="div_erros_login"></div>
+                    </div>
                     </form>
                 </div>
-            </div>
-        </main>
+                </div>
+            </main>
 
 
     </body>
 
     </html>
+
+    <script>
+        function cadastrar() {
+            aguardar();
+
+            //Recupere o valor da nova input pelo nome do id
+            // Agora vá para o método fetch logo abaixo
+            var nomeVar = nomeEmpresa.value;
+            var cnpjVar = cnpj.value;
+            var cepVar = cep.value
+            var telefoneVar = telefone.value
+
+            if (nomeVar == "" || cnpjVar == "" || cepVar == "" || telefoneVar == "") {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+                finalizarAguardar();
+                return false;
+            }
+            else {
+                setInterval(sumirMensagem, 5000)
+            }
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    cnpjServer: cnpjVar,
+                    cepServer: cepVar,
+                    telefoneServer: telefoneVar
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+                    window.location = "login.html";
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+            return false;
+        }
+
+        function sumirMensagem() {
+            cardErro.style.display = "none"
+        }
+
+    </script>
