@@ -18,7 +18,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="css/cadastro.css">
+        <link rel="stylesheet" href="css/usuario.css">
     </head>
 
     <body>
@@ -97,38 +97,44 @@
                         <form action="#">
                             <div class="form-header">
                                 <div class="title">
-                                    <h1>Cadastre-se</h1>
+                                    <h1>Cadastre seus funcionários!</h1>
                                 </div>
                             </div>
                             <!-- Área de inputs das informações para cadastro -->
                             <div class="group-inputs">
                                 <div>
 
-                                    <div class="form-input">
-                                        <label for="nomeEmpresa">Razão Social:</label>
-                                        <input type="text" id="nomeEmpresa" placeholder="Digite o nome de sua empresa">
+                                    <div class="input">
+                                        <label for="nomeFuncionario">Nome</label>
+                                        <input type="text" id="nomeUsuario" placeholder="Digite seu nome">
+                                    </div>
 
+                                    <div class="input">
+                                        <label for="sobrenomeFuncionario">Sobrenome:</label>
+                                        <input type="text" id="sobrenomeUsuario" placeholder="Digite seu sobrenome">
                                     </div>
-                                    <div class="form-input">
-                                        <label for="cnpj">CNPJ:</label>
-                                        <input type="number" id="cnpj" placeholder="XX.XXX.XXX/0001-XX">
-                                    </div>
-                                </div>
-                                <div>
 
-                                    <div class="form-input">
-                                        <label for="cep">cep</label>
-                                        <input type="cep" id="cep" placeholder="Digite e-mail para contato">
+                                    <div class="input">
+                                        <label for="cpf">CPF:</label>
+                                        <input type="number" id="cpf" placeholder="XXX.XXX.XXX.XX">
                                     </div>
-                                    <div class="form-input">
-                                        <label for="telefone">Telefone:</label>
-                                        <input type="number" id="telefone" placeholder="(XX)XXXX-XXXX">
+
+                                    <div class="input">
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="email" placeholder="Digite e-mail para contato">
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="Telefone">Senha:</label>
+                                        <input type="password" id="senha" placeholder="(XX)XXXX-XXXX">
+                                    </div>
+
+                                    <div class="input">
+                                        <label for="ConfirmarSenha">Confirmar Senha:</label>
+                                        <input type="password" id="confirmarSenha" placeholder="Repita a senha">
                                     </div>
                                 </div>
-                                <div class="form-token">
-                                    <label for="token">Token:</label>
-                                    <input type="number" id="token" placeholder="token da empresa">
-                                </div>
+
                             </div>
                             <!-- Termos de política e privacidade , botão linkado com a área de usuário -->
                             <div class="politicas-input">
@@ -141,7 +147,7 @@
                             </div>
 
                             <div>
-                                <a onclick="cadastrar()" class="register-button">Cadastrar</a>
+                                <a onclick="cadastrarUsuario()" class="register-button">Cadastrar</a>
                             </div>
                             <div class="alerta_erro">
                                 <div class="card_erro" id="cardErro">
@@ -163,29 +169,37 @@
     </html>
 
     <script>
-        function cadastrar() {
+        function cadastrarUsuario() {
             aguardar();
 
             //Recupere o valor da nova input pelo nome do id
             // Agora vá para o método fetch logo abaixo
-            var nomeVar = nomeEmpresa.value;
-            var cnpjVar = cnpj.value;
-            var cepVar = cep.value;
-            var telefoneVar = telefone.value;
+            var nomeVar = nomeUsuario.value;
+            var sobrenomeVar = sobrenomeUsuario.value;
+            var cpfVar = cpf.value;
+            var emailVar = email.value;
+            var senhaVar = senha.value;
+            var confirmarSenhaVar = confirmarSenha.value;
 
-            if (nomeVar == "" || cnpjVar == "" || cepVar == "" || telefoneVar == "") {
-                cardErro.style.display = "block"
-                mensagem_erro.innerHTML = "Insira todos os dados nos campos";
+
+            if (nomeVar == "" || sobrenomeVar == "" || cpfVar == "" || emailVar == "" ||
+                senhaVar == "" || confirmarSenhaVar == "") {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "Insira dados válidos";
 
                 finalizarAguardar();
                 return false;
+            }else if(emailVar.search("@")==-1 ){
+                mensagem_erro.innerHTML = "Insira um email válido";
+            }else if(senhaVar != confirmarSenhaVar){
+                mensagem_erro.innerHTML = "Insira senhas iguais";
             }
             else {
-                setInterval(sumirMensagem, 5000)
+                setInterval(sumirMensagem, 5000);
             }
 
             // Enviando o valor da nova input
-            fetch("/usuarios/cadastrar", {
+            fetch("/usuarios/cadastrarUsuario", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -193,10 +207,12 @@
                 body: JSON.stringify({
                     // crie um atributo que recebe o valor recuperado aqui
                     // Agora vá para o arquivo routes/usuario.js
-                    nomeServer: nomeVar,
-                    cnpjServer: cnpjVar,
-                    cepServer: cepVar,
-                    telefoneServer: telefoneVar
+                    nomeUsuarioServer: nomeVar,
+                    sobrenomeServer: sobrenomeVar,
+                    cpfServer: cpfVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+
                 })
             }).then(function (resposta) {
 
@@ -204,8 +220,10 @@
 
                 if (resposta.ok) {
                     cardErro.style.display = "block";
-                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
-                    window.location = "cadastrarUsuario.html";
+                    mensagem_erro.innerHTML = "Cadastro de usuario realizado com sucesso! Redirecionando para tela de login...";
+
+                    window.location = "login.html";
+
                     limparFormulario();
                     finalizarAguardar();
                 } else {

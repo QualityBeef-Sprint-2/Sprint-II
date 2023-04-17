@@ -238,18 +238,25 @@ body {
  .group-inputs {
      display: flex;
      flex-wrap: wrap;
-     padding-top: 80px;
+     padding-top: 20px;
      padding-bottom: 40px;
      justify-content: space-evenly;
  
  }
  
- .input {
+ .form-input {
      width: 250px;
      display: flex;
      flex-direction: column;
      margin-bottom: 10px;
  
+ }
+
+ .form-token{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
  }
  
  label{
@@ -308,6 +315,7 @@ body {
  .register-button{
      display: flex;
      justify-content: center;
+     cursor: pointer;
  }
  
  .register-button{
@@ -331,3 +339,7 @@ body {
  }
 
 
+.alerta_erro{
+    color: red;
+    font-size: 15px;
+ }

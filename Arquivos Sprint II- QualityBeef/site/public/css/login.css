@@ -241,7 +241,7 @@ input::placeholder{
     /*     padding-right: 9px;
     padding-top: 22px; 
     paddin-bottom: 192px*/
-    padding: 20px 9px 192px;
+    padding: 60px 9px 192px;
     position: absolute;
     right: 510px;
 }
@@ -253,7 +253,7 @@ input::placeholder{
     padding-right: 10px;
     padding-top: 0px;
      */
-    padding: 0px 10px 15px;
+    padding: 50px 10px 15px;
     position: absolute;
     right: 510px;
 }
@@ -306,6 +306,11 @@ input::placeholder{
 
 
 .div-button-login{
+    display: flex;
+    justify-content: center;
+}
+
+.card_erro{
     display: flex;
     justify-content: center;
 }
