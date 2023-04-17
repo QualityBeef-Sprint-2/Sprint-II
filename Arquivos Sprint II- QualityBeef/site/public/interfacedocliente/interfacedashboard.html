@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra Lateral</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="css/interfacedashboard.css">
+</head>
+<body>
+
+    
+    <div class="container">
+            <div class="hamburger">
+                <div class="lineh" id="line1"></div>
+                <div class="lineh" id="line2"></div>
+                <div class="lineh" id="line3"></div>
+            </div>
+
+        <aside class="sidebar">
+
+            <header class="logousuario-header">
+                <img class="logo-img" src="img/imgusuario.avif" alt="Foto do usuário">
+            </header>
+            <nav>
+                <ul class="menu">
+                    
+                    <button>
+                        <span>
+                            <img class="sidebar-img" src="img/house.png">
+                            <span class="menu-item"><a href="#" class="menu-link">HOME</a></span>
+                        </span>
+                    </button>
+
+                    <button>
+                        <span>
+                            <img class="sidebar-img" src="img/dashboard.png">
+                            <span class="menu-item"><a href="#" class="menu-link">DASHBOARDS</a></span>
+                        </span>
+                    </button>
+
+                    <button>
+                        <span>
+                            <img class="sidebar-img" src="img/conecte-se.png">
+                            <span class="menu-item"><a href="#" class="menu-link">CADASTROS</a></span>
+                        </span>
+                    </button>
+
+                    <button>
+                        <span>
+                            <img class="sidebar-img" src="img/configuracoes.png">
+                            <span class="menu-item"><a href="#" class="menu-link">OPÇÕES</a></span>
+                        </span>
+                    </button>
+
+                </ul>
+            </nav>
+        </aside>
+    </div>
+
+    <div class="dashboards">
+
+        <div class="dashboardGraficos">
+    
+            <div class="donut">
+                <h4>100% dos sensores</h4>
+                <canvas id="sensorDonut" </canvas>
+            </div>
+    
+            <div class="line">
+                <h4>Análise de um sensor separadamente</h4>
+                <canvas id="temperaturaLinha" </canvas>
+            </div>
+    
+        </div>
+    
+        <div class="cardAlerts">
+    
+            <div class="cardNormal">
+    
+                <span>Temperatura em estado normal!</span>
+                
+            </div>
+    
+            <div class="cardAlerta">
+    
+                <span>Alerta de temperatura!</span>
+    
+            </div>
+    
+            <div class="cardCritico">
+    
+                <span>Temperatura em estado crítico!</span>
+    
+            </div>
+    
+        </div>
+
+    </div>
+    
+</body>
+
+<script>
+
+    const donutSensor = [
+        'Crítico',
+        'Alerta',
+        'Normal',
+    ]
+
+    const dataSensorDonut = {
+        labels: donutSensor,
+        datasets: [{
+            label: 'Status (%)',
+            data: [15, 25, 60],
+            backgroundColor:
+                ['rgb(210, 0, 0)',
+                    'rgb(255, 102, 0)',
+                    'rgb(0, 210, 0)'],
+            borderColor:
+                ['rgb(210, 0, 0)',
+                    'rgb(255, 102, 0)',
+                    'rgb(0, 210, 0)'],
+            hoverOffset: 1
+        }],
+    };
+
+    const configSensorDonut = {
+        type: 'doughnut',
+        data: dataSensorDonut,
+        options: {}
+    }
+
+    const sensorDonut = new Chart(
+        document.getElementById('sensorDonut'),
+        configSensorDonut
+    );
+
+</script>
+
+<script>
+
+    const linhaTemperatura = [
+        '00:00h',
+        '01:00h',
+        '02:00h',
+        '03:00h',
+        '04:00h',
+        '05:00h',
+        '06:00h',
+        '07:00h',
+        '08:00h',
+        '09:00h',
+        '10:00h',
+        '11:00h',
+        '12:00h',
+        '13:00h',
+        '14:00h',
+        '15:00h',
+        '16:00h',
+        '17:00h',
+        '18:00h',
+        '19:00h',
+        '20:00h',
+        '21:00h',
+        '22:00h',
+        '23:00h',
+    ]
+
+    const dataTemperaturaLinha = {
+        labels: linhaTemperatura,
+        datasets: [{
+            label: 'Temperatura (°C)',
+            backgroundColor: 'rgb(58, 86, 177)',
+            borderColor: 'rgb(58, 86, 177)',
+            data: [-0.9, -1.1, -1.2, -1.0, -1.4, -2.2, -2.0, -1.9, -1.7, -1.2, -0.3, 1.0, 1.7, 2.3, 3.0, 3.2, 2.7, 2.4, 2.1, 1.8, 1.5, 0.4, -0.3, -0.6],
+        }],
+    };
+
+    const configTemperaturaLinha = {
+        type: 'line',
+        data: dataTemperaturaLinha,
+        options: {}
+    }
+
+    const temperaturaLinha = new Chart(
+        document.getElementById('temperaturaLinha'),
+        configTemperaturaLinha
+    );
+
+</script>
+
+<script src="js/hamburguer.js"></script>
+</html>
