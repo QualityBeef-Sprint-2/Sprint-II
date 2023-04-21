@@ -47,7 +47,7 @@
     
                     <li>
     
-                        <a href="index.html#calculadora">Calculadora
+                        <a href="index.html#calculadora">Simule aqui!
                             <div class="barra"></div>
                         </a>
                     </li>
@@ -126,7 +126,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Preencha todos os campos";
             finalizarAguardar();
             return false;
         }
@@ -161,7 +161,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                    
-                    window.location = "index.html";
+                    window.location = ""; // dashbord
                     // apenas para exibir o loading
 
                 });

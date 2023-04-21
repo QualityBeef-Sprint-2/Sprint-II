@@ -146,9 +146,8 @@ nav{
   flex-direction: row;
   padding-left: 15px;
   padding-right: 15px;
-  margin: 160px;
   width: 1000px;
-  height: 150%;
+  height: 85vh;
   align-items: center;
   background-color: #bac8f0;
   border: 2px #000000;

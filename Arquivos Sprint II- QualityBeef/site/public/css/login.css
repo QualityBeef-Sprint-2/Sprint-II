@@ -314,3 +314,8 @@ input::placeholder{
     display: flex;
     justify-content: center;
 }
+
+.alerta_erro{
+    display: flex;
+    justify-content: center;
+}

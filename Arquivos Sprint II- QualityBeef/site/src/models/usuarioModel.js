@@ -19,24 +19,24 @@ function entrar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(nome, cnpj, cep, telefone) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, cnpj, cep, telefone);
+function cadastrar(token, nome, cnpj, cep, telefone) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", token, cnpj, cep, telefone);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO empresa (nome, cnpj, cep, telefone) VALUES ('${nome}', '${cnpj}', '${cep}', '${telefone}');
+        INSERT INTO empresa (token, nome, cnpj, cep, telefone) VALUES ('${token}' , '${nome}', '${cnpj}', '${cep}', '${telefone}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function cadastrarUsuario(nome, sobrenome, cpf, email, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, sobrenome, cpf, email, senha);
+function cadastrarUsuario(nome, sobrenome, cpf, email, senha, fktoken) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, sobrenome, cpf, email, senha, fktoken);
 
 
     var instrucao =`
-        INSERT INTO usuario (nome, sobrenome, cpf, email, senha) VALUES ('${nome}', '${sobrenome}', '${cpf}' ,'${email}', '${senha}');
+        INSERT INTO usuario (nome, sobrenome, cpf, email, senha, fktoken) VALUES ('${nome}', '${sobrenome}', '${cpf}' ,'${email}', '${senha}' , '${fktoken}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

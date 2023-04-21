@@ -62,6 +62,7 @@ function entrar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var token = req.body.tokenServer;
     var nome = req.body.nomeServer;
     var cnpj = req.body.cnpjServer;
     var cep = req.body.cepServer;
@@ -76,9 +77,11 @@ function cadastrar(req, res) {
         res.status(400).send("Seu cep está undefined!");
     } else if (telefone == undefined) {
         res.status(400).send("Seu telefone está undefined!");
+    }else if (token == undefined) {
+        res.status(400).send("Seu token está undefined!");
     }else{
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, cnpj, cep, telefone)
+        usuarioModel.cadastrar(token, nome, cnpj, cep, telefone)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -104,6 +107,7 @@ function cadastrarUsuario(req, res) {
     var cpf = req.body.cpfServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var fktoken = req.body.fktokenServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -116,10 +120,12 @@ function cadastrarUsuario(req, res) {
         res.status(400).send("Seu email está undefined!");
     }else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    }else if (fktoken == undefined) {
+        res.status(400).send("Seu token está undefined!");
     }else{
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarUsuario(nome, sobrenome, cpf, email, senha)
+        usuarioModel.cadastrarUsuario(nome, sobrenome, cpf, email, senha, fktoken)
             .then(
                 function (resultado) {
                     res.json(resultado);

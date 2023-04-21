@@ -103,35 +103,49 @@
                             <!-- Área de inputs das informações para cadastro -->
                             <div class="group-inputs">
                                 <div>
+                                    <div class="nome_sobrenome">
+                                        <div class="input">
+                                            <label for="nomeFuncionario">Nome</label>
+                                            <input type="text" id="nomeUsuario" placeholder="Digite seu nome">
+                                        </div>
 
-                                    <div class="input">
-                                        <label for="nomeFuncionario">Nome</label>
-                                        <input type="text" id="nomeUsuario" placeholder="Digite seu nome">
+                                        <div class="input">
+                                            <label for="sobrenomeFuncionario">Sobrenome:</label>
+                                            <input type="text" id="sobrenomeUsuario" placeholder="Digite seu sobrenome">
+                                        </div>
+
                                     </div>
 
-                                    <div class="input">
-                                        <label for="sobrenomeFuncionario">Sobrenome:</label>
-                                        <input type="text" id="sobrenomeUsuario" placeholder="Digite seu sobrenome">
+                                    <div class="cpf_email">
+                                        <div class="input">
+                                            <label for="cpf">CPF:</label>
+                                            <input type="number" id="cpf" placeholder="XXX.XXX.XXX.XX">
+                                        </div>
+
+                                        <div class="input">
+                                            <label for="email">Email:</label>
+                                            <input type="email" id="email" placeholder="Digite e-mail para contato">
+                                        </div>
                                     </div>
 
-                                    <div class="input">
-                                        <label for="cpf">CPF:</label>
-                                        <input type="number" id="cpf" placeholder="XXX.XXX.XXX.XX">
+
+                                    <div class="senha">
+                                        <div class="input">
+                                            <label for="Telefone">Senha:</label>
+                                            <input type="password" id="senha" placeholder="(XX)XXXX-XXXX">
+                                        </div>
+
+                                        <div class="input">
+                                            <label for="ConfirmarSenha">Confirmar Senha:</label>
+                                            <input type="password" id="confirmarSenha" placeholder="Repita a senha">
+                                        </div>
                                     </div>
 
-                                    <div class="input">
-                                        <label for="email">Email:</label>
-                                        <input type="email" id="email" placeholder="Digite e-mail para contato">
-                                    </div>
-
-                                    <div class="input">
-                                        <label for="Telefone">Senha:</label>
-                                        <input type="password" id="senha" placeholder="(XX)XXXX-XXXX">
-                                    </div>
-
-                                    <div class="input">
-                                        <label for="ConfirmarSenha">Confirmar Senha:</label>
-                                        <input type="password" id="confirmarSenha" placeholder="Repita a senha">
+                                    <div class="token">
+                                        <div class="input">
+                                            <label for="Token Empresa">Informe o token da empresa</label>
+                                            <input type="text" id="fktoken" placeholder="123">
+                                        </div>
                                     </div>
                                 </div>
 
@@ -180,19 +194,20 @@
             var emailVar = email.value;
             var senhaVar = senha.value;
             var confirmarSenhaVar = confirmarSenha.value;
+            var fktokenVar = fktoken.value;
 
 
             if (nomeVar == "" || sobrenomeVar == "" || cpfVar == "" || emailVar == "" ||
-                senhaVar == "" || confirmarSenhaVar == "") {
+                senhaVar == "" || confirmarSenhaVar == "" || fktokenVar == "") {
                 cardErro.style.display = "block";
-                mensagem_erro.innerHTML = "Insira dados válidos";
+                mensagem_erro.innerHTML = "Preencha todos os campos";
 
                 finalizarAguardar();
                 return false;
-            }else if(emailVar.search("@")==-1 ){
+            } else if (emailVar.search("@") == -1) {
                 mensagem_erro.innerHTML = "Insira um email válido";
-            }else if(senhaVar != confirmarSenhaVar){
-                mensagem_erro.innerHTML = "Insira senhas iguais";
+            } else if (senhaVar != confirmarSenhaVar) {
+                mensagem_erro.innerHTML = "Insira senhas idênticas";
             }
             else {
                 setInterval(sumirMensagem, 5000);
@@ -211,7 +226,8 @@
                     sobrenomeServer: sobrenomeVar,
                     cpfServer: cpfVar,
                     emailServer: emailVar,
-                    senhaServer: senhaVar
+                    senhaServer: senhaVar,
+                    fktokenServer : fktokenVar
 
                 })
             }).then(function (resposta) {

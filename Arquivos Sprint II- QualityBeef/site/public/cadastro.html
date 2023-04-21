@@ -56,7 +56,7 @@
 
                         <li>
 
-                            <a href="index.html#calculadora">Calculadora
+                            <a href="index.html#calculadora">Simule aqui!
                                 <div class="barra"></div>
                             </a>
                         </li>
@@ -129,6 +129,11 @@
                                     <label for="token">Token:</label>
                                     <input type="number" id="token" placeholder="token da empresa">
                                 </div>
+
+                                 <div class="form-token">
+                                    <label for="tokenConfirmar">Confirmar Token:</label>
+                                    <input type="number" id="tokenConfirmar" placeholder="token da empresa">
+                                </div>
                             </div>
                             <!-- Termos de política e privacidade , botão linkado com a área de usuário -->
                             <div class="politicas-input">
@@ -168,19 +173,27 @@
 
             //Recupere o valor da nova input pelo nome do id
             // Agora vá para o método fetch logo abaixo
+            var tokenVar = token.value;
+            var tokenConfirmarVar = tokenConfirmar.value;
             var nomeVar = nomeEmpresa.value;
             var cnpjVar = cnpj.value;
             var cepVar = cep.value;
             var telefoneVar = telefone.value;
+            
 
-            if (nomeVar == "" || cnpjVar == "" || cepVar == "" || telefoneVar == "") {
+            if (tokenVar == "" || nomeVar == "" || cnpjVar == "" || cepVar == "" || telefoneVar == "") {
                 cardErro.style.display = "block"
-                mensagem_erro.innerHTML = "Insira todos os dados nos campos";
+                mensagem_erro.innerHTML = "Preencha todos os campos";
+
+            }else if (tokenConfirmarVar != tokenVar) {
+                
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "Os token não estão indênticos";
 
                 finalizarAguardar();
                 return false;
-            }
-            else {
+
+            }else {
                 setInterval(sumirMensagem, 5000)
             }
 
@@ -193,6 +206,7 @@
                 body: JSON.stringify({
                     // crie um atributo que recebe o valor recuperado aqui
                     // Agora vá para o arquivo routes/usuario.js
+                    tokenServer: tokenVar,
                     nomeServer: nomeVar,
                     cnpjServer: cnpjVar,
                     cepServer: cepVar,

@@ -238,7 +238,6 @@ body {
  .group-inputs {
      display: flex;
      flex-wrap: wrap;
-     padding-top: 20px;
      padding-bottom: 40px;
      justify-content: space-evenly;
  
@@ -340,6 +339,7 @@ body {
 
 
 .alerta_erro{
-    color: red;
+    color: black;
+    background-color: white;
     font-size: 15px;
  }
