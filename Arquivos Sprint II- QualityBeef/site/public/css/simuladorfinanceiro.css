@@ -175,3 +175,27 @@ input{
   box-shadow: 1px 1px #0045C1;
   border-radius: 3%;
 }
+
+
+.caixa-coteudo2{
+    width: 100%;
+
+}
+
+.btn-calculadora{
+    width: 32%;
+    height: 35px;
+    margin-top: 6px;    
+    border-radius: 5px;
+    border: none;
+
+}
+
+
+.btn-calculadora:hover{
+
+    color: white;
+    background-color: #0045C1;
+    transition: 0.8s ease;
+
+}

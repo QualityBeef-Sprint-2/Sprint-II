@@ -79,7 +79,7 @@
             <div class="caixa-conteudo1">
                 <h1 style="color: #0045C1;">Simulador Financeiro</h1>
                 <h4> Na América Latina em média 30% da carne bovina é perdida devido á má conservação no momento do
-                    transporte!<br><br> Com a QualityBeef isso não será mais um problema. Faça agora mesmo uma simulação
+                    transporte!<br> Com a QualityBeef isso não será mais um problema. Faça agora mesmo uma simulação
                     gratuita
                     durante o seu transporte. </h4><br>
     
@@ -89,9 +89,9 @@
                 <i> Quantidade de entregas: </i><br> <input id="entregas" placeholder="Entregas feitas"> <br>
     
     
-                <button onclick="mensal()">Média Mensal</button>
-                <button onclick="seisMeses()">Média Semestral</button>
-                <button onclick="anual()">Média Anual</button>
+                <button onclick="mensal()" class="btn-calculadora">Média Mensal</button>
+                <button onclick="seisMeses()" class="btn-calculadora">Média Semestral</button>
+                <button onclick="anual()" class="btn-calculadora">Média Anual</button>
             </div>
             <div class="caixa-coteudo2">
                 <p id="exibicao"></p>
@@ -115,8 +115,8 @@
         var prejuizo = media * 0.30
         var perda = media - prejuizo
 
-        exibicao.innerHTML = `<p>Com <b>${qtdEntregas}</b> entregas transportando <b>${qtd_kg}KG</b> de carne bovína cada, a <br><b>R$${valor_kg}</b> o KG, o total de vendas por viagem é de <b>R$${umaVenda}</b><br>. Contando com o percentual, a perda neste mês seria de em média <b style=" color:red">R$${prejuizo}</b> e o lucro bruto mensal de R$<b>${perda}</b>. <br><br>
-        Sabendo que pode contar com os sensores da <b>QualityBeef</b> para a redução de prejuízos, o lucro neste caso poderá chegar a <b style=" color:green">R$${media}</b>.</p>`
+        exibicao.innerHTML = `<div class="caixa-coteudo2" <p><h1>Média Mensal</h1> <br>  Com <b>${qtdEntregas}</b> entregas transportando <b>${qtd_kg}KG</b> de carne bovína cada, a <br><b>R$${valor_kg}</b> o KG, o total de vendas por viagem é de <b>R$${umaVenda}</b><br>. Contando com o percentual, a perda neste mês seria de em média <b style=" color:red">R$${prejuizo}</b> e o lucro bruto mensal de R$<b>${perda}</b>. <br><br>
+        Sabendo que pode contar com os sensores da <b>QualityBeef</b> para a redução de prejuízos, o lucro neste caso poderá chegar a <b style=" color:green">R$${media}</b>.</p></div>`
 
 
 
@@ -132,7 +132,7 @@
         var perdaSeisMeses = (mediaSeisMeses - prejuizo)
 
 
-        exibicao.innerHTML = `<p>Com <b>${qtdEntregas}</b> entregas transportando <b>${qtd_kg}KG</b> de carne bovína cada, a <b>R$${valor_kg}</b> o KG, o total de vendas por viagem é de <b>R$${umaVenda}</b>. Contando com o percentual, a perda neste mês seria de em média <b style=" color:red">R$${prejuizo}</b> e o lucro bruto mensal de R$<b>${perdaSeisMeses}</b>. <br><br>
+        exibicao.innerHTML = `<p> <h1>Média Semestral</h1> <br> Com <b>${qtdEntregas}</b> entregas transportando <b>${qtd_kg}KG</b> de carne bovína cada, a <b>R$${valor_kg}</b> o KG, o total de vendas por viagem é de <b>R$${umaVenda}</b>. Contando com o percentual, a perda neste mês seria de em média <b style=" color:red">R$${prejuizo}</b> e o lucro bruto mensal de R$<b>${perdaSeisMeses}</b>. <br><br>
         Sabendo que pode contar com os sensores da <b>QualityBeef</b> para a redução de prejuízos, o lucro neste caso poderá chegar a <b style=" color:green">R$${mediaSeisMeses}</b>.</p>`
 
     }
@@ -147,7 +147,7 @@
         var perdaAnual = (mediaAnual - prejuizo)
 
 
-        exibicao.innerHTML = `<p>Com <b>${qtdEntregas}</b> entregas transportando <b>${qtd_kg}KG</b> de carne bovína cada, a <b>R$${valor_kg}</b> o KG, o total de vendas por viagem é de <b>R$${umaVenda}</b>. Contando com o percentual, a perda neste mês seria de em média <b style=" color:red">R$${prejuizo}</b> e o lucro bruto mensal de R$<b>${perdaAnual}</b>. <br><br>
+        exibicao.innerHTML = `<p> <h1>Média Anual</h1> <br> Com <b>${qtdEntregas}</b> entregas transportando <b>${qtd_kg}KG</b> de carne bovína cada, a <b>R$${valor_kg}</b> o KG, o total de vendas por viagem é de <b>R$${umaVenda}</b>. Contando com o percentual, a perda neste mês seria de em média <b style=" color:red">R$${prejuizo}</b> e o lucro bruto mensal de R$<b>${perdaAnual}</b>. <br><br>
         Sabendo que pode contar com os sensores da <b>QualityBeef</b> para a redução de prejuízos, o lucro neste caso poderá chegar a <b style=" color:green">R$${mediaAnual}</b>.</p>`
 
     }
