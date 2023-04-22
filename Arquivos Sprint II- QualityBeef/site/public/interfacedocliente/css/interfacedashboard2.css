@@ -1,7 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     text-decoration: none;
+    font-family: 'Poppins';
 }
 
 body{
@@ -9,7 +13,6 @@ body{
     height: 100%;
     background-color: rgb(255, 255, 255);
 }
-
 /* DASHBOARDS */
 
 .dashboards {
@@ -115,8 +118,7 @@ body{
 }
 
 /* CONFIGURANDO HAMBURGER */
-
-/*.hamburger{
+/* .hamburger{
     width: 2rem;
     height: 2rem;
     position: fixed;
@@ -157,9 +159,10 @@ body{
     transform: rotate(-45deg) translate(.3rem, -.9rem);
     background-color: rgb(224, 49, 102);
     box-shadow: none;
-}*/
+} */
 
 /* CONFIGURANDO LOGO DO USUARIO */
+
 .logousuario-header{
     width: 100%;
     display: flex;
@@ -170,9 +173,10 @@ body{
     height: 35px;
     border-radius: 50%;
     object-fit: cover;
-    transition: transform 0.435s;
+    transition: 0.435s ease-in-out;
     margin-left: 90px;
     margin-top: 64px;
+
 }
 
 .logo-img:hover{
@@ -184,7 +188,7 @@ body{
 .sidebar{
     width: 250px;
     height: 100vh;
-    background-color: #35A8DB;
+    background-color: #142442;
     position: fixed;
     left: 0rem;
     transition: all .8s;
@@ -193,6 +197,7 @@ body{
 
 .sidebar-img{
     width: 12%;
+    background-color: white;
 }
 
 .sidebar button{
@@ -210,13 +215,12 @@ body{
     gap: 12px;
     height: 40px;
     padding: 0 16px 0 12px;
-    border-radius: 24px;
     line-height: 1;
     transition: all 0.435s
 }
 
 .sidebar button:hover > span {
-    background-color: rgb(12, 101, 235);
+    background-color: white;
 }
 
 .sidebar button icone-imghome {
@@ -233,6 +237,8 @@ body{
     display: flex;
     flex-direction: column;
     width: 100%;
+    line-height: 6;
+    margin-top: 39%
 }
 
 .show-menu .sidebar{
@@ -259,13 +265,22 @@ body{
 }
 
 .menu-link:hover{
-    color: rgb(0, 255, 255);
+    color: #142442;
     transition: color .7s;
 }
 
+.img-logo{
+    width: 76%;
+    height: 21vh;
+    margin-left: 22px;
+    margin-top: 23px
+
+}
+
+
 /* AJUSTANDO SIDEBAR APENAS COM OS ÍCONES */
 
-/*@media (width < 920px){
+/* @media (width < 920px){
     .sidebar{
         width: 72px;
     }
@@ -337,4 +352,10 @@ body{
         visibility: hidden;
         font-size: 90px
     }
-}*/
+} */
+
+.btn-sair{
+    color: white;
+    margin-left: 91px;
+
+}

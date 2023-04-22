@@ -369,6 +369,216 @@ body{
     }
 } */
 
+
+
+
+
+
+
+
+
+/* CSS ÁREA DE CADASTRO */
+
+
+main {
+
+    height: 84vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*  background: rgb(255, 241, 241);
+     background: linear-gradient(90deg, rgba(255, 241, 241, 1) 0%, rgba(178, 48, 48, 0.5802696078431373) 100%); */
+}
+
+main .container {
+    display: flex;
+    width: 80%;
+    border-radius: 10px;
+    height: 99%;
+    background: white;
+    margin-top: -42px;
+}
+
+#container-cadastro-animacao {
+    position: fixed;
+    border: 2px black solid;
+    top: -500px;
+    left: 59%;
+    /* posiciona a tela de login acima do topo da página */
+    transform: translate(-50%, 0%);
+    width: 40%;
+    height: 81%;
+    display: flex;
+    justify-content: center;
+    animation: cadastro-animacao 1s ease forwards;
+}
+
+@keyframes cadastro-animacao {
+    0% {
+        top: -500px;
+        /* posição inicial */
+    }
+
+    100% {
+        top: 15%;
+        /* posição final */
+    }
+}
+
+.form-image {
+    width: 40%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.img_cad {
+
+    width: 116%;
+    height: 76%;
+    margin-left: -30px;
+}
+
+.form {
+    /*      border-radius: 10px;
+     width: 60%; */
+    text-align: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+    padding-left: 5px;
+    /* flex-direction: column;*/
+}
+
+
+
+.form-header {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+}
+
+.title h1 {
+    display: flex;
+    font-size: 26px;
+    text-align: center;
+    color: #0045C1;
+    padding-top: 10px;
+    border-bottom: 1px solid black;
+}
+
+
+.login-button {
+    display: flex;
+    align-items: center;
+}
+
+.group-inputs {
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+
+}
+
+.input {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 7.5px;
+    padding-top: 7.5px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.group-inputs input {
+    outline: 0;
+    border: none;
+    color: black;
+    background-color: #ffffff;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
+
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+    transition: text-indent 0.4s 0.4s ease;
+    text-indent: -200%;
+    opacity: 1;
+}
+
+[placeholder]:hover::-webkit-input-placeholder {
+    font-weight: bold;
+    color: #0045C1;
+}
+
+input::placeholder {
+    text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.register-button {
+    display: flex;
+    justify-content: center;
+}
+
+.register-button {
+    width: 40%;
+    height: 100%;
+    color: rgb(242, 210, 210);
+    background-color: #0045C1;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 23%;
+    margin-top: 20px;
+    /* text-align: center; */
+    padding: 11px 20px;
+}
+
+.register-button:hover {
+    background-color: white;
+    color: #0045C1;
+    border: 1px solid black;
+    transition: .7s ease;
+}
+
+.alerta_erro{
+    color: black;
+    background-color: white;
+    font-size: 15px;
+}
+
+.nome_sobrenome{
+    width: 100%;
+    justify-content: space-evenly;
+    padding-top: 10px;
+
+}
+
+.nome_sobrenome label{
+    padding: 10px;
+
+}
+
+
+.cpf_email{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+
 .btn-sair{
     color: white;
     margin-left: 91px;

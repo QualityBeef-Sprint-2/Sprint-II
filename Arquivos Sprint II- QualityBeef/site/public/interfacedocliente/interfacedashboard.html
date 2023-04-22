@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,109 +11,136 @@
 
     <link rel="stylesheet" href="css/interfacedashboard.css">
 </head>
+
 <body>
 
-    
-    <div class="container">
-            <div class="hamburger">
-                <div class="lineh" id="line1"></div>
-                <div class="lineh" id="line2"></div>
-                <div class="lineh" id="line3"></div>
-            </div>
+
+    <!-- <div class="container">
+        <div class="hamburger">
+            <div class="lineh" id="line1"></div>
+            <div class="lineh" id="line2"></div>
+            <div class="lineh" id="line3"></div>
+        </div> -->
 
         <aside class="sidebar">
 
             <header class="logousuario-header">
-                <img class="logo-img" src="img/imgusuario.avif" alt="Foto do usuário">
+                <img class="img-logo" src="img/logo-branca.png" alt="">
             </header>
             <nav>
+
                 <ul class="menu">
-                    
-                    <button>
-                        <span>
-                            <img class="sidebar-img" src="img/house.png">
-                            <span class="menu-item"><a href="#" class="menu-link">HOME</a></span>
-                        </span>
-                    </button>
 
                     <button>
                         <span>
                             <img class="sidebar-img" src="img/dashboard.png">
-                            <span class="menu-item"><a href="#" class="menu-link">DASHBOARDS</a></span>
+                            <span class="menu-item">
+                                <a href="interfacedashboard.html" class="menu-link">
+                                    DASHBOARDS
+                                </a>
+                            </span>
                         </span>
                     </button>
 
                     <button>
                         <span>
                             <img class="sidebar-img" src="img/conecte-se.png">
-                            <span class="menu-item"><a href="#" class="menu-link">CADASTROS</a></span>
+                            <span class="menu-item">
+                                <a href="cadastromotorista.html" class="menu-link">
+                                    CADASTROS
+                                </a>
+                            </span>
                         </span>
                     </button>
 
                     <button>
                         <span>
                             <img class="sidebar-img" src="img/configuracoes.png">
-                            <span class="menu-item"><a href="#" class="menu-link">OPÇÕES</a></span>
+                            <span class="menu-item">
+                                <a href="#" class="menu-link">
+                                    OPÇÕES
+                                </a>
+                            </span>
                         </span>
                     </button>
 
+                    <a href="../index.html"><i class='btn-sair' id="log_out">SAIR</i></a>
+
+                 
                 </ul>
             </nav>
+
+
         </aside>
     </div>
 
     <div class="dashboards">
 
         <div class="dashboardGraficos">
-    
+
             <div class="donut">
                 <h4>100% dos sensores</h4>
                 <canvas id="sensorDonut" </canvas>
             </div>
- 
-    
+
+
+            <div class="cardAlerts">
+
+                <div class="cardNormal">
+
+                    <div class="text-alerta">
+
+                        <span>Temperatura ideal!</span>
+
+                        <p>
+                            60% dos sensores estão em
+                            temperaturas ideal.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cardAlerta">
+
+                    <div class="text-alerta">
+
+                        <span>Alerta de temperatura!</span>
+
+                        <p>
+                            25% dos sensores estão em temperaturas
+                            alarmantes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cardCritico">
+
+                    <div class="text-alerta">
+
+                        <span>Temperatura crítica!</span>
+
+                        <p> 15% dos sensores estão em temperaturas
+                            extremas.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+
         </div>
-    
-        <div class="cardAlerts">
-    
-            <div class="cardNormal">
-    
-                <span>Temperatura ideal!<br></span>
-
-                <p><br>60% dos teus sensores<br> estão na faixa de<br> temperatura ideal em teus<br> baús de veículos</p>
-                
-            </div>
-    
-            <div class="cardAlerta">
-    
-                <span>Alerta de temperatura!<br></span>
-                
-                <p><br>25% dos teus sensores<br> estão captando temperaturas<br> alarmantes em teus baús<br> de veículos.</p>
-
-            </div>
-    
-            <div class="cardCritico">
-    
-                <span>Temperatura crítica!<br></span>
-
-                <p><br>15% dos teus sensores<br> estão captando temperaturas<br> extremas em teus baús de<br> veículos.</p>
-    
-            </div>
-    
-        </div>
-
     </div>
 
-    <div class="dashboards2">
 
-        <div>
-            <button>
-                <h4><a href="interfacedashboard2.html">VERIFIQUE AQUI 4 GRÁFICOS DE TEMPERATURA SENSORES SEPARADOS DO TOTAL!</a></h4>
-            </button>
-        </div>
 
-    </div>
-    
+    <!-- <div class="dashboards2">
+
+        <a class="text-grafico" href="interfacedashboard2.html">
+            VERIFIQUE AQUI OS GRÁFICOS DA TEMPERATURA DO VEICULO!
+        </a>
+
+    </div> -->
+
 </body>
 
 <script>
@@ -154,4 +182,5 @@
 </script>
 
 <script src="js/hamburguer.js"></script>
+
 </html>
