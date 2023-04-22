@@ -69,11 +69,7 @@
                 <h4>100% dos sensores</h4>
                 <canvas id="sensorDonut" </canvas>
             </div>
-    
-            <div class="line">
-                <h4>Análise de um sensor separadamente</h4>
-                <canvas id="temperaturaLinha" </canvas>
-            </div>
+ 
     
         </div>
     
@@ -81,22 +77,38 @@
     
             <div class="cardNormal">
     
-                <span>Temperatura em estado normal!</span>
+                <span>Temperatura ideal!<br></span>
+
+                <p><br>60% dos teus sensores<br> estão na faixa de<br> temperatura ideal em teus<br> baús de veículos</p>
                 
             </div>
     
             <div class="cardAlerta">
     
-                <span>Alerta de temperatura!</span>
-    
+                <span>Alerta de temperatura!<br></span>
+                
+                <p><br>25% dos teus sensores<br> estão captando temperaturas<br> alarmantes em teus baús<br> de veículos.</p>
+
             </div>
     
             <div class="cardCritico">
     
-                <span>Temperatura em estado crítico!</span>
+                <span>Temperatura crítica!<br></span>
+
+                <p><br>15% dos teus sensores<br> estão captando temperaturas<br> extremas em teus baús de<br> veículos.</p>
     
             </div>
     
+        </div>
+
+    </div>
+
+    <div class="dashboards2">
+
+        <div>
+            <button>
+                <h4><a href="interfacedashboard2.html">VERIFIQUE AQUI 4 GRÁFICOS DE TEMPERATURA SENSORES SEPARADOS DO TOTAL!</a></h4>
+            </button>
         </div>
 
     </div>
@@ -137,58 +149,6 @@
     const sensorDonut = new Chart(
         document.getElementById('sensorDonut'),
         configSensorDonut
-    );
-
-</script>
-
-<script>
-
-    const linhaTemperatura = [
-        '00:00h',
-        '01:00h',
-        '02:00h',
-        '03:00h',
-        '04:00h',
-        '05:00h',
-        '06:00h',
-        '07:00h',
-        '08:00h',
-        '09:00h',
-        '10:00h',
-        '11:00h',
-        '12:00h',
-        '13:00h',
-        '14:00h',
-        '15:00h',
-        '16:00h',
-        '17:00h',
-        '18:00h',
-        '19:00h',
-        '20:00h',
-        '21:00h',
-        '22:00h',
-        '23:00h',
-    ]
-
-    const dataTemperaturaLinha = {
-        labels: linhaTemperatura,
-        datasets: [{
-            label: 'Temperatura (°C)',
-            backgroundColor: 'rgb(58, 86, 177)',
-            borderColor: 'rgb(58, 86, 177)',
-            data: [-0.9, -1.1, -1.2, -1.0, -1.4, -2.2, -2.0, -1.9, -1.7, -1.2, -0.3, 1.0, 1.7, 2.3, 3.0, 3.2, 2.7, 2.4, 2.1, 1.8, 1.5, 0.4, -0.3, -0.6],
-        }],
-    };
-
-    const configTemperaturaLinha = {
-        type: 'line',
-        data: dataTemperaturaLinha,
-        options: {}
-    }
-
-    const temperaturaLinha = new Chart(
-        document.getElementById('temperaturaLinha'),
-        configTemperaturaLinha
     );
 
 </script>

@@ -13,54 +13,58 @@ body{
 /* DASHBOARDS */
 
 .dashboards{
-    position: fixed;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.dashboards2{
+    display: flex;
+    justify-content: center;
 }
 
 .dashboardGraficos {
-    height: 100%;
-    width: 95%;
     display: flex;
-    padding: 50px 150px 50px 80px;
-    align-items: center;
-
+    width: 60%;
+    padding: 50px 0px 70px 200px;
 }
 
 .donut {
-    height:70%; 
-    width:70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:60%;
     padding-left: 15%;
 }
 
-.line{
+/* .line{
     display: flex;
     height: 50%; 
     width: 100%;
-}
+} */
 
 .cardAlerts {
     display: flex;
-    flex-direction: row-reverse;
-    padding: 70px 70px;
-    padding-left: 350px;
-    padding-top: 0%;
-    height: 25vh;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding-top: 70px;
+    height: 66vh;
 }
 
 .cardAlerts span {
     display: flex;
     align-items: center;
-    text-align: center;
     flex-direction: column;
 }
 
 .cardNormal {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: rgb(0, 210, 0);
-    width: 25%;
-    height: 120%;
+    width: 120%;
+    height: 30%;
     border-radius: 7%;
     transition: 0.250s ease-in-out;
 }
@@ -68,9 +72,10 @@ body{
 .cardAlerta {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: rgb(255, 102, 0);
-    width: 25%;
-    height: 120%;
+    width: 120%;
+    height: 30%;
     border-radius: 7%;
     transition: 0.250s ease-in-out;
 }
@@ -78,9 +83,10 @@ body{
 .cardCritico {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: rgb(210, 0, 0);
-    width: 25%;
-    height: 120%;
+    width: 120%;
+    height: 30%;
     border-radius: 7%;
     transition: 0.250s ease-in-out;
 }
@@ -101,7 +107,7 @@ body{
 }
 
 /* CONFIGURANDO HAMBURGER */
-.hamburger{
+/* .hamburger{
     width: 2rem;
     height: 2rem;
     position: fixed;
@@ -142,9 +148,10 @@ body{
     transform: rotate(-45deg) translate(.3rem, -.9rem);
     background-color: rgb(224, 49, 102);
     box-shadow: none;
-}
+} */
 
 /* CONFIGURANDO LOGO DO USUARIO */
+
 .logousuario-header{
     width: 100%;
     display: flex;
@@ -155,9 +162,10 @@ body{
     height: 35px;
     border-radius: 50%;
     object-fit: cover;
-    transition: transform 0.435s;
+    transition: 0.435s ease-in-out;
     margin-left: 90px;
     margin-top: 64px;
+
 }
 
 .logo-img:hover{
@@ -171,7 +179,7 @@ body{
     height: 100vh;
     background-color: #35A8DB;
     position: fixed;
-    left: -20rem;
+    left: 0rem;
     transition: all .8s;
     justify-content: center;
 }
@@ -250,7 +258,7 @@ body{
 
 /* AJUSTANDO SIDEBAR APENAS COM OS ÍCONES */
 
-@media (width < 920px){
+/* @media (width < 920px){
     .sidebar{
         width: 72px;
     }
@@ -322,4 +330,4 @@ body{
         visibility: hidden;
         font-size: 90px
     }
-}
+} */
