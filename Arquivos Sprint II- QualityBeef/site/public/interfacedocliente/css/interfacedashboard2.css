@@ -1,0 +1,340 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+/* DASHBOARDS */
+
+.dashboards {
+    padding-left: 10vw;
+    padding-top: 10vh;
+}
+
+.dashboardGraficos1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 50px 150px 50px 80px;
+    padding-left: 15%;
+}
+
+.dashboardGraficos2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 50px 150px 50px 80px;
+    padding-left: 15%;
+}
+
+
+.tempLine {
+    display: flex;
+    height: 50%; 
+    width: 70%;
+}
+
+.tempLine2 {
+    display: flex;
+    height: 50%; 
+    width: 70%;
+    padding-left: 5vw;
+}
+
+.tempLine3 {
+    display: flex;
+    height: 50%; 
+    width: 70%;
+}
+
+.tempLine4 {
+    display: flex;
+    height: 50%; 
+    width: 70%;    
+    padding-left: 5vw;
+}
+
+/* ALERTS */
+
+.alertTempLine1 {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 210, 0);
+    border-radius: 7%;
+    width: 10vw;
+    height: 5vh;
+}
+
+.alertTempLine1 span {
+    text-align: center;
+}
+
+.alertTempLine2 {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 102, 0);
+    border-radius: 7%;
+    width: 10vw;
+    height: 5vh;
+}
+
+.alertTempLine2 span {
+    text-align: center;
+}
+
+.alertTempLine3 {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(210, 0, 0);
+    border-radius: 7%;
+    width: 10vw;
+    height: 5vh;
+}
+
+.alertTempLine3 span {
+    text-align: center;
+}
+
+.alertTempLine4 {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 102, 0);
+    border-radius: 7%;
+    width: 10vw;
+    height: 5vh;
+}
+
+.alertTempLine4 span {
+    text-align: center;
+}
+
+/* CONFIGURANDO HAMBURGER */
+
+/*.hamburger{
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.show-menu .hamburger{
+    left: 11.435rem;
+}
+
+.lineh{
+    width: 100%;
+    height: .1rem;
+    padding: 1px;
+    border-radius: 10px;
+    background-color: rgb(0, 255, 179);
+    box-shadow: 0.1rem 0.1rem 3px rgba(0, 0, 0, 0.788);
+    transition: transform .7s;
+}
+
+.show-menu #line1{
+    transform: rotate(45deg) translate(.4rem, .9rem);
+    background-color: rgb(224, 49, 102);
+    box-shadow: none;
+}
+
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menu #line3{
+    transform: rotate(-45deg) translate(.3rem, -.9rem);
+    background-color: rgb(224, 49, 102);
+    box-shadow: none;
+}*/
+
+/* CONFIGURANDO LOGO DO USUARIO */
+.logousuario-header{
+    width: 100%;
+    display: flex;
+}
+
+.logo-img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.435s;
+    margin-left: 90px;
+    margin-top: 64px;
+}
+
+.logo-img:hover{
+    transform: scale(1.5);
+}
+
+
+/* CONFIGURANDO SIDEBAR */
+.sidebar{
+    width: 250px;
+    height: 100vh;
+    background-color: #35A8DB;
+    position: fixed;
+    left: 0rem;
+    transition: all .8s;
+    justify-content: center;
+}
+
+.sidebar-img{
+    width: 12%;
+}
+
+.sidebar button{
+    height: 40px;
+    background-color: transparent;
+    border: 0;
+    border-radius: 24px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.sidebar button > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 40px;
+    padding: 0 16px 0 12px;
+    border-radius: 24px;
+    line-height: 1;
+    transition: all 0.435s
+}
+
+.sidebar button:hover > span {
+    background-color: rgb(12, 101, 235);
+}
+
+.sidebar button icone-imghome {
+    position: relative;
+    transition: 0.2s;
+}
+
+.sidebar button span {
+    font-size: 16px
+}
+
+.sidebar > nav {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.show-menu .sidebar{
+    left: 0;
+}
+
+.menu{
+    padding-top: 200px;
+    position: relative;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-item{
+    text-align: center;
+}
+
+.menu-link{
+    font-family: 'Poppins';
+    font-size: 22px;
+    color: rgb(245, 245, 245);
+    transition: color .7s;
+}
+
+.menu-link:hover{
+    color: rgb(0, 255, 255);
+    transition: color .7s;
+}
+
+/* AJUSTANDO SIDEBAR APENAS COM OS ÍCONES */
+
+/*@media (width < 920px){
+    .sidebar{
+        width: 72px;
+    }
+
+    .main{
+        transition: margin 0.4s;
+        margin-left: 78px;
+    }
+
+    .logousuario-header{
+        display: flex;
+        margin-top: 32px;
+        margin-left: -4.57rem;
+    }
+
+    .show-menu .hamburger{
+        left: .5rem;
+    }
+
+    .lineh{
+        width: 100%;
+        height: .1rem;
+        padding: 1px;
+        border-radius: 10px;
+        background-color: rgb(0, 255, 179);
+        box-shadow: 0.1rem 0.1rem 3px rgba(0, 0, 0, 0.788);
+        transition: transform 1s;
+    }
+    
+    .show-menu #line1{
+        transform: rotate(45deg) translate(.4rem, .9rem);
+        background-color: rgb(224, 49, 102);
+        box-shadow: none;
+    }
+    
+    .show-menu #line2{
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .show-menu #line3{
+        transform: rotate(-45deg) translate(.3rem, -.9rem);
+        background-color: rgb(224, 49, 102);
+        box-shadow: none;
+    }
+
+    .menu{
+        padding-top: 200px;
+        position: relative;
+        left: 64%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar button{
+        height: 40px;
+        background-color: none;
+        border: 0;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .sidebar button > span {
+        width: 200px;
+    }
+
+    .sidebar button > span > span {
+        opacity: 0;
+        visibility: hidden;
+        font-size: 90px
+    }
+}*/
