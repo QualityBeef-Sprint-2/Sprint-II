@@ -125,13 +125,19 @@
                 </div>
 
             </div>
-
-
-
         </div>
     </div>
 
 
+    
+    <div class="grafico-alerta">
+
+        <div class="line">
+            <h4>Total de alertas</h4>
+            <canvas id="sensorLinha" </canvas>
+        </div>
+
+    </div>
 
     <!-- <div class="dashboards2">
 
@@ -177,6 +183,54 @@
     const sensorDonut = new Chart(
         document.getElementById('sensorDonut'),
         configSensorDonut
+    );
+
+</script>
+
+
+<script>
+
+    const linhaSensor = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+        'Agosto',
+        'Setembro',
+        'Outubro',
+        'Novembro',
+        'Dezembro',
+    ]
+
+    const dataSensorLinha = {
+        labels: linhaSensor,
+        datasets: [{
+            label: 'Status: Normal',
+            backgroundColor: 'rgb(00, 210, 00)',
+            borderColor: 'rgb(00, 210, 00)',
+            data: [55, 59, 63, 61, 62, 70, 77, 74, 71, 66, 69, 64],
+        },
+        {
+            label: 'Status: Crítico',
+            backgroundColor: 'rgb(210, 00, 00)',
+            borderColor: 'rgb(210, 00, 00)',
+            data: [31, 27, 33, 29, 26, 22, 24, 19, 20, 21, 28, 30],
+        }
+        ],
+    };
+
+    const configSensorLinha = {
+        type: 'line',
+        data: dataSensorLinha,
+        options: {}
+    }
+
+    const sensorLinha = new Chart(
+        document.getElementById('sensorLinha'),
+        configSensorLinha
     );
 
 </script>
