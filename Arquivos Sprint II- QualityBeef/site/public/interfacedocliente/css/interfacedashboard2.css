@@ -380,7 +380,7 @@ select{
 
 .menu-link{
     font-family: 'Poppins';
-    font-size: 22px;
+    font-size: 20px;
     color: rgb(245, 245, 245);
     transition: color .7s;
 }

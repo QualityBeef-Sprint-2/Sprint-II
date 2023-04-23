@@ -254,17 +254,17 @@ main .container {
 }
 
 #container-cadastro-animacao {
-    position: fixed;
+  
     border: 2px black solid;
-    top: -500px;
-    left: 59%;
     /* posiciona a tela de login acima do topo da página */
     transform: translate(-50%, 0%);
     width: 40%;
-    height: 81%;
+    height: 115%;
     display: flex;
     justify-content: center;
     animation: cadastro-animacao 1s ease forwards;
+    margin-bottom: -142px;
+    margin-left: 59%;
 }
 
 @keyframes cadastro-animacao {
@@ -330,7 +330,7 @@ main .container {
 
 .group-inputs {
     display: flex;
-    margin: 5px;
+    margin: -21px;
     justify-content: center;
 
 }
