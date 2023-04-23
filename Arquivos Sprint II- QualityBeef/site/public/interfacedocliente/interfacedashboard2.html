@@ -15,113 +15,139 @@
 <body>
 
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="hamburger">
             <div class="lineh" id="line1"></div>
             <div class="lineh" id="line2"></div>
             <div class="lineh" id="line3"></div>
-        </div>
+        </div> -->
+    <aside class="sidebar">
 
-        <aside class="sidebar">
+        <header class="logousuario-header">
+            <img class="img-logo" src="img/logo-branca.png" alt="">
+        </header>
+        <nav>
 
-            <header class="logousuario-header">
-                <img class="img-logo" src="img/logo-branca.png" alt="">
-            </header>
-            <nav>
+            <ul class="menu">
 
-                <ul class="menu">
-
-                    <button>
-                        <span>
-                            <img class="sidebar-img" src="img/dashboard.png">
-                            <span class="menu-item">
-                                <a href="interfacedashboard.html" class="menu-link">
-                                    DASHBOARDS
-                                </a>
-                            </span>
+                <button>
+                    <span>
+                        <img class="sidebar-img" src="img/dashboard.png">
+                        <span class="menu-item">
+                            <a href="interfacedashboard.html" class="menu-link">
+                                DASHBOARD
+                            </a>
                         </span>
-                    </button>
+                    </span>
+                </button>
 
-                    <button>
-                        <span>
-                            <img class="sidebar-img" src="img/conecte-se.png">
-                            <span class="menu-item">
-                                <a href="cadastromotorista.html" class="menu-link">
-                                    CADASTROS
-                                </a>
-                            </span>
+                <button>
+                    <span>
+                        <img class="sidebar-img" src="img/conecte-se.png">
+                        <span class="menu-item">
+                            <a href="cadastromotorista.html" class="menu-link">
+                                CADASTROS
+                            </a>
                         </span>
-                    </button>
+                    </span>
+                </button>
 
-                    <button>
-                        <span>
-                            <img class="sidebar-img" src="img/configuracoes.png">
-                            <span class="menu-item">
-                                <a href="#" class="menu-link">
-                                    OPÇÕES
-                                </a>
-                            </span>
+                <button>
+                    <span>
+                        <img class="sidebar-img" src="img/configuracoes.png">
+                        <span class="menu-item">
+                            <a href="#" class="menu-link">
+                                OPÇÕES
+                            </a>
                         </span>
-                    </button>
+                    </span>
+                </button>
 
-                    <a href="../index.html"><i class='btn-sair' id="log_out">SAIR</i></a>
-
-                 
-                </ul>
-            </nav>
+                <a href="../index.html"><i class='btn-sair' id="log_out">SAIR</i></a>
 
 
-        </aside>
-    </div>
+            </ul>
 
-    <div class="dashboards">
 
+        </nav>
+
+
+    </aside>
+
+
+    <div class="dashboards" >
+        <H1 class="camara">OVERVIEW CAMINHÃO 1</H1>
+        <label for="">Selecione o caminhão:</label>
+        <select name="" id="caminhao">
+            <option value="">Caminhão 1</option>
+            <option value="">Caminhão 2</option>
+            <option value="">Caminhão 3</option>
+            <option value="">Caminhão 4</option>
+            <option value="">Caminhão 5</option>
+        </select>
         <div class="dashboardGraficos1">
-
-            <div class="tempLine">
-                <canvas id="temperaturaLinha" </canvas>
+            <div class="setor1">
+                <span>Caminhão 1- <b>SETOR 1</b></span>
+                <div class="tempLine">
+                    <canvas id="temperaturaLinha" width="650" height="380"> </canvas>
+                </div>
+                <div class="alertTempLine1">
+                    <span>Sensor em estado normal</span>
+                </div>
             </div>
-            <div class="alertTempLine1">
-
-                <span>Sensor em estado normal</span>
-
+            <div class="setor2">
+                <span>Caminhão 1- <b>SETOR 2</b></span>
+                <div class="tempLine2">
+                    <canvas id="temperaturaLinha2" width="650" height="390"> </canvas>
+                </div>
+                <div class="alertTempLine2">
+                    <span>Sensor em estado alerta</span>
+                </div>
             </div>
-
-            <div class="tempLine2">
-                <canvas id="temperaturaLinha2" </canvas>
-            </div>
-            <div class="alertTempLine2">
-
-                <span>Sensor em alerta</span>
-
-            </div>
-
         </div>
+
 
         <div class="dashboardGraficos2">
 
-            <div class="tempLine3">
-                <canvas id="temperaturaLinha3" </canvas>
+            <div class="setor3">
+                <span>Caminhão 1- <b>SETOR 3</b></span>
+                <div class="tempLine3">
+                    <canvas id="temperaturaLinha3" width="650" height="380"> </canvas>
+                </div>
+                <div class="alertTempLine3">
+
+                    <span>Sensor em estado crítico</span>
+
+                </div>
             </div>
-            <div class="alertTempLine3">
 
-                <span>Sensor em estado crítico</span>
+            <div class="setor4">
+                <span>Caminhão 1 <b>SETOR 4</b></span>
+                <div class="tempLine4">
+                    <canvas id="temperaturaLinha4" width="650" height="380"> </canvas>
+                </div>
+                <div class="alertTempLine4">
 
-            </div>
+                    <span>Sensor em estado alerta</span>
 
-            <div class="tempLine4">
-                <canvas id="temperaturaLinha4" </canvas>
-            </div>
-            <div class="alertTempLine4">
-
-                <span>Sensor em alerta</span>
-
+                </div>
             </div>
 
         </div>
 
+        <div class="info">
+            <img class="caminhaoDash" src="img/caminhaodashboard.png" alt="">
+            <div class="info-caminhao">
+                <h2>Caminhão 1</h2>
+                <p><b>Motorista:</b> José Albertino Ribeira</p>
+                <p><b>CNH:</b> 14405983399</p>
+                <p><b>Telefone:</b> +55(11)999345387</p>
+                <p><b>Modelo:</b>Mercedes benz</p>
+                <p><b>Placa:</b>FCG-7623</p>
+            </div>
+        </div>
     </div>
-
+    
 </body>
 
 <script>
@@ -138,6 +164,7 @@
         '13:20h',
         '13:30h',
     ]
+
 
     const dataTemperaturaLinha = {
         labels: linhaTemperatura,
@@ -160,25 +187,9 @@
         configTemperaturaLinha
     );
 
-</script>
-
-<script>
-
-    const linhaTemperatura2 = [
-        '12:00h',
-        '12:10h',
-        '12:20h',
-        '12:30h',
-        '12:40h',
-        '12:50h',
-        '13:00h',
-        '13:10h',
-        '13:20h',
-        '13:30h',
-    ]
 
     const dataTemperaturaLinha2 = {
-        labels: linhaTemperatura2,
+        labels: linhaTemperatura,
         datasets: [{
             label: 'Sensor 2 - Temperatura (°C)',
             backgroundColor: 'rgb(58, 86, 177)',
@@ -198,25 +209,9 @@
         configTemperaturaLinha2
     );
 
-</script>
-
-<script>
-
-    const linhaTemperatura3 = [
-        '12:00h',
-        '12:10h',
-        '12:20h',
-        '12:30h',
-        '12:40h',
-        '12:50h',
-        '13:00h',
-        '13:10h',
-        '13:20h',
-        '13:30h',
-    ]
 
     const dataTemperaturaLinha3 = {
-        labels: linhaTemperatura3,
+        labels: linhaTemperatura,
         datasets: [{
             label: 'Sensor 3 - Temperatura (°C)',
             backgroundColor: 'rgb(58, 86, 177)',
@@ -236,25 +231,8 @@
         configTemperaturaLinha3
     );
 
-</script>
-
-<script>
-
-    const linhaTemperatura4 = [
-        '12:00h',
-        '12:10h',
-        '12:20h',
-        '12:30h',
-        '12:40h',
-        '12:50h',
-        '13:00h',
-        '13:10h',
-        '13:20h',
-        '13:30h',
-    ]
-
     const dataTemperaturaLinha4 = {
-        labels: linhaTemperatura4,
+        labels: linhaTemperatura,
         datasets: [{
             label: 'Sensor 4 - Temperatura (°C)',
             backgroundColor: 'rgb(58, 86, 177)',
@@ -273,6 +251,8 @@
         document.getElementById('temperaturaLinha4'),
         configTemperaturaLinha4
     );
+
+
 
 </script>
 

@@ -1,11 +1,10 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 
 *{
     margin: 0;
     padding: 0;
     text-decoration: none;
-    font-family: 'Poppins';
 }
 
 body{
@@ -13,27 +12,47 @@ body{
     height: 100%;
     background-color: rgb(255, 255, 255);
 }
+
 /* DASHBOARDS */
 
 .dashboards {
     padding-left: 10vw;
-    padding-top: 10vh;
+    text-align: center;
+    margin-left: 10px;
+    background-color:rgb(241, 241, 246);
 }
+
+h1{
+    padding-top: 2px;
+    margin-left: 20px;
+    color: #000000;
+    background: rgb(246, 246, 255)
+}
+
+label{
+    font-size: 18px;
+}
+
+
+
 
 .dashboardGraficos1 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 50px 150px 50px 80px;
-    padding-left: 15%;
+    padding: 14px 150px 50px;
+    gap: 50px;
+    margin-right: -65px;
+    
 }
 
 .dashboardGraficos2 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 50px 150px 50px 80px;
-    padding-left: 15%;
+    padding:  10px 150px 50px;
+    gap: 50px;
+    margin-right: -65px;
 }
 
 
@@ -41,26 +60,25 @@ body{
     display: flex;
     height: 50%; 
     width: 70%;
+    
 }
 
 .tempLine2 {
     display: flex;
-    height: 50%; 
+    height: 70%; 
     width: 70%;
-    padding-left: 5vw;
 }
 
 .tempLine3 {
     display: flex;
-    height: 50%; 
+    height: 70%; 
     width: 70%;
 }
 
 .tempLine4 {
     display: flex;
-    height: 50%; 
+    height: 70%; 
     width: 70%;    
-    padding-left: 5vw;
 }
 
 /* ALERTS */
@@ -68,57 +86,164 @@ body{
 .alertTempLine1 {
     display: flex;
     flex-direction: column;
-    background-color: rgb(0, 210, 0);
+    background-color: rgb(114, 250, 114);
+    border:1px green solid;
+
+    color: black;
     border-radius: 7%;
     width: 10vw;
-    height: 5vh;
+    height: 6vh;
+    
 }
 
+span{
+    font-size: 18px;
+}
 .alertTempLine1 span {
     text-align: center;
+    font-size: 18px;
 }
 
 .alertTempLine2 {
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 102, 0);
+    border:1px rgb(255, 94, 0) solid;
+    background-color: rgb(255, 172, 117);
     border-radius: 7%;
     width: 10vw;
-    height: 5vh;
+    height: 6vh;
 }
 
 .alertTempLine2 span {
     text-align: center;
+    flex-direction: column;
+    border-radius: 7%;
+    width: 10vw;
+    height: 5vh;
+    text-align: center;
+    color: black;
+    font-size: 18px;
 }
 
 .alertTempLine3 {
     display: flex;
     flex-direction: column;
-    background-color: rgb(210, 0, 0);
+    border:1px  red solid;
+    background-color: rgb(218, 77, 77);
+    color: black;
     border-radius: 7%;
     width: 10vw;
-    height: 5vh;
-}
-
-.alertTempLine3 span {
+    height: 6vh;
+    font-size: 18px;
     text-align: center;
 }
 
 .alertTempLine4 {
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 102, 0);
+    border:1px rgb(255, 94, 0) solid;
+    background-color: rgb(255, 172, 117);
     border-radius: 7%;
     width: 10vw;
-    height: 5vh;
+    height: 6vh;
+    color:black;
+    font-size: 18px;
+    text-align: center;
 }
 
-.alertTempLine4 span {
+
+.setor1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    width: 900px;
+    background-color: rgb(255, 250, 243);
+    border:2px green solid;
+        box-shadow: 10px 4px 27px -6px black;
+
+}
+
+.setor2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    width: 900px;
+    background-color: rgb(255, 250, 243);
+    border:2px rgb(255, 94, 0) solid;
+        box-shadow: 10px 4px 27px -6px black;
+
+}
+
+.setor3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    width: 900px;
+    background-color: rgb(255, 250, 243);
+    border:2px red solid;
+        box-shadow: 10px 4px 27px -6px black;
+
+}
+
+.setor4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    width: 900px;
+    background-color: rgb(255, 250, 243);
+    border:2px rgb(255, 94, 0) solid;
+        box-shadow: 10px 4px 27px -6px black;
+
+}
+
+select{
+    background-color: rgb(248, 248, 255);
+    color: black;
+    border: 1px black solid;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+}
+.caminhaoDash{
+    height: 115px;
+    width: 36%;
+}
+
+.info-caminhao{
+    height: 120px;
+    width: 220px;
+    border-radius: 15px;
+    padding-bottom: 10px;
+    background-color: #e9f5ff;
+    border: 2px black solid;
+    padding-left: 10px;
+    text-align: start;
+    box-shadow:  6px 4px 20px -4px black;
+}
+
+.info-caminhao h2{
     text-align: center;
 }
 
 /* CONFIGURANDO HAMBURGER */
-/* .hamburger{
+
+/*.hamburger{
     width: 2rem;
     height: 2rem;
     position: fixed;
@@ -159,7 +284,7 @@ body{
     transform: rotate(-45deg) translate(.3rem, -.9rem);
     background-color: rgb(224, 49, 102);
     box-shadow: none;
-} */
+}*/
 
 /* CONFIGURANDO LOGO DO USUARIO */
 
@@ -197,7 +322,6 @@ body{
 
 .sidebar-img{
     width: 12%;
-    background-color: white;
 }
 
 .sidebar button{
@@ -219,9 +343,6 @@ body{
     transition: all 0.435s
 }
 
-.sidebar button:hover > span {
-    background-color: white;
-}
 
 .sidebar button icone-imghome {
     position: relative;
@@ -277,10 +398,19 @@ body{
 
 }
 
+.sidebar button:hover > span {
+    background-color: white;
+}
+
+.btn-sair{
+    color: white;
+    margin-left: 91px;
+
+}
 
 /* AJUSTANDO SIDEBAR APENAS COM OS ÍCONES */
 
-/* @media (width < 920px){
+/*@media (width < 920px){
     .sidebar{
         width: 72px;
     }
@@ -352,10 +482,4 @@ body{
         visibility: hidden;
         font-size: 90px
     }
-} */
-
-.btn-sair{
-    color: white;
-    margin-left: 91px;
-
-}
+}*/

@@ -21,63 +21,62 @@
             <div class="lineh" id="line2"></div>
             <div class="lineh" id="line3"></div>
         </div> -->
+    <aside class="sidebar">
 
-        <aside class="sidebar">
+        <header class="logousuario-header">
+            <img class="img-logo" src="img/logo-branca.png" alt="">
+        </header>
+        <nav>
 
-            <header class="logousuario-header">
-                <img class="img-logo" src="img/logo-branca.png" alt="">
-            </header>
-            <nav>
+            <ul class="menu">
 
-                <ul class="menu">
-
-                    <button>
-                        <span>
-                            <img class="sidebar-img" src="img/dashboard.png">
-                            <span class="menu-item">
-                                <a href="interfacedashboard.html" class="menu-link">
-                                    DASHBOARDS
-                                </a>
-                            </span>
+                <button>
+                    <span>
+                        <img class="sidebar-img" src="img/dashboard.png">
+                        <span class="menu-item">
+                            <a href="interfacedashboard.html" class="menu-link">
+                                DASHBOARD
+                            </a>
                         </span>
-                    </button>
+                    </span>
+                </button>
 
-                    <button>
-                        <span>
-                            <img class="sidebar-img" src="img/conecte-se.png">
-                            <span class="menu-item">
-                                <a href="cadastromotorista.html" class="menu-link">
-                                    CADASTROS
-                                </a>
-                            </span>
+                <button>
+                    <span>
+                        <img class="sidebar-img" src="img/conecte-se.png">
+                        <span class="menu-item">
+                            <a href="cadastromotorista.html" class="menu-link">
+                                CADASTROS
+                            </a>
                         </span>
-                    </button>
+                    </span>
+                </button>
 
-                    <button>
-                        <span>
-                            <img class="sidebar-img" src="img/configuracoes.png">
-                            <span class="menu-item">
-                                <a href="#" class="menu-link">
-                                    OPÇÕES
-                                </a>
-                            </span>
+                <button>
+                    <span>
+                        <img class="sidebar-img" src="img/configuracoes.png">
+                        <span class="menu-item">
+                            <a href="#" class="menu-link">
+                                OPÇÕES
+                            </a>
                         </span>
-                    </button>
+                    </span>
+                </button>
 
-                    <a href="../index.html"><i class='btn-sair' id="log_out">SAIR</i></a>
-
-                 
-                </ul>
-            </nav>
+                <a href="../index.html"><i class='btn-sair' id="log_out">SAIR</i></a>
 
 
-        </aside>
-    </div>
+            </ul>
 
-    <div class="dashboards">
 
+        </nav>
+
+
+    </aside>
+
+    <div class="dashboards" >
+       
         <div class="dashboardGraficos">
-
             <div class="donut">
                 <h4>100% dos sensores</h4>
                 <canvas id="sensorDonut" </canvas>
@@ -85,15 +84,24 @@
 
 
             <div class="cardAlerts">
+                <div class="filtro">
+                    <select name="" id="">
+                        <option value="">Mensal</option>
+                        <option value="">Diário</option>
+                        <option value="">Trimestral</option>
+                        <option value="">Semestral</option>
+                        <option value="">Anual</option>
+                    </select>
+                </div>
 
                 <div class="cardNormal">
 
                     <div class="text-alerta">
 
                         <span>Temperatura ideal!</span>
-
+                        <span class="alert-porcentagem">60%</span>
                         <p>
-                            60% dos sensores estão em
+                             dos sensores estão em
                             temperaturas ideal.
                         </p>
                     </div>
@@ -104,9 +112,9 @@
                     <div class="text-alerta">
 
                         <span>Alerta de temperatura!</span>
-
+                        <span class="alert-porcentagem">25%</span>
                         <p>
-                            25% dos sensores estão em temperaturas
+                             dos sensores estão em temperaturas
                             alarmantes.
                         </p>
                     </div>
@@ -117,33 +125,33 @@
                     <div class="text-alerta">
 
                         <span>Temperatura crítica!</span>
-
-                        <p> 15% dos sensores estão em temperaturas
+                        <span class="alert-porcentagem">15%</span>  
+                        <p> dos sensores estão em temperaturas
                             extremas.
                         </p>
                     </div>
                 </div>
+                <a class="botão-dashboard2" href="interfacedashboard2.html">
+                    VISUZALIZAR CÂMARAS EM RISCO AO VIVO
+                </a>
 
             </div>
         </div>
     </div>
-
-
-    
     <div class="grafico-alerta">
 
         <div class="line">
-            <h4>Total de alertas</h4>
-            <canvas id="sensorLinha" </canvas>
+            <h4 class="total-alertas">Total de alertas:</h4>
+            <canvas id="sensorLinha" width="350vw" height="100px"> </canvas>
         </div>
 
     </div>
+    
+
+
+
 
     <!-- <div class="dashboards2">
-
-        <a class="text-grafico" href="interfacedashboard2.html">
-            VERIFIQUE AQUI OS GRÁFICOS DA TEMPERATURA DO VEICULO!
-        </a>
 
     </div> -->
 
@@ -163,9 +171,9 @@
             label: 'Status (%)',
             data: [15, 25, 60],
             backgroundColor:
-                ['rgb(210, 0, 0)',
-                    'rgb(255, 102, 0)',
-                    'rgb(0, 210, 0)'],
+                ['rgb(197, 46, 46)',
+                    ' rgb(255, 172, 117)',
+                    ' rgb(114, 250, 114)'],
             borderColor:
                 ['rgb(210, 0, 0)',
                     'rgb(255, 102, 0)',
