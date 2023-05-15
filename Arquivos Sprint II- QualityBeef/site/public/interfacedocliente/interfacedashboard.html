@@ -8,74 +8,97 @@
     <title>Barra Lateral</title>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <link rel="stylesheet" href="css/interfacedashboard.css">
 </head>
 
 <body>
 
+    <div class="navgation">
 
-    <!-- <div class="container">
-        <div class="hamburger">
-            <div class="lineh" id="line1"></div>
-            <div class="lineh" id="line2"></div>
-            <div class="lineh" id="line3"></div>
-        </div> -->
-    <aside class="sidebar">
 
-        <header class="logousuario-header">
+        <div class="logo">
             <img class="img-logo" src="img/logo-branca.png" alt="">
-        </header>
-        <nav>
+        </div>
 
-            <ul class="menu">
-
-                <button>
-                    <span>
-                        <img class="sidebar-img" src="img/dashboard.png">
-                        <span class="menu-item">
-                            <a href="interfacedashboard.html" class="menu-link">
-                                DASHBOARD
-                            </a>
-                        </span>
-                    </span>
-                </button>
-
-                <button>
-                    <span>
-                        <img class="sidebar-img" src="img/conecte-se.png">
-                        <span class="menu-item">
-                            <a href="cadastromotorista.html" class="menu-link">
-                                CADASTROS
-                            </a>
-                        </span>
-                    </span>
-                </button>
-
-                <button>
-                    <span>
-                        <img class="sidebar-img" src="img/configuracoes.png">
-                        <span class="menu-item">
-                            <a href="cadastroUsuario.html" class="menu-link">
-                                NOVOS USUARIOS
-                            </a>
-                        </span>
-                    </span>
-                </button>
-
-                <a href="../index.html"><i class='btn-sair' id="log_out">SAIR</i></a>
+        <div class="search-box">
+            <input type="text" class="search-txt" placeholder="pesquisar por placa">
+            <a href="#" class="search-btn">
+                <img src="img/pesquisa.svg" alt="lupa" height="20" width="20">
+            </a>
+        </div>
 
 
-            </ul>
+        <ul>
+            <li class="list">
+            </li>
+
+            <li class="list">
+                <a href="interfacedashboard.html">
+                    <div class="div-dash">
+                        <img class="img-dash" src="img/dashboard.png" alt="">
+                    </div>
+                    <span class="list">Dashbord</span> <!-- Dashbord -->
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="interfacedashboard2.html">
+                    <div class="div-caminhaozinho">
+                        <img class="img-caminhaozinho" src="img/caminhaozinho.png" alt="">
+                    </div>
+                    <span class="list">Placa do caminhão: FCG-7623</span> <!-- Caminhao1 -->
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="#">
+                    <div class="div-caminhaozinho2">
+                        <img class="img-caminhaozinho2" src="img/caminhaozinho.png" alt="">
+                    </div>
+                    <span class="list">Placa do caminhão: EPH-9215</span> <!-- caminhao2 W-->
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="cadastroUsuario.html">
+                    <div class="div-conect">
+                        <img class="img-conect" src="img/conecte-se.png" alt="">
+                    </div>
+                    <span class="list">Novos usuários</span>
+                    
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="cadastroveiculo.html">
+                    <div class="div-config">
+                        <img class="img-config" src="img/configuracoes.png" alt="">
+                    </div>
+                    <span class="list">Novos veiculos</span>
+                    
+                </a>
+            </li>
 
 
-        </nav>
+            <li class="list">
+                <a href="../index.html">
+                    <div class="div-sair">
+                        <img class="img-sair" src="img/botão-sair.png" alt="">
+                    </div>
+                    <span class="list">Sair</span> 
+                </a>
+            </li>
+        </ul>
+    </div>
 
 
-    </aside>
 
-    <div class="dashboards" >
-       
+
+
+
+
+    <div class="dashboards">
+
         <div class="dashboardGraficos">
             <div class="donut">
                 <h4>100% dos sensores</h4>
@@ -101,7 +124,7 @@
                         <span>Temperatura ideal!</span>
                         <span class="alert-porcentagem">60%</span>
                         <p>
-                             dos sensores estão em
+                            dos sensores estão em
                             temperaturas ideal.
                         </p>
                     </div>
@@ -114,7 +137,7 @@
                         <span>Alerta de temperatura!</span>
                         <span class="alert-porcentagem">25%</span>
                         <p>
-                             dos sensores estão em temperaturas
+                            dos sensores estão em temperaturas
                             alarmantes.
                         </p>
                     </div>
@@ -125,19 +148,19 @@
                     <div class="text-alerta">
 
                         <span>Temperatura crítica!</span>
-                        <span class="alert-porcentagem">15%</span>  
+                        <span class="alert-porcentagem">15%</span>
                         <p> dos sensores estão em temperaturas
                             extremas.
                         </p>
                     </div>
                 </div>
-                <a class="botão-dashboard2" href="interfacedashboard2.html">
-                    VISUZALIZAR CÂMARAS EM RISCO AO VIVO
-                </a>
+
 
             </div>
         </div>
     </div>
+
+
     <div class="grafico-alerta">
 
         <div class="line">
@@ -146,14 +169,7 @@
         </div>
 
     </div>
-    
 
-
-
-
-    <!-- <div class="dashboards2">
-
-    </div> -->
 
 </body>
 
