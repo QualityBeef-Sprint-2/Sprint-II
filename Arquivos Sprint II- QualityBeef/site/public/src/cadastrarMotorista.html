@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de motorista- QualityBeef</title>
+    <script src="./js/funcoes.js"></script>
+    <link rel="stylesheet" href="cssmotorista/cssmotorista.css">
+</head>
+
+<body>
+
+
+    <body>
+
+        <header>
+            <header>
+                <nav>
+
+                    <img class="logo" src="img/logo.png" alt="">
+
+                    <div class="mobile-menu">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+
+                    <ul class="nav-list">
+                        <li>
+                            <a href="index.html">Home
+                                <div class="barra"></div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#quemsomos">Sobre nós
+                                <div class="barra"></div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#produto">Produto
+                                <div class="barra"></div>
+                            </a>
+                        </li>
+
+                        <li>
+
+                            <a href="index.html#calculadora">Calculadora
+                                <div class="barra"></div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#faleConosco">Contato
+                                <div class="barra"></div>
+                            </a>
+                        </li>
+
+                        <li>
+                            |
+                        </li>
+
+                        <li>
+                            <a href="login.html">Login
+                                <div class="barra"></div>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="cadastro.html">Cadastro
+                                <div class="barra"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Área de cadastro -->
+            <main>
+                <div class="container" id="container-cadastro-animacao">
+                    <div class="form-image">
+                        <img class="img_cad" src="img/logo.png" alt="">
+                    </div>
+                    <div class="form">
+                        <form action="#">
+                            <div class="form-header">
+                                <div class="title">
+                                    <h1>Cadastre seus motoristas!</h1>
+                                </div>
+                            </div>
+                            <!-- Área de inputs das informações para cadastro -->
+                            <div class="group-inputs">
+                                <div>
+                                    <div class="nome_sobrenome">
+                                        <div class="input">
+                                            <label for="nomeMotorista">Nome</label>
+                                            <input type="text" id="nomeUsuario" placeholder="Digite seu nome">
+                                        </div>
+
+                                        <div class="input">
+                                            <label for="sobrenomeMotorista">Sobrenome:</label>
+                                            <input type="text" id="sobrenomeUsuario" placeholder="Digite seu sobrenome">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="veiculo_motorista">
+                                        <div class="input">
+                                            <label for="cpf">Veiculo:</label>
+                                            <input type="number" id="cpf" placeholder="">
+                                        </div>
+
+                                        <div class="input">
+                                            <label for="Placa">Placa:</label>
+                                            <input type="text" id="placa" placeholder="BRA 2020">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="senha">
+                                        <div class="input">
+                                            <label for="Telefone">Senha:</label>
+                                            <input type="password" id="senha" placeholder="(XX)XXXX-XXXX">
+                                        </div>
+
+                                        <div class="input">
+                                            <label for="ConfirmarSenha">Confirmar Senha:</label>
+                                            <input type="password" id="confirmarSenha" placeholder="Repita a senha">
+                                        </div>
+                                    </div>
+
+                                    <div class="token">
+                                        <div class="input">
+                                            <label for="Token Empresa">Informe o token da empresa</label>
+                                            <input type="text" id="fktoken" placeholder="123">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Termos de política e privacidade , botão linkado com a área de usuário -->
+                            <div class="politicas-input">
+                                <input type="checkbox" id="privacidade" class="checkbox">
+                                <label for="privacidade" class="label-politica">Eu li e estou de acordo com a <a
+                                        style="color: blue" ; href="politcs.html">Política de Privacidade e Termos de
+                                        Uso
+                                    </a>da QualityBeef
+                                </label>
+                            </div>
+
+                            <div>
+                                <a onclick="cadastrarUsuario()" class="register-button">Cadastrar</a>
+                            </div>
+                            <div class="alerta_erro">
+                                <div class="card_erro" id="cardErro">
+                                    <span id="mensagem_erro"></span>
+                                </div>
+                            </div>
+                            <div id="div_aguardar" class="loading-div">
+                            </div>
+                            <div id="div_erros_login"></div>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </main>
+
+
+    </body>
+
+    </html>
+
+    <script>
+        function cadastrarUsuario() {
+            aguardar();
+
+            //Recupere o valor da nova input pelo nome do id
+            // Agora vá para o método fetch logo abaixo
+            var nomeVar = nomeUsuario.value;
+            var sobrenomeVar = sobrenomeUsuario.value;
+            var cpfVar = cpf.value;
+            var emailVar = email.value;
+            var senhaVar = senha.value;
+            var confirmarSenhaVar = confirmarSenha.value;
+            var fktokenVar = fktoken.value;
+
+
+            if (nomeVar == "" || sobrenomeVar == "" || cpfVar == "" || emailVar == "" ||
+                senhaVar == "" || confirmarSenhaVar == "" || fktokenVar == "") {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "Preencha todos os campos";
+
+                finalizarAguardar();
+                return false;
+            } else if (emailVar.search("@") == -1) {
+                mensagem_erro.innerHTML = "Insira um email válido";
+            } else if (senhaVar != confirmarSenhaVar) {
+                mensagem_erro.innerHTML = "Insira senhas idênticas";
+            }
+            else {
+                setInterval(sumirMensagem, 5000);
+            }
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrarUsuario", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeUsuarioServer: nomeVar,
+                    sobrenomeServer: sobrenomeVar,
+                    cpfServer: cpfVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                    fktokenServer : fktokenVar
+
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+                    mensagem_erro.innerHTML = "Cadastro de usuario realizado com sucesso! Redirecionando para tela de login...";
+
+                    window.location = "login.html";
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+            return false;
+        }
+
+        function sumirMensagem() {
+            cardErro.style.display = "none"
+        }
+
+    </script>
