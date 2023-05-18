@@ -31,7 +31,7 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+function buscarMedidasEmTempoReal(idSetor) {
 
     instrucaoSql = ''
 
@@ -41,17 +41,13 @@ function buscarMedidasEmTempoReal(idAquario) {
         dht11_umidade as umidade,  
                         CONVERT(varchar, momento, 108) as momento_grafico, 
                         fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
+                        from medida where fk_aquario = ${idSetor} 
                     order by id desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc limit 1`;
+        instrucaoSql = `select area1 as temperatura,
+        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico,
+        fkSetor from medida where fkSetor = ${idSetor} ORDER BY momento_Grafico DESC LIMIT 1;`
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
