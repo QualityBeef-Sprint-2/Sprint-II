@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de motorista- QualityBeef</title>
-    <script src="./js/funcoes.js"></script>
+    <script src="../js/funcoes.js"></script>
     <link rel="stylesheet" href="css/cadastromotorista.css">
 </head>
 
@@ -64,7 +64,7 @@
                         <img class="img-conect" src="img/conecte-se.png" alt="">
                     </div>
                     <span class="list">Novos usuários</span>
-                    
+
                 </a>
             </li>
 
@@ -88,53 +88,124 @@
                 </a>
             </li>
         </ul>
-    </div
+    </div>
 
-    
-    <!-- Área de cadastro -->
+<!-- ÁREA DE CADASTRO MOTORISTAS -->
+
     <main>
         <div class="container" id="container-cadastro-animacao">
 
-            <div class="form">
-                <form action="../index.html">
-                    <div class="form-header">
-                        <div class="title">
-                            <h1>Cadastre seus motoristas!</h1>
-                        </div>
+        <div class="form">
+            <form action="../index.html">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Cadastre seus motoristas!</h1>
                     </div>
-                    <!-- Área de inputs das informações para cadastro -->
-                    <div class="group-inputs">
-                        <div>
-                            <div class="nome_sobrenome">
-                                <div class="input">
-                                    <label for="nomeMotorista">Nome:</label>
-                                    <input type="text" id="nomeUsuario" placeholder="Digite seu nome">
-                                </div>
-
-                                <div class="input">
-                                    <label for="sobrenomeMotorista">Sobrenome:</label>
-                                    <input type="text" id="sobrenomeUsuario" placeholder="Digite seu sobrenome">
-                                </div>
-
-
-                                <div class="input">
-                                    <label for="cnh">CNH:</label>
-                                    <input type="number" id="cnh" placeholder="XXXXXXXXXXX">
-                                </div>
-                                <div class="input">
-                                    <label for="telefone">Telefone contato:</label>
-                                    <input type="number" id="placa" placeholder="(XX)XXXXX-XXXX">
-                                </div>
+                </div>
+                <!-- Área de inputs das informações para cadastro -->
+                <div class="group-inputs">
+                    <div>
+                        <div class="nome_sobrenome">
+                            <div class="input">
+                                <label for="nomeMotorista">Nome:</label>
+                                <input type="text" id="nomeMotorista" placeholder="Digite seu nome">
                             </div>
-                            <div>
-                                <a href="cadastroveiculo.html" class="register-button">Cadastrar</a>
+
+                            <div class="input">
+                                <label for="sobrenomeMotorista">Sobrenome:</label>
+                                <input type="text" id="sobrenomeMotorista" placeholder="Digite seu sobrenome">
+                            </div>
+
+
+                            <div class="input">
+                                <label for="cnh">CNH:</label>
+                                <input type="number" id="cnh" placeholder="XXXXXXXXXXX">
+                            </div>
+                            <div class="input">
+                                <label for="telefone">Telefone contato:</label>
+                                <input type="number" id="telefone" placeholder="(XX)XXXXX-XXXX">
                             </div>
                         </div>
+                        <div>
+                            <a onclick="cadastrarMotorista()" class="register-button">Cadastrar</a>
+                        </div>
+                        <div class="alerta_erro">
+                            <div class="card_erro" id="cardErro">
+                                <span id="mensagem_erro"></span>
+                            </div>
+                        </div>
+                        <div id="div_aguardar" class="loading-div">
+                        </div>
+                        <div id="div_erros_login"></div>
+                    </div>
                 </form>
             </div>
         </div>
     </main>
-
+    
 </body>
 
 </html>
+
+<script>
+    function cadastrarMotorista() {
+        aguardar();
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nomeMotorista.value;
+        var sobrenomeVar = sobrenomeMotorista.value;
+        var cnhVar = cnh.value;
+        var telefoneVar = telefone.value;
+        if (nomeVar == "" || sobrenomeVar == "" || cnhVar == "" || telefoneVar == "") {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Preencha todos os campos";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000);
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarMotorista", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeUsuarioServer: nomeVar,
+                sobrenomeServer: sobrenomeVar,
+                cnhServer: cnhVar,
+                telefoneServer: telefoneVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "Cadastro de motorista realizado com sucesso!";
+
+                window.location = "interfacedashboard.html";
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

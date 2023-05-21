@@ -199,35 +199,7 @@ verificar_autenticacao();
 //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Camara " + idSetor + "</span>"
 // }
 
-function exibirAquario(idSetor) {
-    let todosOsGraficos = document.getElementById("graficos")
 
-    for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
-        // exibindo - ou não - o gráfico
-        let elementoAtual = document.getElementById(`grafico${i}`)
-        if (elementoAtual.classList.contains("display-block")) {
-            elementoAtual.classList.remove("display-block")
-        }
-        elementoAtual.classList.add("display-none")
-        
-        // alterando estilo do botão
-        let btnAtual = document.getElementById(`btnAquario${i}`)
-        if (btnAtual.classList.contains("btn-pink")) {
-            btnAtual.classList.remove("btn-pink")
-        }
-        btnAtual.classList.add("btn-white")
-    }
-    
-    // exibindo - ou não - o gráfico
-    let graficoExibir = document.getElementById(`grafico${idSetor}`)
-    graficoExibir.classList.remove("display-none")
-    graficoExibir.classList.add("display-block")
-    
-    // alterando estilo do botão
-    let btnExibir = document.getElementById(`btnAquario${idSetor}`)
-    btnExibir.classList.remove("btn-white")
-    btnExibir.classList.add("btn-pink")
-}
 
 function obterDadosGrafico(idSetor) {
 
@@ -237,7 +209,7 @@ function obterDadosGrafico(idSetor) {
         clearTimeout(proximaAtualizacao);
     }
 
-    fetch(`/medidas/tempo-real/${idSetor}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/medidas/ultimas/${idSetor}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -286,6 +258,7 @@ function plotarGrafico(resposta, idSetor) {
         var registro = resposta[i];
         labels.push(registro.momento_grafico);
         dados.datasets[0].data.push(registro.temperatura);
+
     }
 
     console.log('----------------------------------------------')
@@ -336,7 +309,7 @@ function atualizarGrafico(idSetor, dados, myChart) {
                 if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
                     console.log("---------------------------------------------------------------")
                     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                    avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                  /*   avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará." */
                     console.log("Horário do novo dado capturado:")
                     console.log(novoRegistro[0].momento_grafico)
                     console.log("Horário do último dado capturado:")

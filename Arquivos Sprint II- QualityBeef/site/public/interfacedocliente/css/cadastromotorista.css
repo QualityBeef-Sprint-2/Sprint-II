@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 *{
@@ -13,6 +12,7 @@ body{
     height: 100%;
     background-color: rgb(255, 255, 255);
 }
+
 
 
 .logousuario-header{
@@ -36,111 +36,195 @@ body{
 }
 
 
-/* CONFIGURANDO SIDEBAR */
-.sidebar{
-    width: 250px;
-    height: 100vh;
-    background-color: #142442;
-    position: fixed;
-    left: 0rem;
-    transition: all .8s;
+/* SIDEBAR */
+
+.logo{
+    width: 100%;
+    display: flex;
     justify-content: center;
 }
 
-.sidebar-img{
-    width: 12%;
+.img-logo{
+   margin-left: 10px;
+    margin-top: 10px;
+    width: 73%;   
 }
 
-.sidebar button{
-    height: 40px;
-    background-color: transparent;
-    border: 0;
-    border-radius: 24px;
-    cursor: pointer;
-    text-align: left;
-}
 
-.sidebar button > span {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    height: 40px;
-    padding: 0 16px 0 12px;
-    line-height: 1;
-    transition: all 0.435s
-}
-
-.sidebar button:hover > span {
-    background-color: white;
-}
-
-.sidebar button icone-imghome {
-    position: relative;
-    transition: 0.2s;
-}
-
-.sidebar button span {
-    font-size: 16px
-}
-
-.sidebar > nav {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    line-height: 6;
-    margin-top: 39%
-}
-
-.show-menu .sidebar{
-    left: 0;
-}
-
-.menu{
-    padding-top: 200px;
-    position: relative;
-    top: 30%;
+.search-box{
+    position: absolute;
+    top: 33%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: #0a1b2d;
+    height: 40px;
+    padding: 10px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.menu-item{
-    text-align: center;
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    color: #f0f5fb;
+    font-size: 16px;
+    line-height: 40px;
+    width: 170px;
+    transition: .5s;
 }
 
-.menu-link{
-    font-family: 'Poppins';
-    font-size: 20px;
-    color: rgb(245, 245, 245);
-    transition: color .7s;
+.search-btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 2%;
+    background: #0a1b2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.menu-link:hover{
-    color: #142442;
-    transition: color .7s;
+/* .search-box:hover > .search-txt{
+    width: 170px;
+} */
+
+
+
+.navgation{
+    position: absolute;
+    height: 100vh;
+    width: 18%;
+    background: #142442;
+    box-shadow: 10px 0 0 #35a9db;
 }
 
-.img-logo{
-    width: 76%;
-    height: 21vh;
-    margin-left: 22px;
-    margin-top: 23px
 
+.navgation ul{
+    position: absolute;
+    top: 32%;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 40px;
 }
 
+.navgation ul li{
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
 
-.btn-sair{
+.navgation ul li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
     color: white;
-    margin-left: 91px;
-    width: 200px;
-}
-
-.btn-sair:hover{
-    color: black;
-    padding: 2px;
-    border: 1px solid black;
     transition: .7s ease;
 }
+
+
+.navgation ul li a:hover{
+    transition: .7s ease;
+    color:white;
+    background-color: #35a9db;
+    border-top-left-radius: 7%;
+    border-bottom-left-radius: 7%;
+}
+
+.navgation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.navgation ul li a .icon ion-icon{
+    position: relative;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+.navgation ul li a .title{
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+.div-dash{
+    width: 25%;
+}
+
+.img-dash{
+    width: 60%;
+    margin-left: 3px;
+    margin-top: 16px;
+}
+
+
+.div-caminhaozinho{
+    width: 25%;
+}
+
+.img-caminhaozinho{
+    width: 75%;
+    margin-left: 3px;
+    margin-top: 11px;
+}
+
+
+.div-caminhaozinho2{
+    width: 25%;
+}
+
+.img-caminhaozinho2{
+    width: 75%;
+    margin-left: 3px;
+    margin-top: 11px;
+}
+
+.div-conect{
+    width: 25%;
+}
+
+.img-conect{
+    width: 60%;
+    margin-left: 3px;
+    margin-top: 11px;
+}
+
+
+.div-config{
+    width: 25%;
+}
+
+.img-config{
+    width: 60%;
+    margin-left: 3px;
+    margin-top: 11px;
+}
+
+.div-sair{
+    width: 25%;
+}
+
+.img-sair{
+    width: 60%;
+    margin-left: 3px;
+    margin-top: 11px;
+}
+
 
 
 

@@ -130,7 +130,7 @@
                                     <input type="number" id="token" placeholder="token da empresa">
                                 </div>
 
-                                 <div class="form-token">
+                                <div class="form-token">
                                     <label for="tokenConfirmar">Confirmar Token:</label>
                                     <input type="number" id="tokenConfirmar" placeholder="token da empresa">
                                 </div>
@@ -179,21 +179,38 @@
             var cnpjVar = cnpj.value;
             var cepVar = cep.value;
             var telefoneVar = telefone.value;
-            
+
 
             if (tokenVar == "" || nomeVar == "" || cnpjVar == "" || cepVar == "" || telefoneVar == "") {
                 cardErro.style.display = "block"
                 mensagem_erro.innerHTML = "Preencha todos os campos";
 
+                finalizarAguardar();
+                return false;
+            } else if (cepVar.length != 8) {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "Preencha um cep válido(8 dígitos)";
+                finalizarAguardar();
+                return false;
+            }else if(cnpjVar.length != 14){
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "Preencha um cnpj válido(14 dígitos)";
+                finalizarAguardar();
+                return false;
+            }else if(telefoneVar.length < 10){
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "Preencha um número de telefone válido(com ddd)";
+                finalizarAguardar();
+                return false;
             }else if (tokenConfirmarVar != tokenVar) {
-                
+
                 cardErro.style.display = "block"
                 mensagem_erro.innerHTML = "Os token não estão indênticos";
 
                 finalizarAguardar();
                 return false;
 
-            }else {
+            } else {
                 setInterval(sumirMensagem, 5000)
             }
 

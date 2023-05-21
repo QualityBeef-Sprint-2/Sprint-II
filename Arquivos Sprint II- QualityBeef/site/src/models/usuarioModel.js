@@ -41,10 +41,40 @@ function cadastrarUsuario(nome, sobrenome, cpf, email, senha, fktoken) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function cadastrarFuncionario(nome, sobrenome, cpf, email, senha, fktoken) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, sobrenome, cpf, email, senha);
+
+    var instrucao =`
+        INSERT INTO usuario (nome, sobrenome, cpf, email, senha, fktoken) VALUES ('${nome}', '${sobrenome}', '${cpf}' ,'${email}', '${senha}', '${fktoken}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function cadastrarVeiculo(modelo, placa, token, sensor) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", modelo,placa,token,sensor);
+
+    var instrucao =`
+        INSERT INTO veiculo (modelo, placa, token, qtdSensor) VALUES ('${modelo}', '${placa}', '${token}' ,'${sensor}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function cadastrarMotorista(nome, sobrenome, cnh, telefone) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, sobrenome, cnh, telefone);
+
+    var instrucao =`
+        INSERT INTO Motorista (nome, sobrenome, CNH, telContato ) VALUES ('${nome}', '${sobrenome}', '${cnh}' ,'${telefone}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     entrar,
     cadastrar,
     cadastrarUsuario,
+    cadastrarFuncionario,
+    cadastrarVeiculo,
+    cadastrarMotorista,
     listar,
 };

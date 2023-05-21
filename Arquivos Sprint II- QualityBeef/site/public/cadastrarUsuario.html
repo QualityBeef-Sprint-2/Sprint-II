@@ -201,13 +201,20 @@
                 senhaVar == "" || confirmarSenhaVar == "" || fktokenVar == "") {
                 cardErro.style.display = "block";
                 mensagem_erro.innerHTML = "Preencha todos os campos";
-
                 finalizarAguardar();
                 return false;
             } else if (emailVar.search("@") == -1) {
                 mensagem_erro.innerHTML = "Insira um email válido";
+                finalizarAguardar();
+                return false;
             } else if (senhaVar != confirmarSenhaVar) {
                 mensagem_erro.innerHTML = "Insira senhas idênticas";
+                finalizarAguardar();
+                return false;
+            }else if(cpfVar.length = 11){
+                mensagem_erro.innerHTML = "Insira um cpf válido";
+                finalizarAguardar();
+                return false;
             }
             else {
                 setInterval(sumirMensagem, 5000);

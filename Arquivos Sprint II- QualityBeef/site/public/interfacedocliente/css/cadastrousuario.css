@@ -335,7 +335,7 @@ main .container {
 
 .group-inputs {
     display: flex;
-    margin: -21px;
+    margin: -48px;
     justify-content: center;
 
 }
@@ -424,7 +424,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .nome_sobrenome label{
-    padding: 10px;
+    padding: 5px;
 
 }
 

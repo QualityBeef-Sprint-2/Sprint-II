@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de motorista- QualityBeef</title>
-    <script src="./js/funcoes.js"></script>
+    <script src="../js/funcoes.js"></script>
     <link rel="stylesheet" href="css/cadastroveiculo.css">
 </head>
 
@@ -111,23 +111,33 @@
                             <div class="nome_sobrenome">
                                 <div class="input">
                                     <label for="nomeMotorista">Modelo:</label>
-                                    <input type="text" id="nomeUsuario" placeholder="Digite o modelo do veiculo">
+                                    <input type="text" id="modelo" placeholder="Digite o modelo do veiculo">
                                 </div>
 
                                 <div class="input">
                                     <label for="sobrenomeMotorista">Placa:</label>
-                                    <input type="text" id="sobrenomeUsuario" placeholder="Digite a placa do veiculo">
+                                    <input type="text" id="placa" placeholder="Digite a placa do veiculo">
                                 </div>
-
-
                                 <div class="input">
-                                    <label for="">Nome do motorista</label>
-                                    <input type="text" id="placa" placeholder="Digite o nome do motorista">
+                                    <label for="">Quantidade de sensores</label>
+                                    <input type="number" id="sensor" placeholder="Digite o nome do motorista">
+                                </div>
+                                <div class="input">
+                                    <label for="">token</label>
+                                    <input type="number" id="token" placeholder="Digite o nome do motorista">
                                 </div>
                             </div>
                             <div>
-                                <a href="cadastromotorista.html" class="register-button">Cadastrar</a>
+                                <a onclick="cadastrarVeiculo()" class="register-button">Cadastrar</a>
                             </div>
+                            <div class="alerta_erro">
+                                <div class="card_erro" id="cardErro">
+                                    <span id="mensagem_erro"></span>
+                                </div>
+                            </div>
+                            <div id="div_aguardar" class="loading-div">
+                            </div>
+                            <div id="div_erros_login"></div>
                         </div>
                 </form>
             </div>
@@ -137,3 +147,68 @@
 </body>
 
 </html>
+
+<script>
+     function cadastrarVeiculo() {
+            aguardar();
+            //Recupere o valor da nova input pelo nome do id
+            // Agora vá para o método fetch logo abaixo
+            var modeloVar = modelo.value;
+            var placaVar = placa.value;
+            var sensorVar = sensor.value;
+            var tokenVar = token.value;
+
+
+            if (modeloVar == "" || placaVar == "" || sensorVar == "" || tokenVar == "") {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "Preencha todos os campos";
+ 
+                finalizarAguardar(); 
+                return false;
+            }
+            else {
+                setInterval(sumirMensagem, 5000);
+            }
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrarVeiculo", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    modeloServer: modeloVar,
+                    placaServer: placaVar,
+                    sensorServer: sensorVar,
+                    tokenServer: tokenVar,
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+                    mensagem_erro.innerHTML = "Cadastro de veículo realizado com sucesso! ";
+
+                    window.location = "cadastromotorista.html";
+
+                    limparFormulario();
+                     finalizarAguardar(); 
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                 finalizarAguardar(); 
+            });
+
+            return false;
+        }
+
+        function sumirMensagem() {
+            cardErro.style.display = "none"
+        }
+
+</script>

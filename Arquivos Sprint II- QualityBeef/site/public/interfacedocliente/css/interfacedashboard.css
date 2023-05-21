@@ -11,6 +11,7 @@
 body{
     width: 100%;
     height: 100%;
+    overflow-y: hidden;
     background-color: rgb(255, 255, 255);
 }
 
@@ -364,7 +365,7 @@ body{
 
 .line{
     width: 69%;
-    height: 45vh;
+    height: 50vh;
     margin-left: 20%;
     padding-left: 67px;
     margin-top: 31px;

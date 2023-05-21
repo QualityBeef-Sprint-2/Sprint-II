@@ -19,11 +19,13 @@ var sqlServerConfig = {
 
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
-    host: "10.18.32.77",
+    host: "127.0.0.1",
     database: "qualitybeef",
-    user: "usuarios",
+    user: "QualityBeef",
     password: "QualityBeef#01",
 };
+
+/* IP GABRIEL: 10.18.32.77 user: usuarios */
 
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
