@@ -15,7 +15,7 @@
 <body>
 
 
-    
+
     <div class="navgation">
 
 
@@ -68,7 +68,7 @@
                         <img class="img-conect" src="img/conecte-se.png" alt="">
                     </div>
                     <span class="list">Novos usuários</span>
-                    
+
                 </a>
             </li>
 
@@ -97,15 +97,15 @@
 
 
 
-    <div class="dashboards" >
+    <div class="dashboards">
         <H1 class="camara">OVERVIEW CAMINHÃO 1</H1>
         <label for="">Selecione o caminhão:</label>
         <select name="" id="caminhao">
             <option value="">Caminhão 1</option>
             <option value="">Caminhão 2</option>
-            <option value="">Caminhão 3</option>
+            <!--<option value="">Caminhão 3</option>
             <option value="">Caminhão 4</option>
-            <option value="">Caminhão 5</option>
+            <option value="">Caminhão 5</option> -->
         </select>
         <div class="dashboardGraficos1">
             <div class="setor1">
@@ -113,8 +113,8 @@
                 <div class="tempLine">
                     <canvas id="temperaturaLinha1" width="650" height="380"> </canvas>
                 </div>
-                <div class="alertTempLine1">
-                    <span>Sensor em estado normal</span>
+                <div id="estado_sensor" class="alertTempLine1">
+                    <span id="msg"></span>
                 </div>
             </div>
             <div class="setor2">
@@ -122,8 +122,8 @@
                 <div class="tempLine2">
                     <canvas id="temperaturaLinha2" width="650" height="390"> </canvas>
                 </div>
-                <div class="alertTempLine2">
-                    <span>Sensor em estado alerta</span>
+                <div id="estado_sensor" class="alertTempLine2">
+                    <span id="msg" ></span>
                 </div>
             </div>
         </div>
@@ -136,9 +136,11 @@
                 <div class="tempLine3">
                     <canvas id="temperaturaLinha3" width="650" height="380"> </canvas>
                 </div>
-                <div class="alertTempLine3">
+                <div id="estado_sensor" class="alertTempLine3">
 
-                    <span>Sensor em estado crítico</span>
+                    <span id="msg" class="alertas">
+                        
+                    </span>
 
                 </div>
             </div>
@@ -148,10 +150,9 @@
                 <div class="tempLine4">
                     <canvas id="temperaturaLinha4" width="650" height="380"> </canvas>
                 </div>
-                <div class="alertTempLine4">
-
-                    <span>Sensor em estado alerta</span>
-
+                <div id="estado_sensor" class="alertTempLine4">
+ 
+                    <span id="msg"></span>
                 </div>
             </div>
 
@@ -161,8 +162,11 @@
             <img class="caminhaoDash" src="img/caminhaodashboard.png" alt="">
         </div>
 
-      
-        
+
+
+
+
+
     </div>
 
     <div class="info">
@@ -175,174 +179,243 @@
             <p><b>Placa:</b>FCG-7623</p>
         </div>
     </div>
-    
-    
+
+
 </body>
 
 <script>
 
-let proximaAtualizacao;
+    let proximaAtualizacao;
 
-window.onload = obterDadoGraficos();
+    window.onload = obterDadoGraficos();
 
-function obterDadoGraficos() {
-    obterDadosGrafico(1)
-    obterDadosGrafico(2)
-    obterDadosGrafico(3)
-    obterDadosGrafico(4)
-}
-
-verificar_autenticacao();
-
-// function alterarTitulo(idSetor) {
-//     var tituloAquario = document.getElementById(`tituloAquario${idSetor}`)
-//     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Camara " + idSetor + "</span>"
-// }
-
-
-
-function obterDadosGrafico(idSetor) {
-
-    // alterarTitulo(idSetor)
-
-    if (proximaAtualizacao != undefined) {
-        clearTimeout(proximaAtualizacao);
+    function obterDadoGraficos() {
+        obterDadosGrafico(1)
+        obterDadosGrafico(2)
+        obterDadosGrafico(3)
+        obterDadosGrafico(4)
     }
 
-    fetch(`/medidas/ultimas/${idSetor}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
+    verificar_autenticacao();
 
-                plotarGrafico(resposta, idSetor);
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
+    // function alterarTitulo(idSetor) {
+    //     var tituloAquario = document.getElementById(`tituloAquario${idSetor}`)
+    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Camara " + idSetor + "</span>"
+    // }
+
+
+
+    function obterDadosGrafico(idSetor) {
+
+        // alterarTitulo(idSetor)
+
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
         }
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
-}
 
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
-function plotarGrafico(resposta, idSetor) {
+        fetch(`/medidas/ultimas/${idSetor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
 
-    console.log('iniciando plotagem do gráfico...');
+                    plotarGrafico(resposta, idSetor);
+                });
 
-    // Criando estrutura para plotar gráfico - labels
-    let labels = [];
+            
 
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-        labels: labels,
-        datasets: [
-        {
-            label: 'Temperatura',
-            data: [],
-            fill: false,
-            borderColor: 'rgb(199, 52, 52)',
-            tension: 0.1
-        }]
-    };
-
-    console.log('----------------------------------------------')
-    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
-        labels.push(registro.momento_grafico);
-        dados.datasets[0].data.push(registro.temperatura);
-
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
 
-    console.log('----------------------------------------------')
-    console.log('O gráfico será plotado com os respectivos valores:')
-    console.log('Labels:')
-    console.log(labels)
-    console.log('Dados:')
-    console.log(dados.datasets)
-    console.log('----------------------------------------------')
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico(resposta, idSetor) {
 
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-        type: 'line',
-        data: dados,
-    };
+        console.log('iniciando plotagem do gráfico...');
 
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(
-        document.getElementById(`temperaturaLinha${idSetor}`),
-        config
-    );
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
 
-    setTimeout(() => atualizarGrafico(idSetor, dados, myChart), 2000);
-}
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Temperatura',
+                    data: [],
+                    fill: false,
+                    borderColor: 'rgb(199, 52, 52)',
+                    tension: 0.1
+                }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.momento_grafico);
+
+            console.log(registro);
+
+            dados.datasets[0].data.push(registro.temperatura);
+
+            
+        
+            if (registro.temperatura <-2) {
+                document.getElementById("estado_sensor").style.backgroundColor = "rgb(218, 77, 77)" ; 
+             
+
+                document.getElementById("estado_sensor").style.border = "2px solid red";
+
+                msg.innerHTML = `<span>Temperatura: ${registro.temperatura} <br>
+                                        Sensor em estado critico </span> `;
+
+            }
+            else if (registro.temperatura > 4) {
+                
+                document.getElementById("estado_sensor").style.backgroundColor = "rgb(218, 77, 77)" ; 
+             
+
+                document.getElementById("estado_sensor").style.border = "2px solid red";
+
+                msg.innerHTML = `Temperatura: ${registro.temperatura} <br>
+                                        Sensor em estado critico `;
+
+            }
+            else if (registro.temperatura >= -2 && registro.temperatura <0) {
+                
+                document.getElementById("estado_sensor").style.backgroundColor = " rgb(255, 172, 117)" ; 
+             
+
+                document.getElementById("estado_sensor").style.border = "2px solid orange";
+
+                msg.innerHTML = `Temperatura: ${registro.temperatura} <br>
+                                     Sensor em estado de alerta `;
+
+            }
+            
+            else if (registro.temperatura >= 1.6 && registro.temperatura < 4) {
+             
+                document.getElementById("estado_sensor").style.backgroundColor = " rgb(255, 172, 117)" ; 
+             
+
+                document.getElementById("estado_sensor").style.border = "2px solid rgb(255, 94, 0)";
+
+                msg.innerHTML = `Temperatura: ${registro.temperatura} <br>
+                                     Sensor em estado alerta `;
+
+            }
+            else if (registro.temperatura >= 1 && registro.temperatura <= 2) {
+                
+                document.getElementById("estado_sensor").style.backgroundColor = " green" ; 
+             
+
+                document.getElementById("estado_sensor").style.border = "2px solid green";
+
+                estado_sensor.innerHTML = `<div> Temperatura: ${registro.temperatura} <br>
+                                     Sensor em estado ideal </div> `;
+            }
 
 
-// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// buscando a última medida inserida em tabela contendo as capturas, 
+        }
 
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
-function atualizarGrafico(idSetor, dados, myChart) {
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'line',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`temperaturaLinha${idSetor}`),
+            config
+        );
+
+        setTimeout(() => atualizarGrafico(idSetor, dados, myChart), 2000);
+    }
+
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas, 
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function atualizarGrafico(idSetor, dados, myChart) {
+
+        console.log(dados)
+
+        fetch(`/medidas/tempo-real/${idSetor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
 
 
 
-    fetch(`/medidas/tempo-real/${idSetor}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (novoRegistro) {
 
-                console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                console.log(`Dados atuais do gráfico:`);
-                console.log(dados);
-
-                // let avisoCaptura = document.getElementById(`avisoCaptura${idSetor}`)
-                // avisoCaptura.innerHTML = ""
+                    // let avisoCaptura = document.getElementById(`avisoCaptura${idSetor}`)
+                    // avisoCaptura.innerHTML = ""
 
 
-                if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                    console.log("---------------------------------------------------------------")
-                    console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                  /*   avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará." */
-                    console.log("Horário do novo dado capturado:")
-                    console.log(novoRegistro[0].momento_grafico)
-                    console.log("Horário do último dado capturado:")
-                    console.log(dados.labels[dados.labels.length - 1])
-                    console.log("---------------------------------------------------------------")
-                } else {
-                    // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        /*   avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará." */
+                        console.log("Horário do novo dado capturado:")
+                        console.log(novoRegistro[0].momento_grafico)
+                        console.log("Horário do último dado capturado:")
+                        console.log(dados.labels[dados.labels.length - 1])
+                        console.log("---------------------------------------------------------------")
+                    } else {
+                        // tirando e colocando valores no gráfico
+                        dados.labels.shift(); // apagar o primeiro
+                        dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
 
-                  //  dados.datasets[0].data.shift();   apagar o primeiro de umidade
-                 //   dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+                        //  dados.datasets[0].data.shift();   apagar o primeiro de umidade
+                        //   dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
 
-                    dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
-                    dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+                        dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
+                        dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
-                    myChart.update();
-                }
+                        myChart.update();
+                    }
 
+
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idSetor, dados, myChart), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idSetor, dados, myChart), 2000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-            proximaAtualizacao = setTimeout(() => atualizarGrafico(idSetor, dados, myChart), 2000);
-        }
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
 
-}
+    }
 
 
 // function atualizarFeed() {
@@ -421,108 +494,108 @@ function atualizarGrafico(idSetor, dados, myChart) {
 //     }
 
 
-/* 
-    const linhaTemperatura = [
-        '12:00h',
-        '12:10h',
-        '12:20h',
-        '12:30h',
-        '12:40h',
-        '12:50h',
-        '13:00h',
-        '13:10h',
-        '13:20h',
-        '13:30h',
-    ]
-
-
-    const dataTemperaturaLinha = {
-        labels: linhaTemperatura,
-        datasets: [{
-            label: 'Sensor 1 - Temperatura (°C)',
-            backgroundColor: 'rgb(58, 86, 177)',
-            borderColor: 'rgb(58, 86, 177)',
-            data: [-0.9, -1.1, -1.2, -1.0, -1.4, -1.8, -2.0, -1.9, -1.0, -0.8],
-        }],
-    };
-
-    const configTemperaturaLinha = {
-        type: 'line',
-        data: dataTemperaturaLinha,
-        options: {}
-    }
-
-    const temperaturaLinha = new Chart(
-        document.getElementById('temperaturaLinha'),
-        configTemperaturaLinha
-    );
-
-
-    const dataTemperaturaLinha2 = {
-        labels: linhaTemperatura,
-        datasets: [{
-            label: 'Sensor 2 - Temperatura (°C)',
-            backgroundColor: 'rgb(58, 86, 177)',
-            borderColor: 'rgb(58, 86, 177)',
-            data: [1.3, -0.2, 2.1, 0.6, -1.7, 0.6, -1.1, -1.0, -0.3, 2.1],
-        }],
-    };
-
-    const configTemperaturaLinha2 = {
-        type: 'line',
-        data: dataTemperaturaLinha2,
-        options: {}
-    }
-
-    const temperaturaLinha2 = new Chart(
-        document.getElementById('temperaturaLinha2'),
-        configTemperaturaLinha2
-    );
-
-
-    const dataTemperaturaLinha3 = {
-        labels: linhaTemperatura,
-        datasets: [{
-            label: 'Sensor 3 - Temperatura (°C)',
-            backgroundColor: 'rgb(58, 86, 177)',
-            borderColor: 'rgb(58, 86, 177)',
-            data: [-0.4, 2.9, -1.8, -0.2, 4.0, 0.9, -0.8, -2.0, -1.0, 4.3],
-        }],
-    };
-
-    const configTemperaturaLinha3 = {
-        type: 'line',
-        data: dataTemperaturaLinha3,
-        options: {}
-    }
-
-    const temperaturaLinha3 = new Chart(
-        document.getElementById('temperaturaLinha3'),
-        configTemperaturaLinha3
-    );
-
-    const dataTemperaturaLinha4 = {
-        labels: linhaTemperatura,
-        datasets: [{
-            label: 'Sensor 4 - Temperatura (°C)',
-            backgroundColor: 'rgb(58, 86, 177)',
-            borderColor: 'rgb(58, 86, 177)',
-            data: [0.6, 3.3, 1.1, -1.6, -0.9, 1.4, 2.4, -3.5, 1.8, -1.7],
-        }],
-    };
-
-    const configTemperaturaLinha4 = {
-        type: 'line',
-        data: dataTemperaturaLinha4,
-        options: {}
-    }
-
-    const temperaturaLinha4 = new Chart(
-        document.getElementById('temperaturaLinha4'),
-        configTemperaturaLinha4
-    );
-
- */
+    /*
+        const linhaTemperatura = [
+            '12:00h',
+            '12:10h',
+            '12:20h',
+            '12:30h',
+            '12:40h',
+            '12:50h',
+            '13:00h',
+            '13:10h',
+            '13:20h',
+            '13:30h',
+        ]
+    
+    
+        const dataTemperaturaLinha = {
+            labels: linhaTemperatura,
+            datasets: [{
+                label: 'Sensor 1 - Temperatura (°C)',
+                backgroundColor: 'rgb(58, 86, 177)',
+                borderColor: 'rgb(58, 86, 177)',
+                data: [-0.9, -1.1, -1.2, -1.0, -1.4, -1.8, -2.0, -1.9, -1.0, -0.8],
+            }],
+        };
+    
+        const configTemperaturaLinha = {
+            type: 'line',
+            data: dataTemperaturaLinha,
+            options: {}
+        }
+    
+        const temperaturaLinha = new Chart(
+            document.getElementById('temperaturaLinha'),
+            configTemperaturaLinha
+        );
+    
+    
+        const dataTemperaturaLinha2 = {
+            labels: linhaTemperatura,
+            datasets: [{
+                label: 'Sensor 2 - Temperatura (°C)',
+                backgroundColor: 'rgb(58, 86, 177)',
+                borderColor: 'rgb(58, 86, 177)',
+                data: [1.3, -0.2, 2.1, 0.6, -1.7, 0.6, -1.1, -1.0, -0.3, 2.1],
+            }],
+        };
+    
+        const configTemperaturaLinha2 = {
+            type: 'line',
+            data: dataTemperaturaLinha2,
+            options: {}
+        }
+    
+        const temperaturaLinha2 = new Chart(
+            document.getElementById('temperaturaLinha2'),
+            configTemperaturaLinha2
+        );
+    
+    
+        const dataTemperaturaLinha3 = {
+            labels: linhaTemperatura,
+            datasets: [{
+                label: 'Sensor 3 - Temperatura (°C)',
+                backgroundColor: 'rgb(58, 86, 177)',
+                borderColor: 'rgb(58, 86, 177)',
+                data: [-0.4, 2.9, -1.8, -0.2, 4.0, 0.9, -0.8, -2.0, -1.0, 4.3],
+            }],
+        };
+    
+        const configTemperaturaLinha3 = {
+            type: 'line',
+            data: dataTemperaturaLinha3,
+            options: {}
+        }
+    
+        const temperaturaLinha3 = new Chart(
+            document.getElementById('temperaturaLinha3'),
+            configTemperaturaLinha3
+        );
+    
+        const dataTemperaturaLinha4 = {
+            labels: linhaTemperatura,
+            datasets: [{
+                label: 'Sensor 4 - Temperatura (°C)',
+                backgroundColor: 'rgb(58, 86, 177)',
+                borderColor: 'rgb(58, 86, 177)',
+                data: [0.6, 3.3, 1.1, -1.6, -0.9, 1.4, 2.4, -3.5, 1.8, -1.7],
+            }],
+        };
+    
+        const configTemperaturaLinha4 = {
+            type: 'line',
+            data: dataTemperaturaLinha4,
+            options: {}
+        }
+    
+        const temperaturaLinha4 = new Chart(
+            document.getElementById('temperaturaLinha4'),
+            configTemperaturaLinha4
+        );
+    
+     */
 
 </script>
 

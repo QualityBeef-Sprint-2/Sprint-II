@@ -235,11 +235,10 @@ label{
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 24px 172px 28px;
+    padding: 22px 172px 28px;
     gap: 37px;
     margin-right: 103px;
-    margin-left: -27px;
-    
+    margin-left: -25px;
 }
 
 .dashboardGraficos2 {
@@ -255,9 +254,10 @@ label{
 
 .tempLine {
     display: flex;
-    height: 50%; 
+    /* height: 9vw; */
+    /* width: 50%; */
+    height: 70%;
     width: 70%;
-    
 }
 
 .tempLine2 {
@@ -283,13 +283,12 @@ label{
 .alertTempLine1 {
     display: flex;
     flex-direction: column;
-    background-color: rgb(114, 250, 114);
-    border:1px green solid;
-    color: black;
-    border-radius: 7%;
-    width: 10vw;
+    /* background-color: rgb(114, 250, 114); */
+    /* border:1px green solid; */
+    /* color: black; */
+    border-radius: 7px;
+    width: 11vw;
     height: 7vh;
-    
 }
 
 span{
@@ -297,7 +296,9 @@ span{
 }
 .alertTempLine1 span {
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
+    font-family: 'Popins';
+    margin-top: 4px;
 }
 
 .alertTempLine2 {
@@ -310,7 +311,7 @@ span{
     height: 7vh;
 }
 
-.alertTempLine2 span {
+.alertas {
     text-align: center;
     flex-direction: column;
     border-radius: 7%;
@@ -318,7 +319,7 @@ span{
     height: 5vh;
     text-align: center;
     color: black;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .alertTempLine3 {
@@ -357,7 +358,6 @@ span{
     padding: 8px;
     width: 829px;
     background-color: rgb(255, 250, 243);
-    border: 2px green solid;
     box-shadow: 10px 4px 27px -6px black;
 
 }
@@ -371,9 +371,8 @@ span{
     padding: 8px;
     width: 829px;
     background-color: rgb(255, 250, 243);
-    border: 2px orange solid;
+    /* border: 2px orange solid; */
     box-shadow: 10px 4px 27px -6px black;
-
 }
 
 .setor3{
@@ -385,9 +384,8 @@ span{
     padding: 8px;
     width: 829px;
     background-color: rgb(255, 250, 243);
-    border: 2px red solid;
+    /* border: 2px red solid; */
     box-shadow: 10px 4px 27px -6px black;
-
 }
 
 .setor4{
@@ -399,9 +397,8 @@ span{
     padding: 8px;
     width: 829px;
     background-color: rgb(255, 250, 243);
-    border: 2px orange solid;
+    /* border: 2px orange solid; */
     box-shadow: 10px 4px 27px -6px black;
-
 }
 
 select{
@@ -444,3 +441,5 @@ select{
 .info-caminhao h2{
     text-align: center;
 }
+
+

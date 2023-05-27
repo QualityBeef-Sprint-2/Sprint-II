@@ -11,6 +11,7 @@ function buscarUltimasMedidas(req, res) {
     medidaModel.buscarUltimasMedidas(idSetor, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
+
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
         }
@@ -31,6 +32,8 @@ function buscarMedidasEmTempoReal(req, res) {
     medidaModel.buscarMedidasEmTempoReal(idSetor).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
+
+
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
         }
