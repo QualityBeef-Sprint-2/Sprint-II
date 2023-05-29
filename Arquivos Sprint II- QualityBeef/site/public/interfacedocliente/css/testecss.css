@@ -320,14 +320,3 @@ body{
 .card-vermelho span{
     color: white;
 }
-
-.grafico1 {
-    height: 50%;
-    border: 1px red solid;
-}
-
-.grafico2 {
-    height: 50%;
-    border: 1px red solid;
-    margin-bottom: 1.2%;
-}
