@@ -44,7 +44,7 @@ function buscarMedidasEmTempoReal(idSetor) {
                     order by id desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select area1 as temperatura,
+        instrucaoSql = `select area1 as temperatura, momento,
         DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico,
         fkSetor from medida where fkSetor = 1 ORDER BY momento_grafico DESC LIMIT 1;`
     } else {

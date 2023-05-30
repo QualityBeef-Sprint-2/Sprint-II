@@ -8,6 +8,7 @@
     <title>DashBord </title>
     <script src="../js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="alertas.js"></script>
 
     <link rel="stylesheet" href="css/interfacedashboard2.css">
 </head>
@@ -40,7 +41,7 @@
                     <div class="div-dash">
                         <img class="img-dash" src="img/dashboard.png" alt="">
                     </div>
-                    <span class="list">Dashbord</span> <!-- Dashbord -->
+                    <span class="list">Dashboard</span> <!-- Dashbord -->
                 </a>
             </li>
 
@@ -98,7 +99,7 @@
 
 
     <div class="dashboards">
-        <H1 class="camara">DASHBORD DO CAMINHÃO 1 - SENSOR 1</H1>
+        <H1 class="camara">DASHBOARD DO CAMINHÃO 1 - SENSOR 1</H1>
         <label for="">Selecione o caminhão:</label>
         <select name="" id="caminhao">
             <option value="">Caminhão 1</option>
@@ -283,60 +284,7 @@
 
             dados.datasets[0].data.push(registro.temperatura);
 
-            var ultimaTemp = resposta[resposta.length - 1].temperatura;
-
-            console.log(ultimaTemp.toString());
-
-            
-        
-            if (ultimaTemp.toString() <-2 || ultimaTemp.toString() > 4  ) {
-              
-                document.getElementById("estado_sensor").style.border = "3px solid red";
-
-                msg.innerHTML = ` <h1>ALERTA</h1>
-                                     
-                                    <span>Temperatura: ${ultimaTemp.toString()}°c <br>
-                                        Sensor em estado critico </span> `;
-
-            }
-            else if (ultimaTemp.toString() >= -2 && ultimaTemp.toString() <0) {
-                
-                // document.getElementById("estado_sensor").style.backgroundColor = " rgb(255, 172, 117)" ; 
-             
-
-                // document.getElementById("estado_sensor").style.border = "2px solid orange";
-
-                msg.innerHTML = `  <h1>ALERTA</h1>
-                                     
-                                     Temperatura: ${ultimaTemp.toString()}°c <br>
-                                     Sensor em estado de alerta `;
-
-            }
-            
-            else if (ultimaTemp.toString() >= 1.6 && ultimaTemp.toString() < 4) {
-             
-                // document.getElementById("estado_sensor").style.backgroundColor = " rgb(255, 172, 117)" ; 
-             
-
-                document.getElementById("estado_sensor").style.border = "2px solid orange";
-
-                msg.innerHTML = `<h1>ALERTA</h1>
-                                     
-                                     Temperatura: ${ultimaTemp.toString()}°c <br>
-                                     Sensor em estado alerta `;
-
-             }
-            else if (ultimaTemp.toString() >= 1 && ultimaTemp.toString() <= 2) {
-                
-             
-
-                document.getElementById("estado_sensor").style.border = "3px solid green";
-
-                msg.innerHTML = `<h1>Ideal</h1>
-                               
-                                      Temperatura: ${ultimaTemp.toString()}°c <br>
-                                     Sensor em estado ideal `;
-            }
+           
 
 
         }
@@ -372,6 +320,7 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function atualizarGrafico(idSetor, dados, myChart) {
 
+
         console.log(dados)
 
         fetch(`/medidas/tempo-real/${idSetor}`, { cache: 'no-store' }).then(function (response) {
@@ -382,8 +331,8 @@
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
 
-
-
+                    
+                    
 
                     // let avisoCaptura = document.getElementById(`avisoCaptura${idSetor}`)
                     // avisoCaptura.innerHTML = ""
@@ -410,9 +359,11 @@
                         dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
                         myChart.update();
+                       
+
                     }
-
-
+                    alerta(novoRegistro);
+                
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idSetor, dados, myChart), 2000);
@@ -421,6 +372,7 @@
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idSetor, dados, myChart), 2000);
+                
             }
         })
             .catch(function (error) {

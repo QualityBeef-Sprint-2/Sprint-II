@@ -78,6 +78,29 @@ fkSensor INT,
 CONSTRAINT fkSensor FOREIGN KEY (fkSensor) REFERENCES Sensor (idSensor),
 CONSTRAINT pkLeitura PRIMARY KEY (idLeitura,fkSensor));
 
+
+
+create table setor (
+	idSetor int primary key auto_increment,
+    descricao varchar(80)
+);
+
+insert into setor values 
+(null,'Camara 2'),
+(null,'Camara 3'),
+(null,'Camara 4');
+
+create table medida(
+	idMedida int primary key auto_increment,
+    area1 double,
+    area2 double,
+    area3 double,
+    area4 double,
+    momento datetime,
+    fkSetor INT,
+    CONSTRAINT fkSet FOREIGN KEY (fkSetor) REFERENCES Setor (idSetor)
+);
+
 /*
 comandos para criar usuário em banco de dados azure, sqlserver,
 com permissão de insert + update + delete + select
