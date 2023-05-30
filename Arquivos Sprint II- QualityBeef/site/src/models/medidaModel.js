@@ -46,7 +46,7 @@ function buscarMedidasEmTempoReal(idSetor) {
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select area1 as temperatura,
         DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico,
-        fkSetor from medida where fkSetor = ${idSetor} ORDER BY momento_grafico DESC LIMIT 1;`
+        fkSetor from medida where fkSetor = 1 ORDER BY momento_grafico DESC LIMIT 1;`
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

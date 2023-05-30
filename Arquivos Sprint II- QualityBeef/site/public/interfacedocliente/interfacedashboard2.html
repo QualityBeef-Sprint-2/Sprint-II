@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barra Lateral</title>
+    <title>DashBord </title>
     <script src="../js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -98,7 +98,7 @@
 
 
     <div class="dashboards">
-        <H1 class="camara">OVERVIEW CAMINHÃO 1</H1>
+        <H1 class="camara">DASHBORD DO CAMINHÃO 1 - SENSOR 1</H1>
         <label for="">Selecione o caminhão:</label>
         <select name="" id="caminhao">
             <option value="">Caminhão 1</option>
@@ -107,60 +107,63 @@
             <option value="">Caminhão 4</option>
             <option value="">Caminhão 5</option> -->
         </select>
+
+        <div  class="alertTempLine1">
+            <div class="msg">
+                Temperatura crítica: <br>
+                menor que -2°c negativo.
+            
+            </div>
+        </div>
+        
+
+        <div class="alertTempLine2">
+            <div  class="msg2">
+                Temperatura emergêncial: <br>
+                entre -2°c negativo <br>
+                e -0.5°c negativo.
+            </div>
+        </div>
+
+        <div  class="alertTempLine3">
+            <div  class="msg3">
+                Temperatura ideal: <br>
+                entre -0.6°c negativo <br>
+                e 1.5°c positivo.
+            </div>
+        </div>
+
+        <div  class="alertTempLine4">
+            <div class="msg4">
+                Temperatura emergêncial: <br>
+                entre 1.5°c positivo <br>
+                e 4°c positivo.
+            
+            </div>
+        </div>
+
+
+        <div  class="alertTempLine5">
+            <div class="msg5">
+                Temperatura crítica: <br>
+               maior que 4°c positivo.
+            
+            </div>
+        </div>
+
         <div class="dashboardGraficos1">
             <div class="setor1">
-                <span>Caminhão 1- <b>SETOR 1</b></span>
+                <span>Caminhão 1 - <b>SENSOR 1</b></span>
                 <div class="tempLine">
                     <canvas id="temperaturaLinha1" width="650" height="380"> </canvas>
                 </div>
-                <div id="estado_sensor" class="alertTempLine1">
-                    <span id="msg"></span>
-                </div>
-            </div>
-            <div class="setor2">
-                <span>Caminhão 1- <b>SETOR 2</b></span>
-                <div class="tempLine2">
-                    <canvas id="temperaturaLinha2" width="650" height="390"> </canvas>
-                </div>
-                <div id="estado_sensor" class="alertTempLine2">
-                    <span id="msg" ></span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="dashboardGraficos2">
-
-            <div class="setor3">
-                <span>Caminhão 1- <b>SETOR 3</b></span>
-                <div class="tempLine3">
-                    <canvas id="temperaturaLinha3" width="650" height="380"> </canvas>
-                </div>
-                <div id="estado_sensor" class="alertTempLine3">
-
-                    <span id="msg" class="alertas">
-                        
-                    </span>
-
-                </div>
-            </div>
-
-            <div class="setor4">
-                <span>Caminhão 1 <b>SETOR 4</b></span>
-                <div class="tempLine4">
-                    <canvas id="temperaturaLinha4" width="650" height="380"> </canvas>
-                </div>
-                <div id="estado_sensor" class="alertTempLine4">
- 
-                    <span id="msg"></span>
-                </div>
             </div>
 
         </div>
 
-        <div class="div-caminhao">
+        <!-- <div class="div-caminhao">
             <img class="caminhaoDash" src="img/caminhaodashboard.png" alt="">
-        </div>
+        </div> -->
 
 
 
@@ -178,6 +181,14 @@
             <p><b>Modelo:</b>Mercedes benz</p>
             <p><b>Placa:</b>FCG-7623</p>
         </div>
+    </div>
+
+
+    <div id="estado_sensor"  class="alerta">
+        <span id="msg" class="msg_alerta">
+          
+            
+        </span>
     </div>
 
 
@@ -259,9 +270,12 @@
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
+        
+        
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
+            
             var registro = resposta[i];
             labels.push(registro.momento_grafico);
 
@@ -269,61 +283,59 @@
 
             dados.datasets[0].data.push(registro.temperatura);
 
+            var ultimaTemp = resposta[resposta.length - 1].temperatura;
+
+            console.log(ultimaTemp.toString());
+
             
         
-            if (registro.temperatura <-2) {
-                document.getElementById("estado_sensor").style.backgroundColor = "rgb(218, 77, 77)" ; 
-             
+            if (ultimaTemp.toString() <-2 || ultimaTemp.toString() > 4  ) {
+              
+                document.getElementById("estado_sensor").style.border = "3px solid red";
 
-                document.getElementById("estado_sensor").style.border = "2px solid red";
-
-                msg.innerHTML = `<span>Temperatura: ${registro.temperatura} <br>
+                msg.innerHTML = ` <h1>ALERTA</h1>
+                                     
+                                    <span>Temperatura: ${ultimaTemp.toString()}°c <br>
                                         Sensor em estado critico </span> `;
 
             }
-            else if (registro.temperatura > 4) {
+            else if (ultimaTemp.toString() >= -2 && ultimaTemp.toString() <0) {
                 
-                document.getElementById("estado_sensor").style.backgroundColor = "rgb(218, 77, 77)" ; 
+                // document.getElementById("estado_sensor").style.backgroundColor = " rgb(255, 172, 117)" ; 
              
 
-                document.getElementById("estado_sensor").style.border = "2px solid red";
+                // document.getElementById("estado_sensor").style.border = "2px solid orange";
 
-                msg.innerHTML = `Temperatura: ${registro.temperatura} <br>
-                                        Sensor em estado critico `;
-
-            }
-            else if (registro.temperatura >= -2 && registro.temperatura <0) {
-                
-                document.getElementById("estado_sensor").style.backgroundColor = " rgb(255, 172, 117)" ; 
-             
-
-                document.getElementById("estado_sensor").style.border = "2px solid orange";
-
-                msg.innerHTML = `Temperatura: ${registro.temperatura} <br>
+                msg.innerHTML = `  <h1>ALERTA</h1>
+                                     
+                                     Temperatura: ${ultimaTemp.toString()}°c <br>
                                      Sensor em estado de alerta `;
 
             }
             
-            else if (registro.temperatura >= 1.6 && registro.temperatura < 4) {
+            else if (ultimaTemp.toString() >= 1.6 && ultimaTemp.toString() < 4) {
              
-                document.getElementById("estado_sensor").style.backgroundColor = " rgb(255, 172, 117)" ; 
+                // document.getElementById("estado_sensor").style.backgroundColor = " rgb(255, 172, 117)" ; 
              
 
-                document.getElementById("estado_sensor").style.border = "2px solid rgb(255, 94, 0)";
+                document.getElementById("estado_sensor").style.border = "2px solid orange";
 
-                msg.innerHTML = `Temperatura: ${registro.temperatura} <br>
+                msg.innerHTML = `<h1>ALERTA</h1>
+                                     
+                                     Temperatura: ${ultimaTemp.toString()}°c <br>
                                      Sensor em estado alerta `;
 
-            }
-            else if (registro.temperatura >= 1 && registro.temperatura <= 2) {
+             }
+            else if (ultimaTemp.toString() >= 1 && ultimaTemp.toString() <= 2) {
                 
-                document.getElementById("estado_sensor").style.backgroundColor = " green" ; 
              
 
-                document.getElementById("estado_sensor").style.border = "2px solid green";
+                document.getElementById("estado_sensor").style.border = "3px solid green";
 
-                estado_sensor.innerHTML = `<div> Temperatura: ${registro.temperatura} <br>
-                                     Sensor em estado ideal </div> `;
+                msg.innerHTML = `<h1>Ideal</h1>
+                               
+                                      Temperatura: ${ultimaTemp.toString()}°c <br>
+                                     Sensor em estado ideal `;
             }
 
 
