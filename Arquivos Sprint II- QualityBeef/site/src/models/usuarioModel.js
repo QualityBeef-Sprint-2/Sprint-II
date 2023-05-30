@@ -50,11 +50,11 @@ function cadastrarFuncionario(nome, sobrenome, cpf, email, senha, fktoken) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function cadastrarVeiculo(modelo, placa, token, sensor) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", modelo,placa,token,sensor);
+function cadastrarVeiculo(modelo, placa,idUsuario, sensor) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", modelo,placa,idUsuario,sensor);
 
     var instrucao =`
-        INSERT INTO veiculo (modelo, placa, token, qtdSensor) VALUES ('${modelo}', '${placa}', '${token}' ,'${sensor}');
+        INSERT INTO veiculo (modelo, placa, fkEmpresaVeiculo, qtdSensor) VALUES ('${modelo}', '${placa}', '${idUsuario}' ,'${sensor}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

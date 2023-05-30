@@ -226,7 +226,8 @@ body{
 .cards {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 25px;
+    justify-content: spa;
     width: 45%;
 }
 
@@ -261,12 +262,7 @@ body{
     color: white;
 }
 
-.tabela {
-    display: flex;
-    border: 1px gray solid;
-    background-color: gray;
-    height: 60%;
-}
+
 
 .card-verde {
     display: flex;
@@ -321,3 +317,24 @@ body{
 .card-vermelho span{
     color: white;
 }
+
+.feed-container{
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+  }
+
+  .feed-container th, .feed-container td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+/* PRIMEIRA LINHA DA TABELA */
+  .feed-container th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+
+  .feed-container tr{
+    background-color: #fffbfb;
+  }

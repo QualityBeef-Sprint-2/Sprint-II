@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/interfacedashboard.css">
 </head>
 
-<body>
+<body onload="listarQtdVeiculos(),ListarCaminhoes()">
 
     <div class="navgation">
 
@@ -103,17 +103,26 @@
     
                 <div class="card-frota">
     
-                    <span>Veículos ativos na frota: xxx</span>
+                    <span>Veículos ativos na frota: </span>
+                    <div id="qtdVeiculosRegistrados"></div>
     
                 </div>
 
                 <!-- TABELA DA FROTA -->
-
-                <div class="tabela">
-
-                    tabela
-
-                </div>
+                <h1>Tabela Geral de caminhões</h1>
+                
+                    <table id="feed_container" class="feed-container">
+                            <tr id="colunas-container">
+                              <th>Veículo</th>
+                              <th>Modelo</th>
+                              <th>Placa</th>
+                              <th>Quantidade de sensores</th>
+                              <th>Alerta</th>
+                              <th>Visualizar</th>
+                            </tr>
+                    </table>
+            
+    
     
             </div>
 
@@ -152,8 +161,100 @@
 </body>
 
 <script>
+    var idUsuario = sessionStorage.ID_USUARIO;
+    console.log(idUsuario)
+
+    function listarQtdVeiculos(){
+        console.log("testando")
+        fetch(`/metricas/listarQtdVeiculos/${idUsuario}`).then(function (resposta) {
+            console.log("entrei no fetch")
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var veiculos = document.getElementById("qtdVeiculosRegistrados");
+                    var texto = document.createElement("span");
+                    texto.innerHTML = "Nada encontrado"
+                    tarefa.appendChild(texto);
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var veiculos = document.getElementById("qtdVeiculosRegistrados");
+                    veiculos.innerHTML = "";
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+                        veiculos.innerHTML = `<b class="card-frota">${publicacao.qtdVeiculo}</b>`
+                    }
+                    /* finalizarAguardar(); */
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+
+    }
+
+
+    function ListarCaminhoes() {
+        //aguardar();
+        fetch(`/metricas/ListarCaminhoes/${idUsuario}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = ""
+                    feed.appendChild(mensagem);
+                    throw "";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+                    var colunas =  document.getElementById("colunas-container");
+                    feed.appendChild(colunas);
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var linhaTr = document.createElement("tr");
+                        var idVeiculoTd = document.createElement("td");
+                        var modeloTd = document.createElement("td");
+                        var placaTd = document.createElement("td");
+                        var qtdSensorTd = document.createElement("td");
+
+                        idVeiculoTd.innerHTML = `<span>${publicacao.idVeiculo}</span>`
+                        modeloTd.innerHTML = `${publicacao.Modelo}`
+                        placaTd.innerHTML = `${publicacao.Placa}`
+                        qtdSensorTd.innerHTML = `${publicacao.qtdSensor}`
+    
+                        feed.appendChild(linhaTr);
+                        linhaTr.appendChild(idVeiculoTd);
+                        linhaTr.appendChild(modeloTd);
+                        linhaTr.appendChild(placaTd);
+                        linhaTr.appendChild(qtdSensorTd);
+                    }
+                    
+                    /* finalizarAguardar(); */
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            /*            finalizarAguardar(); */
+        });
+    }
+
+
 
 </script>
+
+
+
 
 <script src="js/hamburguer.js"></script>
 

@@ -21,8 +21,8 @@ var sqlServerConfig = {
 var mySqlConfig = {
     host: "127.0.0.1",
     database: "qualitybeef",
-    user: "Daniel Zapatta",
-    password: "29032002",
+    user: "QualityBeef",
+    password: "QualityBeef#01",
 };
 
 /* IP GABRIEL: 10.18.32.77 user: usuarios */

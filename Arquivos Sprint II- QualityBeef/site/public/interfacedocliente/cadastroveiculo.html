@@ -13,7 +13,7 @@
 <body>
 
 
-    
+
     <div class="navgation">
 
 
@@ -66,7 +66,7 @@
                         <img class="img-conect" src="img/conecte-se.png" alt="">
                     </div>
                     <span class="list">Novos usuários</span>
-                    
+
                 </a>
             </li>
 
@@ -93,7 +93,7 @@
     </div>
 
 
-    
+
     <!-- Área de cadastro -->
     <main>
         <div class="container" id="container-cadastro-animacao">
@@ -122,10 +122,6 @@
                                     <label for="">Quantidade de sensores</label>
                                     <input type="number" id="sensor" placeholder="Digite o nome do motorista">
                                 </div>
-                                <div class="input">
-                                    <label for="">token</label>
-                                    <input type="number" id="token" placeholder="Digite o nome do motorista">
-                                </div>
                             </div>
                             <div>
                                 <a onclick="cadastrarVeiculo()" class="register-button">Cadastrar</a>
@@ -149,66 +145,68 @@
 </html>
 
 <script>
-     function cadastrarVeiculo() {
-            aguardar();
-            //Recupere o valor da nova input pelo nome do id
-            // Agora vá para o método fetch logo abaixo
-            var modeloVar = modelo.value;
-            var placaVar = placa.value;
-            var sensorVar = sensor.value;
-            var tokenVar = token.value;
+
+    var idUsuario = sessionStorage.ID_USUARIO;
+    console.log(idUsuario)
+
+    function cadastrarVeiculo() {
+        aguardar();
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var modeloVar = modelo.value;
+        var placaVar = placa.value;
+        var sensorVar = sensor.value;
 
 
-            if (modeloVar == "" || placaVar == "" || sensorVar == "" || tokenVar == "") {
-                cardErro.style.display = "block";
-                mensagem_erro.innerHTML = "Preencha todos os campos";
- 
-                finalizarAguardar(); 
-                return false;
-            }
-            else {
-                setInterval(sumirMensagem, 5000);
-            }
+        if (modeloVar == "" || placaVar == "" || sensorVar == "") {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Preencha todos os campos";
 
-            // Enviando o valor da nova input
-            fetch("/usuarios/cadastrarVeiculo", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
-                    modeloServer: modeloVar,
-                    placaServer: placaVar,
-                    sensorServer: sensorVar,
-                    tokenServer: tokenVar,
-                })
-            }).then(function (resposta) {
-
-                console.log("resposta: ", resposta);
-
-                if (resposta.ok) {
-                    cardErro.style.display = "block";
-                    mensagem_erro.innerHTML = "Cadastro de veículo realizado com sucesso! ";
-
-                    window.location = "cadastromotorista.html";
-
-                    limparFormulario();
-                     finalizarAguardar(); 
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-                 finalizarAguardar(); 
-            });
-
+            finalizarAguardar();
             return false;
         }
-
-        function sumirMensagem() {
-            cardErro.style.display = "none"
+        else {
+            setInterval(sumirMensagem, 5000);
         }
+
+        // Enviando o valor da nova input
+        fetch(`/usuarios/cadastrarVeiculo/${idUsuario}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                modeloServer: modeloVar,
+                placaServer: placaVar,
+                sensorServer: sensorVar,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "Cadastro de veículo realizado com sucesso! ";
+
+                window.location = "cadastromotorista.html";
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
 
 </script>

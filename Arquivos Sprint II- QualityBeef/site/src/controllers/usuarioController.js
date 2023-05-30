@@ -186,8 +186,8 @@ function cadastrarVeiculo(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastroUsuario.html
     var modelo = req.body.modeloServer;
     var placa = req.body.placaServer;
+    var idUsuario = req.params.idUsuario;
     var sensor = req.body.sensorServer;
-    var token = req.body.tokenServer;
 
     // Faça as validações dos valores
     if (modelo == undefined) {
@@ -196,12 +196,12 @@ function cadastrarVeiculo(req, res) {
         res.status(400).send("Seu placa está undefined!");
     } else if (sensor == undefined) {
         res.status(400).send("Seu sensor está undefined!");
-    }else if (token == undefined) {
-        res.status(400).send("Seu token está undefined!");
+    }else if (idUsuario == undefined) {
+        res.status(400).send("Seu idUsuario está undefined!");
     }else{
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarVeiculo(modelo, placa, token, sensor)
+        usuarioModel.cadastrarVeiculo(modelo, placa, idUsuario, sensor)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -234,7 +234,7 @@ function cadastrarMotorista(req, res) {
     } else if (cnh == undefined) {
         res.status(400).send("Seu sensor está undefined!");
     }else if (telefone == undefined) {
-        res.status(400).send("Seu token está undefined!");
+        res.status(400).send("Seu telefone está undefined!");
     }else{
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
