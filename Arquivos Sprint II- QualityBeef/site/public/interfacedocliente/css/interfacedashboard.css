@@ -338,3 +338,25 @@ body{
   .feed-container tr{
     background-color: #fffbfb;
   }
+
+  /* CSS DE ALERTAS DINAMICOS */
+  .cor-alerta {
+    width: 13%;
+    height: 30%;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+
+  .perigo {
+    background-color: #c05c5c;
+  }
+  
+  .alerta {
+    background-color: #ff7043;
+  }
+  
+  .ideal {
+    background-color: #42f551;
+  }
+  

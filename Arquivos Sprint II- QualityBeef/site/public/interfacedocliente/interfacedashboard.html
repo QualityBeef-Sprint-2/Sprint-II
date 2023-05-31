@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/interfacedashboard.css">
 </head>
 
-<body onload="listarQtdVeiculos(),ListarCaminhoes()">
+<body onload="listarQtdVeiculos(),ListarCaminhoes(),atualizacaoPeriodica()">
 
     <div class="navgation">
 
@@ -37,7 +37,7 @@
                     <div class="div-dash">
                         <img class="img-dash" src="img/dashboard.png" alt="">
                     </div>
-                    <span class="list">Dashboard</span> <!-- Dashbord -->
+                    <span class="list">Dashbord</span> <!-- Dashbord -->
                 </a>
             </li>
 
@@ -65,7 +65,7 @@
                         <img class="img-conect" src="img/conecte-se.png" alt="">
                     </div>
                     <span class="list">Novos usuários</span>
-                    
+
                 </a>
             </li>
 
@@ -75,7 +75,7 @@
                         <img class="img-config" src="img/configuracoes.png" alt="">
                     </div>
                     <span class="list">Novos veiculos</span>
-                    
+
                 </a>
             </li>
 
@@ -85,7 +85,7 @@
                     <div class="div-sair">
                         <img class="img-sair" src="img/botão-sair.png" alt="">
                     </div>
-                    <span class="list">Sair</span> 
+                    <span class="list">Sair</span>
                 </a>
             </li>
         </ul>
@@ -96,34 +96,34 @@
     <div class="dashboard">
 
         <div class="dashboard-area">
-    
+
             <div class="cards">
 
                 <!-- CARD DA FROTA -->
-    
+
                 <div class="card-frota">
-    
+
                     <span>Veículos ativos na frota: </span>
                     <div id="qtdVeiculosRegistrados"></div>
-    
+
                 </div>
 
                 <!-- TABELA DA FROTA -->
                 <h1>Tabela Geral de caminhões</h1>
-                
-                    <table id="feed_container" class="feed-container">
-                            <tr id="colunas-container">
-                              <th>Veículo</th>
-                              <th>Modelo</th>
-                              <th>Placa</th>
-                              <th>Quantidade de sensores</th>
-                              <th>Alerta</th>
-                              <th>Visualizar</th>
-                            </tr>
-                    </table>
-            
-    
-    
+
+                <table id="feed_container" class="feed-container">
+                    <tr id="colunas-container">
+                        <th>Veículo</th>
+                        <th>Modelo</th>
+                        <th>Placa</th>
+                        <th>Quantidade de sensores</th>
+                        <th>Alerta</th>
+                        <th>Visualizar</th>
+                    </tr>
+                </table>
+
+
+
             </div>
 
             <!-- CARDS DE ALERTAS -->
@@ -131,31 +131,31 @@
             <div class="cards-alertas">
 
                 <div class="card-verde">
-    
+
                     <span>Sensores captando temperatura dentro do estimado da temperatura ideal</span>
                     <span>ENTRE 0,5°C E 1,5°C</span>
-            
-            
+
+
                 </div>
-            
+
                 <div class="card-amarelo">
-            
+
                     <span>Sensores captando temperatura fora da temperatura ideal</span><br>
                     <span>ENTRE -2°C/-0,6°C A 1,6°C/4°C</span>
-            
+
                 </div>
-            
+
                 <div class="card-vermelho">
-            
+
                     <span>Sensores captando temperatura fora da temperatura máxima permitida</span>
                     <span>MENOR QUE -2°C OU MAIOR QUE 4°C</span>
-            
+
                 </div>
 
             </div>
-    
+
         </div>
-    
+
     </div>
 
 </body>
@@ -164,7 +164,9 @@
     var idUsuario = sessionStorage.ID_USUARIO;
     console.log(idUsuario)
 
-    function listarQtdVeiculos(){
+
+
+    function listarQtdVeiculos() {
         console.log("testando")
         fetch(`/metricas/listarQtdVeiculos/${idUsuario}`).then(function (resposta) {
             console.log("entrei no fetch")
@@ -214,30 +216,42 @@
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                     var feed = document.getElementById("feed_container");
-                    var colunas =  document.getElementById("colunas-container");
+                    var colunas = document.getElementById("colunas-container");
                     feed.appendChild(colunas);
 
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
+                        
                         // criando e manipulando elementos do HTML via JavaScript
                         var linhaTr = document.createElement("tr");
                         var idVeiculoTd = document.createElement("td");
                         var modeloTd = document.createElement("td");
                         var placaTd = document.createElement("td");
                         var qtdSensorTd = document.createElement("td");
+                        var alertaTd = document.createElement("td");
 
                         idVeiculoTd.innerHTML = `<span>${publicacao.idVeiculo}</span>`
                         modeloTd.innerHTML = `${publicacao.Modelo}`
                         placaTd.innerHTML = `${publicacao.Placa}`
                         qtdSensorTd.innerHTML = `${publicacao.qtdSensor}`
-    
+                        if (i == 0 || i == 1 || i == 2 || i == 3) {
+                            alertaTd.innerHTML = `<div class="cor-alerta" id="card0">aaa   </div>`
+                        } else if(i == 1) {
+                            alertaTd.innerHTML = `<div class="cor-alerta" id="card1">inativo</div>`
+                        } else if(i == 2){
+                            alertaTd.innerHTML = `<div class="cor-alerta" id="card2">inativo</div>`
+                        } else if(i == 3){
+                            alertaTd.innerHTML = `<div class="cor-alerta" id="card3">inativo</div>`
+                        }
+
                         feed.appendChild(linhaTr);
                         linhaTr.appendChild(idVeiculoTd);
                         linhaTr.appendChild(modeloTd);
                         linhaTr.appendChild(placaTd);
                         linhaTr.appendChild(qtdSensorTd);
+                        linhaTr.appendChild(alertaTd);
                     }
-                    
+
                     /* finalizarAguardar(); */
                 });
             } else {
@@ -248,7 +262,93 @@
             /*            finalizarAguardar(); */
         });
     }
+    
+    var alertas = [];
 
+    function atualizacaoPeriodica() {
+        obterdados(1);
+        obterdados(2);
+        obterdados(3);
+        obterdados(4);
+
+        setTimeout(atualizacaoPeriodica, 5000);
+    }
+
+
+    function obterdados(idCaminhao) {
+        fetch(`/metricas/tempo-real/${idCaminhao}`)
+            .then(resposta => {
+
+                if (resposta.ok) {
+                    resposta.json().then(resposta => {
+
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        alertar(resposta, idCaminhao);
+                    });
+                } else {
+
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+ /*    function alertar(temperatura, idCaminhao) {
+        var limites = {
+            perigo: 4,
+            quente: 22,
+            ideal: 20,
+            frio: 10,
+            muito_frio: 5
+        };
+
+        var classe_temperatura = 'cor-alerta';
+
+        if (temperatura >= limites.perigo) {
+            classe_temperatura = 'cor-alerta perigo-quente';
+            console.log("caiu no 1")
+        }
+        else if (temperatura < limites.perigo && temperatura >= limites.quente) {
+            classe_temperatura = 'cor-alerta alerta-quente';
+            console.log("caiu no 2")
+        }
+        else if (temperatura < limites.quente && temperatura > limites.frio) {
+            classe_temperatura = 'cor-alerta ideal';
+            console.log("caiu no 3")
+        }
+        else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
+            classe_temperatura = 'cor-alerta alerta-frio';
+            console.log("caiu no 4")
+        }
+        else if (temperatura < limites.min_temperatura) {
+            classe_temperatura = 'cor-alerta perigo-frio';
+            console.log("caiu no 5")
+        }
+
+        var card;
+
+        if (idCaminhao == 1) {
+            temp_aquario_1.innerHTML = temperatura + "°C";
+            card = card_1
+        } else if (idCaminhao == 2) {
+            temp_aquario_2.innerHTML = temperatura + "°C";
+            card = card_2
+        } else if (idCaminhao == 3) {
+            temp_aquario_3.innerHTML = temperatura + "°C";
+            card = card_3
+        } else if (idCaminhao == 4) {
+            temp_aquario_4.innerHTML = temperatura + "°C";
+            card = card_4
+        }
+
+        // alterando
+        card.className = classe_temperatura;
+
+    } */
 
 
 </script>
