@@ -18,7 +18,7 @@ function alerta (resposta) {
                                 Sensor em estado critico </span> `;
 
     }
-    else if (ultimaTemp.toString() >= -2 && ultimaTemp.toString() <0) {
+    else if (ultimaTemp.toString() >= -2 && ultimaTemp.toString() <0.5) {
         
         document.getElementById("estado_sensor").style.backgroundColor = "#fa8723bb" ; 
      
@@ -32,7 +32,7 @@ function alerta (resposta) {
 
     }
     
-    else if (ultimaTemp.toString() >= 1.6 && ultimaTemp.toString() < 4) {
+    else if (ultimaTemp.toString() >= 1.5 && ultimaTemp.toString() <= 4) {
      
         document.getElementById("estado_sensor").style.backgroundColor = "#fa8723bb" ; 
      
@@ -42,10 +42,10 @@ function alerta (resposta) {
         msg.innerHTML = `<h1>ALERTA</h1>
                              
                              Temperatura: ${ultimaTemp.toString()}°c <br>
-                             Sensor em estado alerta `;
+                             Sensor em estado de perigo `;
 
      }
-    else if (ultimaTemp.toString() >= 1 && ultimaTemp.toString() <= 2) {
+    else if (ultimaTemp.toString() >= 0.5 && ultimaTemp.toString() < 1.5) {
         
      
         document.getElementById("estado_sensor").style.backgroundColor = "#61e65cb4" ; 

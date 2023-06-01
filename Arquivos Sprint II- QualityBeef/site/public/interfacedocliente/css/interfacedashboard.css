@@ -342,7 +342,7 @@ body{
 
   .feed-container th, .feed-container td {
     border: 1px solid #ccc;
-    padding: 8px;
+    padding: 1px;
     text-align: center;
   }
 
@@ -360,24 +360,39 @@ body{
     background-color: #fffbfb;
   }
 
+  .estrutura-td{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 26px;
+    border: 1px rgb(204,204,204) solid;
+  }
+
+  .button-visualizacao{
+    width: 100%;
+    height: 100%;
+    border: 1px red solid;
+  }
   /* CSS DE ALERTAS DINAMICOS */
-  .cor-alerta {
-    width: 13%;
-    height: 30%;
-    border-radius: 50%;
+
+
+  .cor-alerta{
+    width: 42%;
+    height: 88%;
+    border: 1px black solid;
+    border-radius: 30%;
     display: inline-block;
   }
 
-
-  .perigo {
-    background-color: #c05c5c;
+  .alerta_critico {
+    background-color: #ff1b1b;
   }
   
-  .alerta {
-    background-color: #ff7043;
+  .alerta_perigo {
+    background-color: #eb663d;
   }
   
-  .ideal {
+  .alerta_ideal {
     background-color: #42f551;
   }
   

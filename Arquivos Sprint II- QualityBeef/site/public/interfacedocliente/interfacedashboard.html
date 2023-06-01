@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barra Lateral</title>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/interfacedashboard.css">
 </head>
 
@@ -170,6 +168,7 @@
                     </tr>
                 </table>
 
+            
             </div>
 
         </div>
@@ -246,20 +245,24 @@
                         var modeloTd = document.createElement("td");
                         var placaTd = document.createElement("td");
                         var qtdSensorTd = document.createElement("td");
-                        var alertaTd = document.createElement("td");
-
+                        var alertaTd = document.createElement("div");
+                        var botaoTd = document.createElement("td");
                         idVeiculoTd.innerHTML = `<span>${publicacao.idVeiculo}</span>`
                         modeloTd.innerHTML = `${publicacao.Modelo}`
                         placaTd.innerHTML = `${publicacao.Placa}`
                         qtdSensorTd.innerHTML = `${publicacao.qtdSensor}`
-                        if (i == 0 || i == 1 || i == 2 || i == 3) {
-                            alertaTd.innerHTML = `<div class="cor-alerta" id="card0">aaa   </div>`
+                        alertaTd.className = "estrutura-td"
+                        if (i == 0) {
+                            alertaTd.innerHTML = `<div id="caminhao_1" class="cor-alerta"></div>`
+                            botaoTd.innerHTML = `<button class="button-visualizacao"><a href="interfacedashboard.html"></a></button>`
                         } else if(i == 1) {
-                            alertaTd.innerHTML = `<div class="cor-alerta" id="card1">inativo</div>`
+                            alertaTd.innerHTML = `<div id="caminhao_2" class="cor-alerta"></div>`
                         } else if(i == 2){
-                            alertaTd.innerHTML = `<div class="cor-alerta" id="card2">inativo</div>`
+                            alertaTd.innerHTML = `<div id="caminhao_3" class="cor-alerta"></div>`
                         } else if(i == 3){
-                            alertaTd.innerHTML = `<div class="cor-alerta" id="card3">inativo</div>`
+                            alertaTd.innerHTML = `<div id="caminhao_4" class="cor-alerta"></div>`
+                        }else{
+                            alertaTd.innerHTML = `<div>inativo</div>`
                         }
 
                         feed.appendChild(linhaTr);
@@ -268,6 +271,7 @@
                         linhaTr.appendChild(placaTd);
                         linhaTr.appendChild(qtdSensorTd);
                         linhaTr.appendChild(alertaTd);
+                        linhaTr.appendChild(botaoTd);
                     }
 
                     /* finalizarAguardar(); */
@@ -289,7 +293,7 @@
         obterdados(3);
         obterdados(4);
 
-        setTimeout(atualizacaoPeriodica, 5000);
+        setTimeout(atualizacaoPeriodica, 2000);
     }
 
 
@@ -315,66 +319,47 @@
 
     }
 
-    function alertar(valorTemperatura, idCaminhao) {
+    function alertar(resposta, idCaminhao) {
 
-        var temperatura = valorTemperatura.value
+        var temp = resposta[0].temperatura;
 
-        var limites = {
-            alerta_muito_quente: 4,
-            alerta_quente: 1.6,
-            alerta_ideal: 1,
-            alerta_frio: -0.6,
-            alerta_muito_frio: -2
-        };
 
         var classe_temperatura = 'cor-alerta';
 
-
-        // ALERTA DE MUITO QUENTE >= 4°C
-        if (temperatura >= limites.alerta_muito_quente) {
-            classe_temperatura = 'cor-alerta alerta_muito_quente';
+        /* Alerta Vermelho */
+        if (temp > 4 || temp < -2) {
+            classe_temperatura = 'cor-alerta alerta_critico';
             console.log("caiu no 1")
-        }
-        // ALERTA DE QUENTE ENTRE 4°C & 1,6°C
-        else if (temperatura < limites.alerta_muito_quente && temperatura >= limites.alerta_quente) {
-            classe_temperatura = 'cor-alerta alerta_quente';
+        }/* Alerta Laranja */
+        else if (temp >= -2 && temp < 0.5 ) {
+            classe_temperatura = 'cor-alerta alerta_perigo';
             console.log("caiu no 2")
         }
-        // ALERTA DE IDEAL ENTRE 1,5°C & -0,5°C
-        else if (temperatura < limites.alerta_quente && temperatura > limites.alerta_frio) {
-            classe_temperatura = 'cor-alerta alerta_ideal';
+        /* Alerta laranja */
+        else if (temp >= 1.5  && temp <= 4 ) {
+            classe_temperatura = 'cor-alerta alerta_perigo';
             console.log("caiu no 3")
         }
-        // ALERTA DE FRIO ENTRE -0,6°C & -2°C
-        else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
-            classe_temperatura = 'cor-alerta alerta_frio';
+        //Alerta verde
+        else if (temp >= 0.5 && temp < 1.5) {
+            classe_temperatura = 'cor-alerta alerta_ideal';
             console.log("caiu no 4")
         }
-        // ALERTA DE MUITO FRIO <= -2°C
-        else if (temperatura < limites.min_temperatura) {
-            classe_temperatura = 'cor-alerta alerta_muito_frio';
-            console.log("caiu no 5")
-        }
-
-        var card;
+        
+        var caminhao;
 
         if (idCaminhao == 1) {
-            temp_veiculo1.innerHTML = temperatura + "°C";
-            card = card_1
+            caminhao = caminhao_1
         } else if (idCaminhao == 2) {
-            temp_veiculo2.innerHTML = temperatura + "°C";
-            card = card_2
+            caminhao = caminhao_2
         } else if (idCaminhao == 3) {
-            temp_veiculo3.innerHTML = temperatura + "°C";
-            card = card_3
+            caminhao = caminhao_3
         } else if (idCaminhao == 4) {
-            temp_veiculo4.innerHTML = temperatura + "°C";
-            card = card_4
+            caminhao = caminhao_4
         }
-
-        // alterando
-        card.className = classe_temperatura;
-
+      
+        caminhao.className = classe_temperatura;
+ 
     } 
 
 
