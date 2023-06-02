@@ -18,13 +18,6 @@
             <img class="img-logo" src="img/logo-branca.png" alt="">
         </div>
 
-        <div class="search-box">
-            <input type="text" class="search-txt" placeholder="pesquisar por placa">
-            <a href="#" class="search-btn">
-                <img src="img/pesquisa.svg" alt="lupa" height="20" width="20">
-            </a>
-        </div>
-
 
         <ul>
             <li class="list">
@@ -39,23 +32,6 @@
                 </a>
             </li>
 
-            <li class="list">
-                <a href="interfacedashboard2.html">
-                    <div class="div-caminhaozinho">
-                        <img class="img-caminhaozinho" src="img/caminhaozinho.png" alt="">
-                    </div>
-                    <span class="list">Placa do caminhão: FCG-7623</span> <!-- Caminhao1 -->
-                </a>
-            </li>
-
-            <li class="list">
-                <a href="#">
-                    <div class="div-caminhaozinho2">
-                        <img class="img-caminhaozinho2" src="img/caminhaozinho.png" alt="">
-                    </div>
-                    <span class="list">Placa do caminhão: EPH-9215</span> <!-- caminhao2 W-->
-                </a>
-            </li>
 
             <li class="list">
                 <a href="cadastroUsuario.html">
@@ -70,7 +46,7 @@
             <li class="list">
                 <a href="cadastroveiculo.html">
                     <div class="div-config">
-                        <img class="img-config" src="img/configuracoes.png" alt="">
+                        <img class="img-config" src="img/conecte-se.png" alt="">
                     </div>
                     <span class="list">Novos veiculos</span>
 
@@ -124,14 +100,14 @@
     
                     <div class="card-amarelo"> 
                         <div class="card-inner">
-                            <span class="title-card">PERIGO</span><br>
+                            <span class="title-card2">PERIGO</span><br>
                             <span class="descricao-card">ENTRE -2°C/-0,6°C <br> A <br> 1,6°C/4°C</span>    
                         </div>
                     </div>
     
                     <div class="card-vermelho">
                         <div class="card-inner">
-                            <span class="title-card">CRÍTICO</span>
+                            <span class="title-card3">CRÍTICO</span>
                             <span class="descricao-card">MENOR QUE -2°C <br> OU <br> MAIOR QUE 4°C</span>
                         </div>
                     </div>
@@ -251,16 +227,16 @@
                         
                         if (i == 0) {
                             alertaTd.innerHTML = `<div id="caminhao_1" class="cor-alerta"></div>`
-                            botaoTd.innerHTML = `<a class="link-caminhao" style="top: 42.3vh; class="button-visualizacao" href="interfacedashboard2.html">Visualizar caminhão</a>`
+                            botaoTd.innerHTML = `<a class="link-caminhao" style="top: 37.3vh; class="button-visualizacao" href="interfacedashboard2.html">Visualizar caminhão</a>`
                         } else if(i == 2) {
                             alertaTd.innerHTML = `<div id="caminhao_2" class="cor-alerta"></div>`
-                            botaoTd.innerHTML = `<a class="link-caminhao" style="top:58.4vh;" class="button-visualizacao" href="interfacedashboard3.html">Visualizar caminhão</a>`
+                            botaoTd.innerHTML = `<a class="link-caminhao" style="top:45.8vh;" class="button-visualizacao" href="interfacedashboard3.html">Visualizar caminhão</a>`
                         } else if(i == 5){
                             alertaTd.innerHTML = `<div id="caminhao_3" class="cor-alerta"></div>`
-                            botaoTd.innerHTML = `<a class="link-caminhao" style="top: 76.4vh;" class="button-visualizacao" href="interfacedashboard4.html">Visualizar caminhão</a>`
+                            botaoTd.innerHTML = `<a class="link-caminhao" style="top: 58.9vh;" class="button-visualizacao" href="interfacedashboard4.html">Visualizar caminhão</a>`
                         } else if(i == 6){
                             alertaTd.innerHTML = `<div id="caminhao_4" class="cor-alerta"></div>`
-                            botaoTd.innerHTML = `<a class="link-caminhao" style="top: 82.65vh;" class="button-visualizacao" href="interfacedashboard5.html">Visualizar caminhão</a>`
+                            botaoTd.innerHTML = `<a class="link-caminhao" style="top: 63.1vh;" class="button-visualizacao" href="interfacedashboard5.html">Visualizar caminhão</a>`
                         }else{
                             alertaTd.innerHTML = `<div>inativo</div>`
                         }

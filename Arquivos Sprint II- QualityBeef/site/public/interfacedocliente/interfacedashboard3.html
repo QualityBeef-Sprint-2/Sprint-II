@@ -24,13 +24,6 @@
             <img class="img-logo" src="img/logo-branca.png" alt="">
         </div>
 
-        <div class="search-box">
-            <input type="text" class="search-txt" placeholder="pesquisar por placa">
-            <a href="#" class="search-btn">
-                <img src="img/pesquisa.svg" alt="lupa" height="20" width="20">
-            </a>
-        </div>
-
 
         <ul>
             <li class="list">
@@ -58,7 +51,7 @@
             <li class="list">
                 <a href="cadastroveiculo.html">
                     <div class="div-config">
-                        <img class="img-config" src="img/configuracoes.png" alt="">
+                        <img class="img-config" src="img/conecte-se.png" alt="">
                     </div>
                     <span class="list">Novos veiculos</span>
                     <!-- cadastro de caminhao <ion-icon name="globe-outline"></ion-icon> -->
@@ -94,7 +87,7 @@
 
         <div class="alertTempLine2">
             <div  class="msg2">
-                Temperatura emergêncial: <br>
+                Temperatura perigosa: <br>
                 entre -2°c negativo <br>
                 e -0.5°c negativo.
             </div>
@@ -110,7 +103,7 @@
 
         <div  class="alertTempLine4">
             <div class="msg4">
-                Temperatura emergêncial: <br>
+                Temperatura perigosa: <br>
                 entre 1.5°c positivo <br>
                 e 4°c positivo.
             
@@ -128,7 +121,7 @@
 
         <div class="dashboardGraficos1">
             <div class="setor1">
-                <span>Caminhão 1 - <b>SENSOR 2</b></span>
+                <span>CAMINHÃO 2 - <b>SENSOR 1</b></span>
                 <div class="tempLine">
                     <canvas id="temperaturaLinha2" width="650" height="380"> </canvas>
                 </div>
@@ -145,12 +138,12 @@
 
     <div class="info">
         <div class="info-caminhao">
-            <h2>Caminhão 1</h2>
-            <p><b>Motorista:</b> José Albertino Ribeira</p>
-            <p><b>CNH:</b> 14405983399</p>
-            <p><b>Telefone:</b> +55(11)999345387</p>
+            <h2>Caminhão 2</h2>
+            <p><b>Motorista:</b> Claudio Roberto de Lima</p>
+            <p><b>CNH:</b> 14405983399 15268963214</p>
+            <p><b>Telefone:</b> +55(11)987564552 </p>
             <p><b>Modelo:</b>Mercedes benz</p>
-            <p><b>Placa:</b>FCG-7623</p>
+            <p><b>Placa:</b>ULK-1039</p>
         </div>
     </div>
 
@@ -185,23 +178,23 @@
 
 
 
-    function obterDadosGrafico(idSetor) {
+    function obterDadosGrafico(idCaminhao) {
 
-        // alterarTitulo(idSetor)
+        // alterarTitulo(idCaminhao)
 
-        console.log(idSetor);
+        console.log(idCaminhao);
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas2/${idSetor}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/ultimas/${idCaminhao}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta, idSetor);
+                    plotarGrafico(resposta, idCaminhao);
                 });
 
             
@@ -218,7 +211,7 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idSetor) {
+    function plotarGrafico(resposta, idCaminhao) {
 
         console.log('iniciando plotagem do gráfico...');
 
@@ -275,11 +268,11 @@
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.getElementById(`temperaturaLinha${idSetor}`),
+            document.getElementById(`temperaturaLinha${idCaminhao}`),
             config
         );
 
-        setTimeout(() => atualizarGrafico(idSetor, dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico(idCaminhao, dados, myChart), 2000);
     }
 
 
@@ -288,12 +281,12 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idSetor, dados, myChart) {
+    function atualizarGrafico(idCaminhao, dados, myChart) {
 
 
         console.log(dados)
 
-        fetch(`/medidas/tempo-real2/${idSetor}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/tempo-real/${idCaminhao}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
@@ -304,7 +297,7 @@
                     
                     
 
-                    // let avisoCaptura = document.getElementById(`avisoCaptura${idSetor}`)
+                    // let avisoCaptura = document.getElementById(`avisoCaptura${idCaminhao}`)
                     // avisoCaptura.innerHTML = ""
 
 
@@ -336,12 +329,12 @@
                 
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idSetor, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idCaminhao, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idSetor, dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idCaminhao, dados, myChart), 2000);
                 
             }
         })

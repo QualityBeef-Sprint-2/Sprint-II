@@ -4,11 +4,11 @@ function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 7;
 
-    var idSetor = req.params.idSetor;
+    var idCaminhao = req.params.idCaminhao;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idSetor, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidas(idCaminhao, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
 
@@ -25,11 +25,11 @@ function buscarUltimasMedidas(req, res) {
 
 function buscarMedidasEmTempoReal(req, res) {
 
-    var idSetor = req.params.idSetor;
+    var idCaminhao = req.params.idCaminhao;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idSetor).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(idCaminhao).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
 

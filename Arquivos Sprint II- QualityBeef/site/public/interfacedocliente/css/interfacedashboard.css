@@ -25,9 +25,9 @@ body{
 }
 
 .img-logo{
-   margin-left: 10px;
-    margin-top: 10px;
-    width: 73%;   
+   margin-left: -27px;
+    margin-top: 78px;
+    width: 76%;   
 }
 
 
@@ -87,7 +87,7 @@ body{
     top: 32%;
     left: 0;
     width: 100%;
-    padding-left: 5px;
+    padding-left: 26px;
     padding-top: 40px;
 }
 
@@ -106,7 +106,8 @@ body{
     width: 100%;
     text-decoration: none;
     color: white;
-    transition: .7s ease;
+    transition: .5s ease;
+    margin-top: 22%;
 }
 
 
@@ -114,8 +115,9 @@ body{
     transition: .7s ease;
     color:white;
     background-color: #35a9db;
-    border-top-left-radius: 7%;
-    border-bottom-left-radius: 7%;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    width: 92%;
 }
 
 .navgation ul li a .icon{
@@ -262,6 +264,7 @@ body{
 
 .title-card{
     font-size: 26px;
+    margin-bottom: 10px;
 }
 
 .card-frota span{
@@ -285,15 +288,16 @@ body{
     padding-right: 4%;
     height: 100%;
     width: 12%;
-    border: 2px #32CD32 solid;
+    border: #25a625 solid 2px;
     border-radius: 5%;
-    background-color: #4af14a;
+    background-color: #3ddd3d;
     box-shadow: 7px 5px 16px 1px black;
     font-size: 0.9rem;
 }
 
 .card-verde span{
     color: white;
+    
 }
 
 .card-inner{
@@ -301,10 +305,11 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 13px;
 }
 .descricao-card{
     width: 146px;
-    font-size: 16px;
+    font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -319,16 +324,19 @@ body{
     padding-right: 4%;
     height: 100%;
     width: 12%;
-    border: 1px rgb(159, 174, 39) solid;
+    background-color: #F98726;
+    border: #ff4800 solid 2px;
     border-radius: 5%;
-    background-color: #ff6400;
     box-shadow: 7px 5px 16px 1px black;
     font-size: 0.9rem;
+    color: white;
 }
 
-.card-amarelo span{
+.title-card2{
     color: white;
-    margin-bottom: -36px;
+    margin-bottom: -10px;
+    font-size: 22px;
+    margin-top: 25px;
 }
 
 .card-vermelho {
@@ -340,12 +348,21 @@ body{
     padding-right: 4%;
     height: 100%;
     width: 12%;
-    border: 2px #ff0000 solid;
+    background-color: #ec2121e8;
+    border: #930b0b solid 2px;
     border-radius: 5%;
-    background-color: #fd2424;
     box-shadow: 7px 5px 16px 1px black;
     font-size: 0.9rem;
 }
+
+
+.title-card3{
+    color: white;
+    margin-bottom: 11px;
+    font-size: 22px;
+    margin-top: -5px;
+}
+
 
 .tabela {
     display: flex;
@@ -415,15 +432,24 @@ body{
   }
 
   .link-caminhao{
-    width: 208px;
+    width: 238px;
     display: flex;
     height: 33px;
     border: 1px black solid;
-    background-color: azure;
+    background-color: #142442;
+    color: white;
+    font-size: 'Poppins';
     position: absolute;
     align-items: center;
     justify-content: center;
+    transition: .5s ease-in;
   }
+
+.link-caminhao:hover{
+    color: black;
+    background-color: #35a9db;
+}
+
   
   /* CSS DE ALERTAS DINAMICOS */
 
@@ -432,7 +458,7 @@ body{
     width: 50%;
     margin: 1px;
     height: 95%;
-    border-radius: 20%;
+    border-radius: 20px;
     display: inline-block;
   }
 
