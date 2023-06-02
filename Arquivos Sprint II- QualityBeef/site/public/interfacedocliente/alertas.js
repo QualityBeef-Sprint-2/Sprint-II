@@ -1,12 +1,9 @@
 function alerta (resposta) {
     
     var ultimaTemp = resposta[resposta.length - 1].temperatura;
-
-    console.log(ultimaTemp.toString());
-
     
 
-    if (ultimaTemp.toString() <-2 || ultimaTemp.toString() > 4  ) {
+    if (ultimaTemp <-2 || ultimaTemp > 4  ) {
 
 
         document.getElementById("estado_sensor").style.backgroundColor = " #d4603d";
@@ -14,11 +11,11 @@ function alerta (resposta) {
 
         msg.innerHTML = ` <h1>ALERTA</h1>
                              
-                            <span>Temperatura: ${ultimaTemp.toString()}°c <br>
+                            <span>Temperatura: ${ultimaTemp}°c <br>
                                 Sensor em estado critico </span> `;
 
     }
-    else if (ultimaTemp.toString() >= -2 && ultimaTemp.toString() <0.5) {
+    else if (ultimaTemp >= -2 && ultimaTemp <0.5) {
         
         document.getElementById("estado_sensor").style.backgroundColor = "#fa8723bb" ; 
      
@@ -27,12 +24,12 @@ function alerta (resposta) {
 
         msg.innerHTML = `  <h1>ALERTA</h1>
                              
-                             Temperatura: ${ultimaTemp.toString()}°c <br>
+                             Temperatura: ${ultimaTemp}°c <br>
                              Sensor em estado de alerta `;
 
     }
     
-    else if (ultimaTemp.toString() >= 1.5 && ultimaTemp.toString() <= 4) {
+    else if (ultimaTemp >= 1.5 && ultimaTemp <= 4) {
      
         document.getElementById("estado_sensor").style.backgroundColor = "#fa8723bb" ; 
      
@@ -41,11 +38,11 @@ function alerta (resposta) {
 
         msg.innerHTML = `<h1>ALERTA</h1>
                              
-                             Temperatura: ${ultimaTemp.toString()}°c <br>
+                             Temperatura: ${ultimaTemp}°c <br>
                              Sensor em estado de perigo `;
 
      }
-    else if (ultimaTemp.toString() >= 0.5 && ultimaTemp.toString() < 1.5) {
+    else if (ultimaTemp >= 0.5 && ultimaTemp < 1.5) {
         
      
         document.getElementById("estado_sensor").style.backgroundColor = "#61e65cb4" ; 
@@ -53,7 +50,7 @@ function alerta (resposta) {
 
         msg.innerHTML = `<h1>Ideal</h1>
                        
-                              Temperatura: ${ultimaTemp.toString()}°c <br>
+                              Temperatura: ${ultimaTemp}°c <br>
                              Sensor em estado ideal `;
     }
 }

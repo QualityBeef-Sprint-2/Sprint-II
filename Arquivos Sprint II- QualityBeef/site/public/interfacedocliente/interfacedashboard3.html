@@ -146,7 +146,7 @@
 
         <div class="dashboardGraficos1">
             <div class="setor1">
-                <span>Caminhão 1 - <b>SENSOR 1</b></span>
+                <span>Caminhão 1 - <b>SENSOR 2</b></span>
                 <div class="tempLine">
                     <canvas id="temperaturaLinha2" width="650" height="380"> </canvas>
                 </div>
@@ -158,6 +158,23 @@
             <img class="caminhaoDash" src="img/caminhaodashboard.png" alt="">
         </div> -->
 
+        <div class="container-btn-sensores">
+            <div class="div-sensor">
+                <a class="btn-sensor1" href="interfacedashboard2.html">SENSOR-1</a>
+            </div>
+    
+            <div class="div-sensor">
+                <a class="btn-sensor2" href="interfacedashboard3.html">SENSOR-2</a>
+            </div>
+    
+            <div class="div-sensor">
+                <a class="btn-sensor3" href="interfacedashboard4.html">SENSOR-3</a>
+            </div>
+    
+            <div class="div-sensor">
+                <a class="btn-sensor4" href="interfacedashboard5.html">SENSOR-4</a>
+            </div>
+        </div>
 
 
 
@@ -211,11 +228,13 @@
 
         // alterarTitulo(idSetor)
 
+        console.log(idSetor);
+
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas/${idSetor}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/ultimas2/${idSetor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -270,7 +289,7 @@
             var registro = resposta[i];
             labels.push(registro.momento_grafico);
 
-            console.log(registro);
+            console.log(registro.temperatura);
 
             dados.datasets[0].data.push(registro.temperatura);
 
@@ -313,7 +332,7 @@
 
         console.log(dados)
 
-        fetch(`/medidas/tempo-real/${idSetor}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/tempo-real2/${idSetor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
