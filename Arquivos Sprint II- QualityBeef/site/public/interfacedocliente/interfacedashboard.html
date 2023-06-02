@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Principal</title>
+    <title>DASHBOARD GERAL</title>
     <link rel="stylesheet" href="css/interfacedashboard.css">
 </head>
 
@@ -35,7 +35,25 @@
                     <div class="div-dash">
                         <img class="img-dash" src="img/dashboard.png" alt="">
                     </div>
-                    <span class="list">Dashboard</span> <!-- Dashbord -->
+                    <span class="list">Dashbord</span> <!-- Dashbord -->
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="interfacedashboard2.html">
+                    <div class="div-caminhaozinho">
+                        <img class="img-caminhaozinho" src="img/caminhaozinho.png" alt="">
+                    </div>
+                    <span class="list">Placa do caminhão: FCG-7623</span> <!-- Caminhao1 -->
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="#">
+                    <div class="div-caminhaozinho2">
+                        <img class="img-caminhaozinho2" src="img/caminhaozinho.png" alt="">
+                    </div>
+                    <span class="list">Placa do caminhão: EPH-9215</span> <!-- caminhao2 W-->
                 </a>
             </li>
 
@@ -91,34 +109,31 @@
                                     <!-- CARD DA FROTA -->
 
                     <div class="card-frota">
-    
-                        <span>Veículos ativos na frota: </span>
-                        <div id="qtdVeiculosRegistrados"></div>
-    
+                        <span>FROTA TOTAL:</span>
+                        <div class="numero-caminhao" id="qtdVeiculosRegistrados"></div> 
                     </div>
 
                                 <!-- CARDS DE ALERTAS -->
     
                     <div class="card-verde">
-    
-                        <span>Sensor captando temperatura ideal</span>
-                        <span>ENTRE 0,5°C E 1,5°C</span>
-    
-    
+                        <div class="card-inner">
+                            <span class="title-card">IDEAL</span>
+                            <span class="descricao-card">DE 0,5°C A 1,5°C</span>
+                        </div>
                     </div>
     
-                    <div class="card-amarelo">
-    
-                        <span>Sensor captando temperatura fora do ideal</span><br>
-                        <span>ENTRE -2°C/-0,6°C A 1,6°C/4°C</span>
-    
+                    <div class="card-amarelo"> 
+                        <div class="card-inner">
+                            <span class="title-card">PERIGO</span><br>
+                            <span class="descricao-card">ENTRE -2°C/-0,6°C <br> A <br> 1,6°C/4°C</span>    
+                        </div>
                     </div>
     
                     <div class="card-vermelho">
-    
-                        <span>Sensor captando temperatura fora do permitido</span>
-                        <span>MENOR QUE -2°C OU MAIOR QUE 4°C</span>
-    
+                        <div class="card-inner">
+                            <span class="title-card">CRÍTICO</span>
+                            <span class="descricao-card">MENOR QUE -2°C <br> OU <br> MAIOR QUE 4°C</span>
+                        </div>
                     </div>
     
                 </div>
@@ -154,7 +169,6 @@
             </div>
 
         </div>
-
     </div>
 
 </body>
@@ -185,7 +199,7 @@
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
 
-                        veiculos.innerHTML = `<b class="card-frota">${publicacao.qtdVeiculo}</b>`
+                        veiculos.innerHTML = `<b class="card-caminhao">${publicacao.qtdVeiculo}</b>`
                     }
                     /* finalizarAguardar(); */
                 });
@@ -234,15 +248,19 @@
                         placaTd.innerHTML = `${publicacao.Placa}`
                         qtdSensorTd.innerHTML = `${publicacao.qtdSensor}`
                         alertaTd.className = "estrutura-td"
+                        
                         if (i == 0) {
                             alertaTd.innerHTML = `<div id="caminhao_1" class="cor-alerta"></div>`
-                            botaoTd.innerHTML = `<button class="button-visualizacao"><a href="interfacedashboard.html"></a></button>`
-                        } else if(i == 1) {
+                            botaoTd.innerHTML = `<a class="link-caminhao" style="top: 42.3vh; class="button-visualizacao" href="interfacedashboard2.html">Visualizar caminhão</a>`
+                        } else if(i == 2) {
                             alertaTd.innerHTML = `<div id="caminhao_2" class="cor-alerta"></div>`
-                        } else if(i == 2){
+                            botaoTd.innerHTML = `<a class="link-caminhao" style="top:58.4vh;" class="button-visualizacao" href="interfacedashboard3.html">Visualizar caminhão</a>`
+                        } else if(i == 5){
                             alertaTd.innerHTML = `<div id="caminhao_3" class="cor-alerta"></div>`
-                        } else if(i == 3){
+                            botaoTd.innerHTML = `<a class="link-caminhao" style="top: 76.4vh;" class="button-visualizacao" href="interfacedashboard4.html">Visualizar caminhão</a>`
+                        } else if(i == 6){
                             alertaTd.innerHTML = `<div id="caminhao_4" class="cor-alerta"></div>`
+                            botaoTd.innerHTML = `<a class="link-caminhao" style="top: 82.65vh;" class="button-visualizacao" href="interfacedashboard5.html">Visualizar caminhão</a>`
                         }else{
                             alertaTd.innerHTML = `<div>inativo</div>`
                         }

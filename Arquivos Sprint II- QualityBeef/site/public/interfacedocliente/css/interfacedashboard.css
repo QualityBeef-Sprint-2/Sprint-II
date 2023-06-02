@@ -152,6 +152,28 @@ body{
     margin-top: 16px;
 }
 
+
+.div-caminhaozinho{
+    width: 25%;
+}
+
+.img-caminhaozinho{
+    width: 75%;
+    margin-left: 3px;
+    margin-top: 11px;
+}
+
+
+.div-caminhaozinho2{
+    width: 25%;
+}
+
+.img-caminhaozinho2{
+    width: 75%;
+    margin-left: 3px;
+    margin-top: 11px;
+}
+
 .div-conect{
     width: 25%;
 }
@@ -219,7 +241,6 @@ body{
 
 .card-frota {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
     padding-left: 4%;
@@ -228,13 +249,28 @@ body{
     height: 100%;
     border: 1px #142442 solid;
     border-radius: 5%;
-    background-color: #142442;
+    box-shadow: 7px 5px 16px 1px black;
+    background-color: #000080
+    ;
     /* border: 1px red solid; */
     font-size: 0.9rem;
+}
+.card-caminhao{
+    font-size: 50px;
+    color: white;
+}
+
+.title-card{
+    font-size: 26px;
 }
 
 .card-frota span{
     color: white;
+    margin-top: 11px;
+    display: flex;
+    font-size: 24px;
+    width: 18vw;
+    justify-content: center;
 }
 
 
@@ -242,15 +278,17 @@ body{
 .card-verde {
     display: flex;
     justify-content: center;
+    gap: 10px;
     flex-direction: column;
     align-items: center;
     padding-left: 4%;
     padding-right: 4%;
     height: 100%;
     width: 12%;
-    border: 1px rgb(18, 88, 53) solid;
+    border: 2px #32CD32 solid;
     border-radius: 5%;
-    background-color: rgb(18, 88, 53);
+    background-color: #4af14a;
+    box-shadow: 7px 5px 16px 1px black;
     font-size: 0.9rem;
 }
 
@@ -258,9 +296,23 @@ body{
     color: white;
 }
 
-.card-amarelo {
+.card-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.descricao-card{
+    width: 146px;
+    font-size: 16px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-amarelo {
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding-left: 4%;
@@ -269,12 +321,14 @@ body{
     width: 12%;
     border: 1px rgb(159, 174, 39) solid;
     border-radius: 5%;
-    background-color: rgb(159, 174, 39);
+    background-color: #ff6400;
+    box-shadow: 7px 5px 16px 1px black;
     font-size: 0.9rem;
 }
 
 .card-amarelo span{
     color: white;
+    margin-bottom: -36px;
 }
 
 .card-vermelho {
@@ -286,9 +340,10 @@ body{
     padding-right: 4%;
     height: 100%;
     width: 12%;
-    border: 1px rgb(163, 73, 48) solid;
+    border: 2px #ff0000 solid;
     border-radius: 5%;
-    background-color: rgb(163, 73, 48);
+    background-color: #fd2424;
+    box-shadow: 7px 5px 16px 1px black;
     font-size: 0.9rem;
 }
 
@@ -298,6 +353,8 @@ body{
     flex-direction: column;
     height: 70%;
     width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
     border: 1px #142442 solid;
 }
 
@@ -320,8 +377,8 @@ body{
 
   .feed-container th, .feed-container td {
     border: 1px solid #ccc;
-    padding: 1px;
     text-align: center;
+    height: 100%;
   }
 
 .feed-container-qtdsensor {
@@ -341,24 +398,41 @@ body{
   .estrutura-td{
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 26px;
+    height: 36px;
     border: 1px rgb(204,204,204) solid;
   }
 
   .button-visualizacao{
     width: 100%;
     height: 100%;
-    border: 1px red solid;
+    border: 1px black solid;
+    position: absolute;
+    border-radius: 3px;
+    left: 76.7vw;
+    margin-bottom: 36px;
   }
+
+  .link-caminhao{
+    width: 208px;
+    display: flex;
+    height: 33px;
+    border: 1px black solid;
+    background-color: azure;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+  }
+  
   /* CSS DE ALERTAS DINAMICOS */
 
 
   .cor-alerta{
-    width: 42%;
-    height: 88%;
-    border: 1px black solid;
-    border-radius: 30%;
+    width: 50%;
+    margin: 1px;
+    height: 95%;
+    border-radius: 20%;
     display: inline-block;
   }
 
