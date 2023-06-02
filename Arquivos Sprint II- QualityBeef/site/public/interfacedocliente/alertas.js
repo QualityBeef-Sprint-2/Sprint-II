@@ -6,8 +6,8 @@ function alerta (resposta) {
     if (ultimaTemp <-2 || ultimaTemp > 4  ) {
 
 
-        document.getElementById("estado_sensor").style.backgroundColor = " #d4603d";
-        document.getElementById("estado_sensor").style.border = "3px solid red";
+        document.getElementById("estado_sensor").style.backgroundColor = " #ec2121e8";
+        document.getElementById("estado_sensor").style.border = "3px solid #930b0b";
 
         msg.innerHTML = ` <h1>ALERTA</h1>
                              
@@ -17,10 +17,10 @@ function alerta (resposta) {
     }
     else if (ultimaTemp >= -2 && ultimaTemp <0.5) {
         
-        document.getElementById("estado_sensor").style.backgroundColor = "#fa8723bb" ; 
+        document.getElementById("estado_sensor").style.backgroundColor = "#F98726" ; 
      
 
-        document.getElementById("estado_sensor").style.border = "2px solid orange";
+        document.getElementById("estado_sensor").style.border = "2px solid #ff4800";
 
         msg.innerHTML = `  <h1>ALERTA</h1>
                              
@@ -31,10 +31,10 @@ function alerta (resposta) {
     
     else if (ultimaTemp >= 1.5 && ultimaTemp <= 4) {
      
-        document.getElementById("estado_sensor").style.backgroundColor = "#fa8723bb" ; 
+        document.getElementById("estado_sensor").style.backgroundColor = "#F98726" ; 
      
 
-        document.getElementById("estado_sensor").style.border = "2px solid orange";
+        document.getElementById("estado_sensor").style.border = "2px solid #ff4800";
 
         msg.innerHTML = `<h1>ALERTA</h1>
                              
@@ -45,8 +45,8 @@ function alerta (resposta) {
     else if (ultimaTemp >= 0.5 && ultimaTemp < 1.5) {
         
      
-        document.getElementById("estado_sensor").style.backgroundColor = "#61e65cb4" ; 
-        document.getElementById("estado_sensor").style.border = "3px solid green";
+        document.getElementById("estado_sensor").style.backgroundColor = "#3ddd3d" ; 
+        document.getElementById("estado_sensor").style.border = "3px solid #25a625";
 
         msg.innerHTML = `<h1>Ideal</h1>
                        

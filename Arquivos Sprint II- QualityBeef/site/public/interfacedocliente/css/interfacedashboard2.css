@@ -215,9 +215,9 @@ label{
     align-items: center;
     padding: 19px 170px 4px;
     gap: 37px;
-    margin-right: 226px;
-    margin-left: -1%;
-    margin-top: 5%;
+    margin-right: 242px;
+    margin-left: 0%;
+    margin-top: 3%;
 }
 
 .dashboardGraficos2 {
@@ -268,8 +268,8 @@ label{
     border: #930b0b solid 2px;
     width: 15vw;
     height: 18vh;
-    margin-left: 137px;
-    margin-top: 26px;
+    margin-left: 151px;
+    margin-top: 45px;
     font-family: 'Poppins';
   }
 
@@ -297,8 +297,8 @@ label{
     border: #ff4800 solid 2px;
     width: 15vw;
     height: 18vh;
-    margin-left: 354px;
-    margin-top: -129px;
+    margin-left: 430px;
+    margin-top: -160px;
     font-family: 'Poppins';
 }
 
@@ -321,8 +321,8 @@ label{
     border: #25a625 solid 2px;
     width: 15vw;
     height: 18vh;
-    margin-left: 569px;
-    margin-top: -128px;
+    margin-left: 713px;
+    margin-top: -160px;
     font-family: 'Poppins';
 }
 
@@ -350,8 +350,8 @@ label{
     border: #ff4800 solid 2px;
     width: 15vw;
     height: 18vh;
-    margin-left: 786px;
-    margin-top: -130px;
+    margin-left: 1285px;
+    margin-top: -161px;
     font-family: 'Poppins';
 }
 
@@ -378,8 +378,8 @@ label{
     border: #930b0b solid 2px;
     width: 15vw;
     height: 18vh;
-    margin-left: 1002px;
-    margin-top: -129px;
+    margin-left: 998px;
+    margin-top: -162px;
     font-family: 'Poppins';
 }
 
@@ -420,7 +420,7 @@ label{
     flex-direction: column;
     border-radius: 10px;
     padding: 8px;
-    width: 762px;
+    width: 834px;
     background-color: rgb(255, 250, 243);
     box-shadow: 10px 4px 27px -6px black;
     height: 57vh;
