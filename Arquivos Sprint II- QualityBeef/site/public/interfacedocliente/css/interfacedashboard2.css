@@ -74,7 +74,7 @@ body{
 .navgation{
     position: absolute;
     height: 100vh;
-    width: 20%;
+    width: 16%;
     background: #142442;
     box-shadow: 10px 0 0 #35a9db;
 }
@@ -151,28 +151,6 @@ body{
     margin-top: 16px;
 }
 
-
-.div-caminhaozinho{
-    width: 25%;
-}
-
-.img-caminhaozinho{
-    width: 75%;
-    margin-left: 3px;
-    margin-top: 11px;
-}
-
-
-.div-caminhaozinho2{
-    width: 25%;
-}
-
-.img-caminhaozinho2{
-    width: 75%;
-    margin-left: 3px;
-    margin-top: 11px;
-}
-
 .div-conect{
     width: 25%;
 }
@@ -212,9 +190,8 @@ body{
 /* DASHBOARDS */
 
 .dashboards {
-    padding-left: 10vw;
     text-align: center;
-    margin-left: 10px;
+    margin-left: 8%;
     background-color:rgb(241, 241, 246);
     height: 100vh;
 }
@@ -287,14 +264,14 @@ label{
     justify-content: center;
     align-items: center;
     border-radius: 7px;
-    background-color: #5c6bc0;
-    border: #5c6bc0 solid 2px;
+    background-color: #ec2121e8;
+    border: #930b0b solid 2px;
     width: 15vw;
     height: 18vh;
     margin-left: 137px;
     margin-top: 26px;
     font-family: 'Poppins';
-}
+  }
 
 .msg{
     text-align: center;
@@ -316,8 +293,8 @@ label{
     justify-content: center;
     align-items: center;
     border-radius: 7px;
-    background-color: #42a5f5;
-    border: #42a5f5 solid 2px;
+    background-color: #F98726;
+    border: #ff4800 solid 2px;
     width: 15vw;
     height: 18vh;
     margin-left: 354px;
@@ -340,8 +317,8 @@ label{
     justify-content: center;
     align-items: center;
     border-radius: 7px;
-    background-color: #9ccc65;
-    border: #9ccc65 solid 2px;
+    background-color: #3ddd3d;
+    border: #25a625 solid 2px;
     width: 15vw;
     height: 18vh;
     margin-left: 569px;
@@ -369,8 +346,8 @@ label{
     justify-content: center;
     align-items: center;
     border-radius: 7px;
-    background-color: #ffee58;
-    border:#ffee58 solid 2px;
+    background-color: #F98726;
+    border: #ff4800 solid 2px;
     width: 15vw;
     height: 18vh;
     margin-left: 786px;
@@ -397,8 +374,8 @@ label{
     justify-content: center;
     align-items: center;
     border-radius: 7px;
-    background-color: #ff7043;
-    border: #ff7043 solid 2px;
+    background-color: #ec2121e8;
+    border: #930b0b solid 2px;
     width: 15vw;
     height: 18vh;
     margin-left: 1002px;
