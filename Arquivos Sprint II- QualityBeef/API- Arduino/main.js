@@ -133,7 +133,7 @@ const serial = async (
                     (${lm35Temperatura},now(),1),
                     (${lm35Temperatura2},now(),2),
                     (${lm35Temperatura3},now(),3),
-                    (${lm35Temperatura4 * 100},now(),4);`
+                    (${lm35Temperatura4},now(),4);`
                 );
                 console.log("valores inseridos no banco: ", lm35Temperatura + ";")
 
